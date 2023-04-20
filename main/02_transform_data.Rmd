@@ -1,0 +1,378 @@
+---
+title: "02_transform_data"
+author: "Suguru Otani"
+date: "2022/7/2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+library(ggplot2)
+```
+
+
+```{r cars, warning=FALSE}
+operator_level_entry_exit_merger_CIY <-
+  readr::read_csv("../input/operator_level_entry_exit_merger_CIY.csv") %>% 
+  dplyr::distinct(
+    operator,
+    state,
+    .keep_all = TRUE
+    ) %>% 
+  dplyr::mutate(
+    dummy_merged_until_data_period =
+      ifelse(
+        is.na(dummy_merged_until_data_period) == 1,
+        0,
+        1
+        )
+  )
+
+operator_level_entry_exit_merger_HBdata <-
+  readr::read_csv("../input/operator_level_entry_exit_merger_HBdata.csv") %>% 
+  dplyr::distinct(
+    operator_name,
+    .keep_all = TRUE
+    ) 
+
+
+HB_data <-
+  readRDS(file = "../cleaned/HB_data.rds")
+shipdetails_container_data <-
+  readRDS(file = "../cleaned/shipdetails_container_data.rds")
+merging_firm_list <-
+  readRDS(file = "../cleaned/merging_firm_list.rds")
+```
+
+
+# Entry, exit, and mergers {.tabset}
+
+## Operator {.tabset}
+
+### CIY {.tabset}
+
+#### Merger list
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::filter(
+    dummy_merged_until_data_period == 1
+  ) %>% 
+  dplyr::arrange(start) %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+             operator,
+             merging_firm)
+  )
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+#### Overall Transition
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::distinct(
+    operator,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::arrange(start) %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+        operator,
+        merging_firm
+        )
+  )
+ggplot(operator_level_entry_exit_merger_CIY_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment(aes(colour=merging_firm)) +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+
+
+### Shipdetails {.tabset}
+
+```{r, echo=FALSE}
+shipdetails_container_data_for_output <-
+  shipdetails_container_data %>% 
+  dplyr::group_by(parent_company) %>% 
+  dplyr::summarise(
+    start = min(year),
+    end = max(year)
+  ) %>% 
+  dplyr::ungroup() %>%
+  dplyr::arrange(start) 
+
+ggplot(shipdetails_container_data_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 1992), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 1995&
+                         start >= 1993), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 1998&
+                         start >= 1996), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 2001&
+                         start >= 1999), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 2004&
+                         start >= 2002), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+ggplot(shipdetails_container_data_for_output %>% 
+         dplyr::filter(start <= 2006&
+                         start >= 2005), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(parent_company, -start), 
+           yend = reorder(parent_company, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("parent_company")
+
+shipdetails_container_data_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+### HB_data {.tabset}
+
+#### Merger list
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_HBdata_for_output <-
+  operator_level_entry_exit_merger_HBdata %>% 
+  dplyr::filter(
+    is.na(merging_firm) == 0
+  )
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+```
+
+
+
+
+#### Overall Transition
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_HBdata_for_output <-
+  operator_level_entry_exit_merger_HBdata %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(is.na(merging_firm) == 1,
+             operator_name,
+             merging_firm)
+  )
+
+ggplot(operator_level_entry_exit_merger_HBdata_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator_name, -start), 
+           yend = reorder(operator_name, -start)
+           )) +
+  geom_segment(aes(colour=merging_firm)) +
+  theme_classic() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("Operator name")
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+```
+
+
+
+## alliance_group_name {.tabset}
+
+```{r, echo=FALSE}
+operator_level_panel_data_for_output <-
+  HB_data %>% 
+  dplyr::group_by(alliance_group_name) %>% 
+  dplyr::summarise(
+    start = min(year),
+    end = max(year)
+  ) %>% 
+  dplyr::ungroup()
+ggplot(operator_level_panel_data_for_output, 
+       aes(x = start,
+           xend = end, 
+           y = reorder(alliance_group_name, -start), 
+           yend = reorder(alliance_group_name, -start))) +
+  geom_segment() +
+  theme_classic() +
+  theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("Alliance name")
+unique(operator_level_panel_data_for_output$alliance_group_name)
+```
+
+## service_name {.tabset}
+
+```{r, echo=FALSE}
+operator_level_panel_data_for_output <-
+  HB_data %>% 
+  dplyr::group_by(service_name) %>% 
+  dplyr::summarise(
+    start = min(year),
+    end = max(year)
+  ) %>% 
+  dplyr::ungroup()
+ggplot(operator_level_panel_data_for_output, 
+       aes(x = start,
+           xend = end, 
+           y = reorder(service_name, -start), 
+           yend = reorder(service_name, -start))) +
+  geom_segment() +
+  theme_classic() +
+  theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("Alliance name")
+
+```
+
+
+# 
+
+```{r, echo=FALSE}
+# temp <-
+#   HB_data_separated_match %>% 
+#   dplyr::group_by(year,
+#                   port_name_origin,
+#                   port_name_destination) %>% 
+#   dplyr::mutate(
+#     num_of_firms =
+#       dplyr::n(),
+#     match_name =
+#       paste(port_name_origin,
+#             "_",
+#             port_name_destination)
+#   ) %>% 
+#   dplyr::distinct(
+#     year,
+#     match_name,
+#     .keep_all = T
+#   )
+# 
+# ggplot(temp, 
+#        aes(x = log(num_of_firms),
+#            color = year,
+#            fill = year)) +
+#   geom_histogram(
+#     alpha = 0.6, size = 1.5) +
+#   theme_classic() +
+#   scale_fill_viridis_d() +
+#   scale_color_viridis_d() +
+#     theme(
+#       legend.position="none",
+#       panel.spacing = unit(0.1, "lines"),
+#       strip.text.x = element_text(size = 8)
+#     ) 
+
+```
+
+

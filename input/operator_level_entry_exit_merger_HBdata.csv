@@ -1,0 +1,184 @@
+,operator_name,start,end,merging_firm,note
+1,ACL,2005,2022,NA,
+2,ANL,2005,2022,CMA-CGM,Subsidiary of CMA-CGM since 1998
+3,APL,2005,2022,CMA-CGM,Subsidiary of CMA-CGM since 2016
+4,Armacup,2005,2022,NA,Ferry
+5,Camellia Line,2005,2022,NA,Ferry
+6,Canmar,2005,2005,NA,
+7,CCNI,2005,2015,Maersk,
+8,CEL,2005,2009,NA,
+9,Cheng Lie,2005,2006,CMA-CGM,
+10,China Shipping,2005,2016,COSCO,
+11,CK Line,2005,2022,NA,
+12,CMA-CGM,2005,2022,NA,
+13,CMA-CGM/MSC,2005,2006,CMA-CGM,
+14,COSCO,2005,2022,NA,
+15,CSAV,2005,2015,Hapag-Lloyd,
+16,Daiichi Chuo Kisen,2005,2022,NA,General Cargo
+17,Daiko Shipping,2005,2022,NA,General Cargo
+18,Dandong International Ferry,2005,2022,NA,Ferry
+19,DBLCC,2005,2006,NA,
+20,Delmas,2005,2016,CMA-CGM,
+21,Dong Jin,2005,2022,NA,
+22,Dong Young,2005,2022,NA,
+23,Dongnama,2005,2007,NA,
+24,Eastern Car Liner,2005,2015,NA,General Cargo
+25,Eastern Shipping Lines,2005,2019,NA,
+26,Evergreen,2005,2022,NA,
+27,Fair Wind,2005,2007,NA,
+28,FESCO,2005,2022,NA,
+29,Fujian Shipping,2005,2006,NA,
+30,Geneq,2005,2012,NA,
+31,Genshipping Pacific Line,2005,2005,NA,
+32,Gesuri Lloyd,2005,2006,NA,
+33,Gold Star Line,2005,2022,NA,Subsidiary of ZIM
+34,Greater Bali-Hai,2005,2014,Swire,Subsidiary of Swire
+35,Grupo TMM,2005,2005,Hapag-Lloyd,
+36,GWS,2005,2006,NA,
+37,Hamburg Sud,2005,2022,Maersk,
+38,Hanjin,2005,2016,NA,
+39,Hapag-Lloyd,2005,2022,NA,
+40,HASCO,2005,2022,NA,
+41,HEUNG-A,2005,2022,NA,Subsidiary of Sinokor since 2019
+42,HMM,2005,2022,NA,
+43,Hoegh,2005,2022,NA,Ferry
+44,Iino Kaiun,2005,2015,NA,General Cargo
+45,ILN,2005,2005,NA,
+46,Intermarine,2005,2010,ZEAMARINE,General Cargo
+47,IRISL,2005,2010,Hafez Darya Arya Shipping Lines,
+48,Jutha,2005,2005,NA,General Cargo
+49,Kambara Kisen,2005,2022,NA,
+50,Kampu Ferry,2005,2022,NA,Ferry
+51,Kawasaki Kinkai Kisen,2005,2022,NA,General Cargo
+52,KLINE,2005,2018,Ocean Network Express,
+53,KMTC,2005,2022,NA,
+54,Konoike,2005,2022,NA,
+55,Kyowa Kaiun,2005,2022,NA,General Cargo
+56,LauritzenCool,2005,2005,NA,
+57,Lloyd Triestino,2005,2006,Evergreen,
+58,Lufeng,2005,2008,Sinotrans,
+59,Lykes,2005,2005,Hapag-Lloyd,
+60,Maersk,2005,2022,NA,
+61,Mariana,2005,2022,NA,Subsidiary of PIL since 2015
+62,Maritima Maruba S. A.,2005,2010,NA,
+63,Maruni Line,2005,2014,NA,
+64,MFS,2005,2015,NA,
+65,Minsheng Shipping,2005,2022,NA,
+66,MISC,2005,2012,NA,
+67,MOL,2005,2018,Ocean Network Express,
+68,MSC,2005,2022,NA,
+69,Nagato,2005,2014,Hyoki Kaiun,General Cargo
+70,Nam Sung,2005,2022,NA,
+71,NEW ONTO SHIPPING,2005,2010,CCL,
+72,Ningbo Ocean Shipping,2005,2022,NA,
+73,Norasia,2005,2006,CSAV,
+74,NYK,2005,2018,Ocean Network Express,
+75,OOCL,2005,2022,NA,Subsidiary of COSCO since 2018
+76,Orient Ferry,2005,2015,NA,Ferry
+77,P. Continental,2005,2007,Pan Continental,
+78,Pakistan National Shipping Corporation,2005,2012,NA,
+79,Panstar,2005,2022,NA,Ferry
+80,PAS,2005,2006,NA,
+81,PDZ SHIPPING,2005,2005,NA,
+82,PIL,2005,2022,NA,
+83,PONL,2005,2006,Maersk,
+84,PRO Line,2005,2010,NA,
+85,Pukwan Ferry,2005,2022,NA,Ferry
+86,RCL,2005,2022,NA,
+87,Rickmers,2005,2019,ZEAMARINE,General Cargo
+88,Safmarine,2005,2008,Maersk,
+89,Samudera,2005,2022,NA,
+90,Seaboard Marine,2005,2015,NA,
+91,SEACON,2005,2022,NA,
+92,Senator,2005,2005,Hanjin,
+93,Shandong Yantai International Marine Shipping Co,2005,2008,NA,
+94,Shanghai Ferry,2005,2022,NA,Ferry
+95,Shanghai Jin Jiang Shipping,2005,2022,NA,
+96,Shinwa,2005,2009,NA,
+97,Shipping Corporation of India,2005,2018,NA,
+98,Shosen Mitsui Kinkai,2005,2007,NA,General Cargo
+99,"SIAM PAETRA INTERNATIONAL CO.,LTD",2005,2013,NA,
+100,Sinokor,2005,2022,NA,
+101,Sinotrans,2005,2022,NA,
+102,SITC,2005,2022,NA,
+103,SS-Express,2005,2016,NA,Ferry
+104,STX Pan Ocean,2005,2022,NA,Pan Ocean(current name)
+105,T.J. Marine,2005,2005,NA,
+106,T.S. Lines,2005,2022,NA,
+107,Tai Young,2005,2022,NA,General Cargo
+108,Tasman Orient,2005,2009,NA,
+109,TBS Pacific Liner,2005,2012,NA,
+110,TJS,2005,2006,NA,
+111,TMSC,2005,2009,NA,
+112,TSK,2005,2010,NYK,
+113,UASC,2005,2017,Hapag-Lloyd,
+114,Wallenius Wilhelmsen,2005,2022,NA,Ferry
+115,Wan Hai,2005,2022,NA,
+116,Westwind,2005,2022,NA,
+117,Westwood,2005,2022,NA,
+118,Winland,2005,2013,NA,
+119,Yang Ming,2005,2022,NA,
+120,Zim,2005,2022,NA,
+121,NA,2005,2022,NA,
+122,S. S. Ferry/Orient Ferry,2006,2007,Suzhou Shimonoseki Ferry,Ferry
+123,AAL Shipping,2007,2021,NA,General Cargo
+124,Bien Dong,2007,2018,NA,
+125,Emirates Shipping,2007,2022,NA,
+126,ITS,2007,2007,NA,
+127,Ji Zhou Shipping,2007,2022,NA,
+128,MacAndrews,2007,2007,CMA-CGM,
+129,Magistral Container Line,2007,2007,NA,
+130,Nile Dutch,2007,2022,NA,Subsidiary of Hapag-lloyd since 2022
+131,Simatech,2007,2022,NA,
+132,Spliethoff,2007,2011,NA,
+133,US Lines,2007,2008,NA,
+134,Bengal Tiger Line,2008,2022,NA,
+135,C-LINE,2008,2008,NA,
+136,CLAN,2008,2008,NA,
+137,KL/MOL,2008,2008,Ocean Network Express,
+138,MCL,2008,2009,NA,
+139,PanCon,2008,2022,NA,
+140,Suzhou Shimonoseki Ferry,2008,2022,NA,Ferry
+141,CCL,2009,2022,NA,
+142,Grand China Shipping,2009,2012,NA,
+143,Pan World,2009,2009,NA,
+144,Qingdao Marine,2009,2013,NA,
+145,X-Press Feeders,2009,2022,NA,
+146,Chongqing Marine,2010,2011,TAICANG CONTAINER LINES,
+147,Hafez Darya Arya Shipping Lines,2010,2019,NA,
+148,Interasia,2010,2022,NA,
+149,Swire,2010,2022,NA,
+150,Tianjin Jinshen Ferry Co Ltd,2010,2012,NA,Ferry
+151,China Navigation,2011,2011,Swire,
+152,Doriko,2011,2011,NA,
+153,Goto Shipping,2011,2022,NA,
+154,Hainan,2011,2013,NA,
+155,Hub Line,2011,2013,NA,
+156,Sanstar,2011,2022,NA,Ferry
+157,Shanghai Puhai Shipping,2011,2016,COSCO,
+158,Tai Chong Cheang Steamship,2011,2011,NA,
+159,YSC,2011,2011,NA,
+160,TAICANG CONTAINER LINES,2012,2022,NA,
+161,SEACON/T.S. Lines,2013,2013,T.S. Lines,
+162,New Golden Sea Shipping,2014,2022,NA,Subsidiary of COSCO since 2016
+163,Sealand Asia,2014,2022,Maersk,
+164,China United Lines,2015,2019,NA,
+165,RKK Line,2016,2018,NA,Ferry
+166,APL/PIL,2017,2017,CMA-CGM,
+167,ASL,2017,2022,NA,
+168,EAS International Shipping,2017,2022,NA,
+169,I-Line,2018,2022,NA,
+170,NYK Bulk and Project,2018,2022,NA,General Cargo
+171,PEL,2018,2019,NA,
+172,SM Line,2018,2022,NA,
+173,Dalian JiFa Bohai Rim Container Lines,2019,2021,NA,
+174,G2 Ocean,2019,2022,NA,General Cargo
+175,Ocean Network Express,2019,2022,NA,
+176,SEALS,2019,2020,NA,
+177,Dongchen Line,2020,2022,NA,
+178,Hede International Shipping,2020,2022,NA,
+179,Hyoki Kaiun,2020,2020,NA,General Cargo
+180,Rizhao,2020,2020,NA,
+181,PEN,2021,2021,NA,
+182,Wuhan New Port Datong International Shipping,2021,2021,NA,
+183,DTS,2022,2022,NA,
