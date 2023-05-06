@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,setspace,geometry}
 \usepackage{amsfonts}
@@ -17,11 +17,11 @@
 %\renewcommand{\baselinestretch}{0.3}
 \usepackage[english]{babel}
 \usepackage{float}
+\usepackage{subfig}
 \usepackage{booktabs}
 \usepackage{pdfpages}
 \usepackage{threeparttable}
 \usepackage{lscape}
-\usepackage{subfig}
 %\setstretch{1.2}
 \newtheorem{assumption}{Assumption}
 \newtheorem{definition}{Definition}
@@ -52,16 +52,37 @@ We construct a new unified panel dataset that records entry, exit, and mergers i
 
 
 \section{Industry Background}
+We describe industry background between 1966 and 2022 in chronological order by focusing on firms' entry, exit, and mergers.
+
+
+\paragraph{1966-1979} 
+
+
+\cite{matsuda2022unified}
+
+\paragraph{1980-1990}
+
+\cite{matsuda2022unified}
+
+\paragraph{1991-2008}
+
+\paragraph{2009-2022}
 
 \section{Data}
 
-We collect the data from the three data sources. 
-The first data source is \textit{Containerization International Yearbook} published by XXX. 
-The second data source is \textit{shipdetails} published by XXX.
-The third data source is \textit{Handbook of Ocean Commerce} published by XXX.
+We construct the data from combining the three data sources. 
+The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
+The second data source is IHS data, which provides ship-level information between 1991 and 2005.
+The third data source is \textit{Handbook of Ocean Commerce}, which provides ship-level information between 2006 and 2022.
 
-We define the entry of the firm as the existence of its owned container ships in the industry. Also, we define the exit of the firm as the liquidation or bankrupt of the firms or being merged by the other firm. 
+We define the entry of the firm as the existence of its owned container ships in the industry. 
+Also, we define the exit of the firm as the liquidation or bankrupt of the firms or being merged by the other firm. 
 
+
+
+\section{Empirical model}
+
+We investigate what types of firms survive the industry.
 
 \section{Results}
 
@@ -70,6 +91,5 @@ We define the entry of the firm as the existence of its owned container ships in
 \bibliographystyle{aer}
 \bibliography{container_merger_data_bib}
 
-\appendix
 
 \end{document}
