@@ -1,5 +1,5 @@
 ---
-title: "02_transform_data"
+title: "01_clean_data"
 author: "Suguru Otani"
 date: "2022/7/2"
 output: html_document
@@ -23,7 +23,8 @@ operator_level_entry_exit_merger_CIY <-
   dplyr::mutate(
     dummy_merged_until_data_period =
       ifelse(
-        is.na(dummy_merged_until_data_period) == 1,
+        # this variable is manually added in csv
+        is.na(dummy_merged_by_data_period1990) == 1,
         0,
         1
         )
@@ -52,7 +53,9 @@ merging_firm_list <-
 
 ### CIY {.tabset}
 
-#### Merger list
+#### Merger list {.tabset}
+
+##### Market-level
 
 ```{r, echo=FALSE}
 operator_level_entry_exit_merger_CIY_for_output <-
@@ -74,6 +77,65 @@ operator_level_entry_exit_merger_CIY_for_output %>%
   kableExtra::kable_styling()
 
 ```
+
+##### Industry-level
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::filter(
+    dummy_merged_until_data_period == 1
+  ) %>% 
+  dplyr::arrange(desc(end)) %>% 
+  dplyr::distinct(
+    operator,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::arrange(start,end) %>%
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+             operator,
+             merging_firm)
+  )
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  dplyr::select(
+    operator,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::mutate(
+    merging_firm =
+      ifelse(
+        merging_firm == "P&O",
+        "P\\&O",
+        merging_firm
+      )
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = operator,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_CIY.tex")
+  )
+```
+
 
 #### Overall Transition
 
@@ -245,10 +307,42 @@ operator_level_entry_exit_merger_HBdata_for_output <-
   operator_level_entry_exit_merger_HBdata %>% 
   dplyr::filter(
     is.na(merging_firm) == 0
-  )
+  ) %>% 
+  dplyr::arrange(start, end)
 operator_level_entry_exit_merger_HBdata_for_output %>% 
   kableExtra::kable() %>% 
   kableExtra::kable_styling()
+
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  dplyr::select(
+    operator_name,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::mutate(
+    merging_firm =
+      ifelse(
+        merging_firm == "P&O",
+        "P\\&O",
+        merging_firm
+      )
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = operator_name,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_HB.tex")
+  )
 ```
 
 
