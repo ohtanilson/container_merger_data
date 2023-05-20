@@ -201,10 +201,16 @@ operator_level_entry_exit_merger_IHS_for_output$parent_company <-
     operator_level_entry_exit_merger_IHS_for_output$parent_company, 
     pattern = "&",
     " and ")
+
 operator_level_entry_exit_merger_IHS_for_output$parent_company <-
   stringr::str_replace_all(
     operator_level_entry_exit_merger_IHS_for_output$parent_company, 
     pattern = "  and  ",
+    " and ")
+operator_level_entry_exit_merger_IHS_for_output$merging_firm <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$merging_firm, 
+    pattern = "&",
     " and ")
 operator_level_entry_exit_merger_IHS_for_output %>% 
   dplyr::select(
