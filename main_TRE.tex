@@ -72,8 +72,8 @@ We describe industry background between 1966 and 2022 in chronological order by 
 
 We construct the data from combining the three data sources. 
 The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
-The second data source is IHS data, which provides ship-level information between 1991 and 2005.
-The third data source is \textit{Handbook of Ocean Commerce}, which provides ship-level information between 2006 and 2022.
+The second data source is IHS Markit data, which provides ship-level information between 1991 and 2005.
+The third data source is \textit{Handbook of Ocean Commerce}(henceforth, HB), which provides ship-level information between 2006 and 2022.
 
 We define the entry of the firm as the existence of its owned container ships in the industry. 
 Also, we define the exit of the firm as the liquidation or bankrupt of the firms or being merged by the other firm. 
@@ -83,7 +83,7 @@ Also, we define the exit of the firm as the liquidation or bankrupt of the firms
       \caption{Merger list}
       \label{tb:merger_list_CIY} 
       \subfloat[CIY (1966-1990)]{\input{figuretable/merger_list_CIY}}\\
-      \subfloat[HIS (1991-2005)]{\input{figuretable/merger_list_CIY}}\\
+      \subfloat[IHS (1991-2005)]{\input{figuretable/merger_list_CIY}}\\
       \subfloat[HB (2005-2022)]{\input{figuretable/merger_list_HB}}
   \end{center}\footnotesize
   Note: 
@@ -91,9 +91,39 @@ Also, we define the exit of the firm as the liquidation or bankrupt of the firms
 
 Need to validate with NYK aggregate TEU data.
 
-\section{Empirical model}
+\section{Empirical analyses}\label{sec:empirical_analyses}
+We construct a structural model to investigate how the industry markup had changed. 
+\textcolor{blue}{
+We assume that conference and non-conference routes are mutually independent both on demand and supply sides and treat non-conference firms as competitive fringes and price takers. Although the assumption is restrictive, it provides simplicity and tractability of the model under the limited data, i.e., without non-conference price data.\footnote{Recently, \cite{clark2018bid},  \cite{gabrielli2020assessment}, and
+\cite{caoui2022study} study the interaction of partial cartels and noncartel firms in auction formats and \cite{harrington2018rent} study how German cement cartel controlled the expansion of noncartel supply from Eastern European countries. We do not consider strategic interaction between conference and non-conference firms because non-conference price data are not available.} The shipping quantity of non-conference firms is excluded in the subsequent analysis.
+}
 
-We investigate what types of firms survive the industry.
+\subsection{Demand-side}
+Let $Q_{mt}$ and $Q_{rt}$ denote the total shipping amount in market $m$ in year $t$ and directed route $r$ in year $t$. The market demand consists of the eastbound and westbound of the route demand in market $m$. A container shipping route in route $r$ in year $t$ is divided into conference and non-conference route such that 
+$Q_{rt}=Q_{rt}^{c}+Q_{rt}^{non}$ where $Q_{rt}^{c}$ and $Q_{rt}^{non}$ are total shipping amounts of conference and non-conference firms. For example, the Transatlantic route has Transatlantic conference and non-conference routes. 
+
+Let $P_{rt}^{c}(Q_{rt}^c,D_{rt}^{c})$ and $P_{rt}^{non}(Q_{rt}^{non},D_{rt}^{non})$ denote the prices of conference and non-conference shipping where $D_{rt}^{c}$ and $D_{rt}^{non}$ are exogenously determined demand states of conference and non-conference shipping. Let $Q_{rt}^{c}(P_{rt}^{c},D_{rt}^{c})$ and $Q_{rt}^{non}(P_{rt}^{non},D_{rt}^{non})$ be the demand function of conference and non-conference shipping. We assume that $Q_{rt}^{non}(P_{rt}^{non},D_{rt}^{non})$ is exogenously determined by fringe non-conference firms and focus on $Q_{rt}^{c}(P_{rt}^{c},D_{rt}^{c})$ in the estimation part.  
+
+Demand for container shipping of conference firms in route $r$ in year $t$, $Q_{rt}^c(P_{rt}^c,D_{rt}^{c})$, is assumed to have constant elasticity and specified as the following parametrized form:\footnote{We follow \cite{kalouptsidi2014aer} and \cite{jeon2022learning} for the static demand estimation. There are a few different points from these studies. First, our data does not contain quarterly based variables before 1994, so the regression is based on market-year-level observation. This will ignore short-run fluctuation of container freight and shipping quantities. Second, our data observes the initial stage at which some price instruments used in these studies cannot be constructed. For example, the fraction of ships that are over 20 years old can be constructed only after 1986.}
+\begin{align*}
+    Q_{rt}^{c} = \exp(D_{rt}^{c})\cdot (P^{c}_{rt})^{\alpha_1},
+\end{align*}
+where $\alpha_1$ is a parameter of the slope of the demand curve.
+
+\paragraph{Estimation of the demand parameters.}
+Taking the log of the equation and adding an independent and identically distributed (IID) error term involving an unobserved characteristic, $\varepsilon_{rt}$, we estimate the following:
+\begin{align}
+    \log(Q_{rt}^c) = \alpha_0 + \alpha_1 \log P_{rt}^{c} + \alpha_2X_{rt} + \varepsilon_{rt}, \label{eq:demand_model}
+\end{align}
+where $D_{rt}^c=\alpha_0+ \alpha_2X_{rt} + \varepsilon_{rt}$ and $(\alpha_0,\alpha_1,\alpha_2)$ is the set of demand parameters.
+Route-year-level price $P_{rt}^{c}$ is correlated with $\varepsilon_{rt}$. Thus, we estimate \eqref{eq:demand_model} by instrumental variable (IV) estimation. The price is instrumented with the average age of ships deployed in each route, denoted by $Z_{1rt}$, and the tonnage share of 15-year-old ships, denoted by $Z_{2rt}$, and the mile-weighted fuel cost, $W_{rt}$, as cost shifters. Both $Z_{1rt}$ and $Z_{2rt}$ are used to capture the fact that old ships are less efficient than new ships to use fuel energy, but both are uncorrelated with unobserved demand factors. Log GDP for the destination area is used as a demand shifter $X_{rt}$. We add route fixed effect and post-1980 and post-1984 dummies to control route-regime level unobserved heterogeneity. We cluster the standard errors at the route level. 
+
+The demand parameters are identified by the time-series and cross-sectional variation across main six routes under the constant elasticity functional form assumption. Since ships have to go back and forth between the two areas, two routes serving the same areas have the same level of supply while facing different demand shocks, which helps the identification of the demand parameters.
+
+
+\subsection{Supply-side}
+
+
 
 \section{Results}
 
