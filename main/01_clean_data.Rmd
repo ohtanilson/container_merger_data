@@ -196,21 +196,22 @@ operator_level_entry_exit_merger_IHS_for_output <-
 operator_level_entry_exit_merger_IHS_for_output %>% 
   kableExtra::kable() %>% 
   kableExtra::kable_styling()
-
+operator_level_entry_exit_merger_IHS_for_output$parent_company <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$parent_company, 
+    pattern = "&",
+    " and ")
+operator_level_entry_exit_merger_IHS_for_output$parent_company <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$parent_company, 
+    pattern = "  and  ",
+    " and ")
 operator_level_entry_exit_merger_IHS_for_output %>% 
   dplyr::select(
     parent_company,
     start,
     end,
     merging_firm
-  ) %>% 
-  dplyr::mutate(
-    merging_firm =
-      ifelse(
-        merging_firm == "P&O",
-        "P\\&O",
-        merging_firm
-      )
   ) %>% 
   dplyr::rename(
     `Merging firm` = merging_firm,
