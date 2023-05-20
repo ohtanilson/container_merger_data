@@ -36,7 +36,12 @@ operator_level_entry_exit_merger_HBdata <-
     operator_name,
     .keep_all = TRUE
     ) 
-
+operator_level_entry_exit_merger_IHS <-
+  readr::read_csv("../input/operator_level_entry_exit_merger_IHS.csv") %>% 
+  dplyr::distinct(
+    parent_company,
+    .keep_all = TRUE
+    ) 
 
 HB_data <-
   readRDS(file = "../cleaned/HB_data.rds")
@@ -177,7 +182,55 @@ operator_level_entry_exit_merger_CIY_for_output %>%
 
 
 
-### Shipdetails {.tabset}
+### IHS Shipdetails {.tabset}
+
+#### Merger list
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_IHS_for_output <-
+  operator_level_entry_exit_merger_IHS %>% 
+  dplyr::filter(
+    is.na(merging_firm) == 0
+  ) %>% 
+  dplyr::arrange(start, end)
+operator_level_entry_exit_merger_IHS_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+operator_level_entry_exit_merger_IHS_for_output %>% 
+  dplyr::select(
+    parent_company,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::mutate(
+    merging_firm =
+      ifelse(
+        merging_firm == "P&O",
+        "P\\&O",
+        merging_firm
+      )
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = parent_company,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_IHS.tex")
+  )
+```
+
+
+#### Overall Transition
 
 ```{r, echo=FALSE}
 shipdetails_container_data_for_output <-
@@ -297,6 +350,8 @@ shipdetails_container_data_for_output %>%
   kableExtra::kable_styling()
 
 ```
+
+
 
 ### HB_data {.tabset}
 
