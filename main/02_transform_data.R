@@ -41,6 +41,7 @@ operator_level_entry_exit_merger_IHS <-
 
 
 # extract data ----
+## extract HB_data ----
 colnames(HB_data)
 
 targeted_HB_data <-
@@ -70,7 +71,7 @@ targeted_HB_data <-
     data_source =
       "HB"
   )
-
+## extract shipdetails_container_data ----
 colnames(shipdetails_container_data)
 
 targeted_shipdetails_container_data <-
@@ -100,7 +101,7 @@ targeted_shipdetails_container_data <-
     data_source =
       "IHS"
   )
-
+## extract CIY_data ----
 colnames(CIY_data)
 targeted_CIY_data <-
   CIY_data %>% 
@@ -171,6 +172,10 @@ operator_panel_data <-
 
 
 
+
+
+
+# write unique_operator_name_list ----
 unique_operator_name_list_HB_and_CIY <-
   operator_panel_data %>% 
   dplyr::filter(
