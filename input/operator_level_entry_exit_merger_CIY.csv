@@ -1,305 +1,305 @@
-"","operator","state","market","start","end","...1","merging_firm","note","dummy_merged_by_data_period1990"
-"1","NYK","cartel","Asia and Eur",1971,1990,1,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"2","TRIO","cartel","Asia and Eur",1971,1990,2,NA,"A Group in Conference",NA
-"3","Zim","cartel","Asia and Eur",1972,1981,3,NA,"Ongoing",NA
-"4","OCL","cartel","Asia and Eur",1972,1986,4,"P&O","Merged by P&O in 1986",1
-"5","Ben Line","cartel","Asia and Eur",1972,1990,5,NA,"All ships were sold in 1991",NA
-"6","Hapag-Lloyd","cartel","Asia and Eur",1972,1990,6,NA,"Ongoing",NA
-"7","Med-Club","cartel","Asia and Eur",1972,1990,7,NA,NA,NA
-"8","ScanDutch","cartel","Asia and Eur",1972,1990,8,NA,"A Group in Conference",NA
-"9","MOL","cartel","Asia and Eur",1974,1990,9,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"10","K-Line","cartel","Asia and Eur",1975,1990,10,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"11","Neptune Orient Lines","cartel","Asia and Eur",1975,1990,11,"CMA-CGM","Subsidiary of CMA-CGM since 2016",NA
-"12","OOCL","cartel","Asia and Eur",1975,1990,12,"Cosco","Subsidiary of COSCO since 2018",NA
-"13","Franco-Belgian Services","cartel","Asia and Eur",1976,1986,13,"Maersk","Merged by Maersk in 1987",1
-"14","Maersk","cartel","Asia and Eur",1976,1990,14,NA,"Ongoing",NA
-"15","Chargeurs Reunis","cartel","Asia and Eur",1977,1990,15,NA,"Ongoing",NA
-"16","Cie Generale Maritime","cartel","Asia and Eur",1977,1990,16,"CMA-CGM","Merged as CMA-CGM since 1999",NA
-"17","Compagnie Maritime Belge","cartel","Asia and Eur",1977,1990,17,"Maersk","Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)",NA
-"18","East Asiatic Co. A/S","cartel","Asia and Eur",1977,1990,18,"Maersk","Merged by Maersk in 1993",NA
-"19","Nedlloyd","cartel","Asia and Eur",1977,1990,19,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"20","Wilhelmsen Lines A/S","cartel","Asia and Eur",1978,1990,20,NA,"Ongoing",NA
-"21","KSC","cartel","Asia and Eur",1979,1987,21,"Hanjin","Merged by Hanjin in 1987",1
-"22","Hanjin","cartel","Asia and Eur",1979,1988,22,NA,"Bankrupt in 2016",NA
-"23","Lloyd Triestino","cartel","Asia and Eur",1979,1990,23,"Evergreen","Merged by Evergreen in 1998",NA
-"24","Jugolinija","cartel","Asia and Eur",1980,1990,24,NA,"Bankrupt in 2000・@・iCroatia Line)",NA
-"25","DSR","cartel","Asia and Eur",1986,1988,25,"Hanjin","Bankrupt in 2016(Merged by Hanjin in 1997)(Merged as DSR Senetor in 1994)",NA
-"26","P&O Containers","cartel","Asia and Eur",1986,1990,26,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"27","Cho Yang","cartel","Asia and Eur",1987,1988,27,NA,"Bankrupt in 2001",NA
-"28","Sea-Land","cartel","Asia and Eur",1989,1990,28,"Maersk","Subsidiary of Maersk since 1999",NA
-"29","Chipolbrok","noncartel","Asia and Eur",1973,1990,29,NA,"Ongoing",NA
-"30","Marfret","noncartel","Asia and Eur",1973,1990,30,NA,"Ongoing, back to coastal shipping in 2000",NA
-"31","ENC","noncartel","Asia and Eur",1976,1990,31,NA,NA,NA
-"32","Admiral Lines","noncartel","Asia and Eur",1977,1990,32,NA,"General Cargo",NA
-"33","Blasco","noncartel","Asia and Eur",1978,1990,33,NA,"Ongoing",NA
-"34","BSC","noncartel","Asia and Eur",1978,1990,34,NA,"Ongoing",NA
-"35","India SS","noncartel","Asia and Eur",1978,1990,35,NA,"Ongoing, SS Shipping",NA
-"36","Evergreen","noncartel","Asia and Eur",1979,1990,36,NA,"Ongoing",NA
-"37","DL","noncartel","Asia and Eur",1981,1990,37,NA,NA,NA
-"38","Omex","noncartel","Asia and Eur",1981,1990,38,NA,NA,NA
-"39","Cosco","noncartel","Asia and Eur",1982,1990,39,NA,"Ongoing",NA
-"40","Zim","noncartel","Asia and Eur",1982,1990,40,NA,"Ongoing",NA
-"41","CSC","noncartel","Asia and Eur",1983,1990,41,NA,NA,NA
-"42","NSCSA","noncartel","Asia and Eur",1983,1990,42,NA,"Ongoing,National Shipping Company of Saudi Arabia(Bahri)",NA
-"43","Compagnie maritime d'affretement","noncartel","Asia and Eur",1985,1990,43,"CMA-CGM","Merged as CMA-CGM since 1999",NA
-"44","Norasia","noncartel","Asia and Eur",1986,1990,44,"CSAV","Merged by CSAV in 2000",NA
-"45","Cho Yang","noncartel","Asia and Eur",1989,1990,46,NA,"Bankrupt in 2001",NA
-"46","DSR","noncartel","Asia and Eur",1989,1990,47,"Hanjin","Bankrupt in 2016(Merged by Hanjin in 1997)(Merged as DSR Senetor in 1994)",NA
-"47","Hanjin","noncartel","Asia and Eur",1989,1990,48,NA,"Bankrupt in 2016",NA
-"48","ScanDutch","noncartel_only_in_CIY","Asia and Eur",1967,1971,49,NA,"A Group in Conference",NA
-"49","Maersk","noncartel_only_in_CIY","Asia and Eur",1967,1975,50,NA,"Ongoing",NA
-"50","Cosco","noncartel_only_in_CIY","Asia and Eur",1970,1981,51,NA,"Ongoing",NA
-"51","MSC","noncartel_only_in_CIY","Asia and Eur",1970,1990,52,NA,"Ongoing",NA
-"52","Samudera","noncartel_only_in_CIY","Asia and Eur",1971,1990,53,NA,"Ongoing",NA
-"53","OOCL","noncartel_only_in_CIY","Asia and Eur",1972,1974,54,"Cosco","Subsidiary of COSCO since 2018",NA
-"54","Jugolinija","noncartel_only_in_CIY","Asia and Eur",1972,1979,55,NA,"Bankrupt in 2000・@・iCroatia Line)",NA
-"55","EISC","noncartel_only_in_CIY","Asia and Eur",1972,1990,56,NA,"Ongoing,Egyptian International Shipping Company",NA
-"56","Occon Line","noncartel_only_in_CIY","Asia and Eur",1972,1990,57,NA,NA,NA
-"57","Neptune Orient Lines","noncartel_only_in_CIY","Asia and Eur",1973,1974,58,"CMA-CGM","Subsidiary of CMA-CGM since 2016",NA
-"58","Blasco","noncartel_only_in_CIY","Asia and Eur",1973,1977,59,NA,"Ongoing",NA
-"59","Sea-Land","noncartel_only_in_CIY","Asia and Eur",1973,1988,60,"Maersk","Subsidiary of Maersk since 1999",NA
-"60","Blue Funnel Kine","noncartel_only_in_CIY","Asia and Eur",1976,1990,61,NA,"Ended in 1988",NA
-"61","Mixte","noncartel_only_in_CIY","Asia and Eur",1976,1990,62,NA,"Merged by Paribas in 1995",NA
-"62","P&O Containers","noncartel_only_in_CIY","Asia and Eur",1977,1985,63,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"63","Finland Steamship","noncartel_only_in_CIY","Asia and Eur",1977,1990,64,"Finnlines","Merged by Finnlines in 1990",1
-"64","Hong Kong Cont Line","noncartel_only_in_CIY","Asia and Eur",1977,1990,65,NA,NA,NA
-"65","Sinotrans","noncartel_only_in_CIY","Asia and Eur",1977,1990,66,NA,"Ongoing",NA
-"66","Evergreen","noncartel_only_in_CIY","Asia and Eur",1978,1978,67,NA,"Ongoing",NA
-"67","Admiral Shipping","noncartel_only_in_CIY","Asia and Eur",1978,1990,68,NA,NA,NA
-"68","Norient Line","noncartel_only_in_CIY","Asia and Eur",1978,1990,69,NA,"Stopped operation in 1980s",NA
-"69","TFH Line","noncartel_only_in_CIY","Asia and Eur",1978,1990,70,NA,NA,NA
-"70","SMTM","noncartel_only_in_CIY","Asia and Eur",1979,1990,71,NA,"Ongoing, Societe Malagache de Transport Maritimes",NA
-"71","Rickmers","noncartel_only_in_CIY","Asia and Eur",1980,1990,72,NA,"Bankrupt in 2017",NA
-"72","Contship","noncartel_only_in_CIY","Asia and Eur",1982,1990,73,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"73","Merzario","noncartel_only_in_CIY","Asia and Eur",1983,1990,74,"Compagnie Maritime Belge","Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)(Merged by Compagnie Maritime Belge in 1989・j",NA
-"74","Conship","noncartel_only_in_CIY","Asia and Eur",1986,1990,75,NA,"Ongoing",NA
-"75","Wan Hai","noncartel_only_in_CIY","Asia and Eur",1987,1990,76,NA,"Ongoing",NA
-"76","Lykes Lines","cartel","Transatlantic",1966,1966,77,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"77","Moore-McCormack Lines Inc","cartel","Transatlantic",1966,1970,78,"United States Lines","Merged by United States Lines in 1982",1
-"78","Farrell Lines","cartel","Transatlantic",1966,1980,79,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)",NA
-"79","United States Lines","cartel","Transatlantic",1966,1985,80,NA,"Bankrupt in 1987",NA
-"80","d'Amico","cartel","Transatlantic",1966,1989,81,NA,"Ongoing",NA
-"81","Sea-Land","cartel","Transatlantic",1966,1990,82,"Maersk","Subsidiary of Maersk since 1999",NA
-"82","Cie Generale Maritime","cartel","Transatlantic",1967,1989,83,"CMA-CGM","Merged as CMA-CGM since 1999",NA
-"83","Atlantic Container Line","cartel","Transatlantic",1967,1990,84,"Grimaldi","Merged by Grimaldi  in 2001",NA
-"84","Manchester Liners","cartel","Transatlantic",1968,1989,85,NA,"Liquidated in 1985, and services were taken over by OOCL",NA
-"85","American Export Lines","cartel","Transatlantic",1969,1977,86,NA,"Bankrupt in 1978",NA
-"86","Seatrain Lines","cartel","Transatlantic",1969,1980,87,NA,"Bankrupt in 1982",NA
-"87","CP Ships","cartel","Transatlantic",1969,1990,88,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005",NA
-"88","Hapag-Lloyd","cartel","Transatlantic",1969,1990,89,NA,"Ongoing",NA
-"89","Prudential Grace Line","cartel","Transatlantic",1970,1985,90,NA,"Bankrupt in 1986",NA
-"90","Dart Containerline","cartel","Transatlantic",1970,1989,91,NA,"Services were taken over by OOCL",NA
-"91","Lauro","cartel","Transatlantic",1970,1989,92,NA,NA,NA
-"92","Jugolinija","cartel","Transatlantic",1973,1989,93,NA,"Bankrupt in 2000・@・iCroatia Line)",NA
-"93","Y-S Line","cartel","Transatlantic",1974,1988,94,"NLS","Merged as NLS since 1989",1
-"94","Ibero Lines","cartel","Transatlantic",1977,1989,95,NA,"Ongoing, Ibero Linhas",NA
-"95","Canmar/OOCL","cartel","Transatlantic",1978,1989,96,NA,NA,NA
-"96","Trans Freight Lines","cartel","Transatlantic",1983,1989,97,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)(Merged by P&O in 1987)",NA
-"97","Nedlloyd","cartel","Transatlantic",1986,1990,98,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"98","OOCL","cartel","Transatlantic",1988,1990,99,"Cosco","Subsidiary of COSCO since 2018",NA
-"99","Grancolombiana","noncartel","Transatlantic",1966,1990,100,"TMM","Merged by TMM in 1996",NA
-"100","Star Shipping","noncartel","Transatlantic",1966,1990,101,NA,"Ongoing",NA
-"101","Johnson Line","noncartel","Transatlantic",1969,1972,102,NA,"Merged as Effjohn in 1990",1
-"102","Johnson-Scanstar","noncartel","Transatlantic",1969,1989,103,NA,"Operation stopped in 1990",NA
-"103","Joon Liner","noncartel","Transatlantic",1969,1990,104,NA,NA,NA
-"104","Cast Line","noncartel","Transatlantic",1970,1980,105,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1995)",NA
-"105","Lash Carriers","noncartel","Transatlantic",1970,1990,106,NA,NA,NA
-"106","Zim","noncartel","Transatlantic",1970,1990,107,NA,"Ongoing",NA
-"107","ABC Container Line","noncartel","Transatlantic",1971,1990,108,NA,"Bankrupt in 1996",NA
-"108","Canmar","noncartel","Transatlantic",1971,1990,109,NA,NA,NA
-"109","Italia","noncartel","Transatlantic",1971,1990,110,"Evergreen","Merged by Evergreen in 1998",NA
-"110","TMM","noncartel","Transatlantic",1971,1990,111,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1999)",NA
-"111","Lykes Lines","noncartel","Transatlantic",1972,1990,112,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"112","Trasatlantica","noncartel","Transatlantic",1972,1990,113,NA,NA,NA
-"113","Baltatlantic","noncartel","Transatlantic",1973,1989,114,NA,NA,NA
-"114","Falline","noncartel","Transatlantic",1973,1990,115,NA,"Ongoing,Fednav Atlantic Lakes Line",NA
-"115","Trans Freight Lines","noncartel","Transatlantic",1974,1982,116,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)(Merged by P&O in 1987)",NA
-"116","Blasco","noncartel","Transatlantic",1975,1990,117,NA,"Ongoing",NA
-"117","BSC","noncartel","Transatlantic",1975,1990,118,NA,"Ongoing",NA
-"118","Euro-Gulf","noncartel","Transatlantic",1977,1990,119,NA,NA,NA
-"119","Hoegh Lines","noncartel","Transatlantic",1977,1990,120,NA,"Ongoing",NA
-"120","Kent Line","noncartel","Transatlantic",1978,1990,121,NA,"Ongoing",NA
-"121","Gulf Container","noncartel","Transatlantic",1979,1989,122,NA,NA,NA
-"122","Rainbow","noncartel","Transatlantic",1980,1990,123,NA,NA,NA
-"123","Tecomar","noncartel","Transatlantic",1980,1990,124,NA,NA,NA
-"124","AmTrans","noncartel","Transatlantic",1981,1990,125,NA,NA,NA
-"125","Evergreen","noncartel","Transatlantic",1984,1990,126,NA,"Ongoing",NA
-"126","Compagnie Maritime Belge","noncartel","Transatlantic",1985,1990,127,"Maersk","Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)",NA
-"127","MSC","noncartel","Transatlantic",1985,1990,128,NA,"Ongoing",NA
-"128","Maersk","noncartel","Transatlantic",1988,1990,129,NA,"Ongoing",NA
-"129","d'Amico","noncartel","Transatlantic",1990,1990,130,NA,"Ongoing",NA
-"130","Jugolinija","noncartel","Transatlantic",1990,1990,131,NA,"Bankrupt in 2000・@・iCroatia Line)",NA
-"131","d'Amico","noncartel_only_in_CIY","Transatlantic",1965,1965,132,NA,"Ongoing",NA
-"132","Farrell Lines","noncartel_only_in_CIY","Transatlantic",1965,1965,133,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)",NA
-"133","Grancolombiana","noncartel_only_in_CIY","Transatlantic",1965,1965,134,"TMM","Merged by TMM in 1996",NA
-"134","Moore-McCormack Lines Inc","noncartel_only_in_CIY","Transatlantic",1965,1965,135,"United States Lines","Merged by United States Lines in 1982",1
-"135","Sea-Land","noncartel_only_in_CIY","Transatlantic",1965,1965,136,"Maersk","Subsidiary of Maersk since 1999",NA
-"136","Star Shipping","noncartel_only_in_CIY","Transatlantic",1965,1965,137,NA,"Ongoing",NA
-"137","United States Lines","noncartel_only_in_CIY","Transatlantic",1965,1965,138,NA,"Bankrupt in 1987",NA
-"138","Lykes Lines","noncartel_only_in_CIY","Transatlantic",1965,1971,139,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"139","Seatrain Lines","noncartel_only_in_CIY","Transatlantic",1966,1968,140,NA,"Bankrupt in 1982",NA
-"140","GSAL","noncartel_only_in_CIY","Transatlantic",1967,1990,141,NA,NA,NA
-"141","Ybarra","noncartel_only_in_CIY","Transatlantic",1967,1990,142,"Maersk","Subsidiary of Maersk since 2017(Merged by Hamburg Sud in 2007)",NA
-"142","Hapag-Lloyd","noncartel_only_in_CIY","Transatlantic",1968,1968,143,NA,"Ongoing",NA
-"143","Cast Line","noncartel_only_in_CIY","Transatlantic",1969,1969,144,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1995)",NA
-"144","Marasia","noncartel_only_in_CIY","Transatlantic",1969,1986,145,NA,"Taken over in 1987",NA
-"145","Uiterwyck Lines","noncartel_only_in_CIY","Transatlantic",1969,1990,146,NA,NA,NA
-"146","Atkabtuca SpA","noncartel_only_in_CIY","Transatlantic",1970,1990,147,NA,NA,NA
-"147","Ciamar","noncartel_only_in_CIY","Transatlantic",1970,1990,148,NA,NA,NA
-"148","Prudential Lines","noncartel_only_in_CIY","Transatlantic",1970,1990,149,NA,"Bankrupt in 1986",NA
-"149","Unimex/Deppe","noncartel_only_in_CIY","Transatlantic",1970,1990,150,NA,NA,NA
-"150","Nedlloyd","noncartel_only_in_CIY","Transatlantic",1971,1985,151,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"151","OOCL","noncartel_only_in_CIY","Transatlantic",1971,1987,152,"Cosco","Subsidiary of COSCO since 2018",NA
-"152","Cia Transatlantica Espanola","noncartel_only_in_CIY","Transatlantic",1971,1990,153,NA,"Bankrupt in 2012",NA
-"153","Finnlines","noncartel_only_in_CIY","Transatlantic",1971,1990,154,NA,"Ongoing",NA
-"154","Italia marittima SpA","noncartel_only_in_CIY","Transatlantic",1971,1990,155,"Evergreen","Merged by Evergreen in 1998",NA
-"155","New England Express Line","noncartel_only_in_CIY","Transatlantic",1971,1990,156,NA,NA,NA
-"156","Atlantic Lash","noncartel_only_in_CIY","Transatlantic",1972,1990,157,NA,NA,NA
-"157","Maritime Container Line","noncartel_only_in_CIY","Transatlantic",1972,1990,158,NA,NA,NA
-"158","Portline","noncartel_only_in_CIY","Transatlantic",1972,1990,159,NA,"Ongoing, established in 1984",NA
-"159","USSR","noncartel_only_in_CIY","Transatlantic",1972,1990,160,NA,"We may treat as FESCO",NA
-"160","Bank Line","noncartel_only_in_CIY","Transatlantic",1973,1990,161,"Swire","Subsidiary of Swire since 2003",NA
-"161","CCL","noncartel_only_in_CIY","Transatlantic",1973,1990,162,NA,NA,NA
-"162","Combi Line","noncartel_only_in_CIY","Transatlantic",1973,1990,163,NA,"Ongoing",NA
-"163","Eurosal","noncartel_only_in_CIY","Transatlantic",1973,1990,164,NA,"A consortium in conference",NA
-"164","MSC","noncartel_only_in_CIY","Transatlantic",1974,1984,165,NA,"Ongoing",NA
-"165","Montemar","noncartel_only_in_CIY","Transatlantic",1975,1990,166,NA,"Subsidiary of Nav del Odiel",NA
-"166","Contract Marine Carriers","noncartel_only_in_CIY","Transatlantic",1976,1990,167,NA,"Ongoing",NA
-"167","Latvian Shipping Co","noncartel_only_in_CIY","Transatlantic",1976,1990,168,NA,"Ongoing",NA
-"168","Nav del Odiel","noncartel_only_in_CIY","Transatlantic",1976,1990,169,NA,"Ongoing",NA
-"169","ScanPacific Line","noncartel_only_in_CIY","Transatlantic",1976,1990,170,NA,NA,NA
-"170","Splosna Plovba","noncartel_only_in_CIY","Transatlantic",1976,1990,171,NA,"Ongoing",NA
-"171","Deutsche Afrika-Linien","noncartel_only_in_CIY","Transatlantic",1977,1990,172,NA,"Ongoing",NA
-"172","Elma","noncartel_only_in_CIY","Transatlantic",1977,1990,173,NA,"dismantled in 1996",NA
-"173","Harrison Line","noncartel_only_in_CIY","Transatlantic",1977,1990,174,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)",NA
-"174","KNSM","noncartel_only_in_CIY","Transatlantic",1977,1990,175,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)(Subsidiary of Nedlloyd since 1981)",NA
-"175","OPDR","noncartel_only_in_CIY","Transatlantic",1977,1990,176,"CMA-CGM","Merged by CMA-CGM in 2014",NA
-"176","Seas","noncartel_only_in_CIY","Transatlantic",1977,1990,177,NA,NA,NA
-"177","CD","noncartel_only_in_CIY","Transatlantic",1978,1990,178,NA,NA,NA
-"178","Compania Chilena de Navegacion Interoceanica","noncartel_only_in_CIY","Transatlantic",1978,1990,179,"Maersk","Subsidiary of Maersk since 2017 (Subsidiary of Hamburg Sud since 2015)",NA
-"179","Constellation","noncartel_only_in_CIY","Transatlantic",1978,1990,180,NA,NA,NA
-"180","Deppe","noncartel_only_in_CIY","Transatlantic",1978,1990,181,"Maersk","Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998) (Merged by Compagnie Maritime Belge in 1984)",NA
-"181","Eurobridge Lines","noncartel_only_in_CIY","Transatlantic",1978,1990,182,NA,NA,NA
-"182","Ibertrans","noncartel_only_in_CIY","Transatlantic",1978,1990,183,NA,NA,NA
-"183","Incotrans","noncartel_only_in_CIY","Transatlantic",1978,1990,184,NA,"Ongoing",NA
-"184","Marfret","noncartel_only_in_CIY","Transatlantic",1978,1990,185,NA,"Ongoing, back to coastal shipping in 2000",NA
-"185","Montreal Europe Nav","noncartel_only_in_CIY","Transatlantic",1978,1990,186,NA,"Ongoing",NA
-"186","Quayport Line","noncartel_only_in_CIY","Transatlantic",1978,1990,187,NA,NA,NA
-"187","Maersk","noncartel_only_in_CIY","Transatlantic",1979,1987,188,NA,"Ongoing",NA
-"188","Dannebrog","noncartel_only_in_CIY","Transatlantic",1979,1990,189,NA,"Ongoing",NA
-"189","DFDS","noncartel_only_in_CIY","Transatlantic",1979,1990,190,NA,"Ongoing, exit from liner business in 1999",NA
-"190","Frigo","noncartel_only_in_CIY","Transatlantic",1979,1990,191,NA,NA,NA
-"191","Laser Lines","noncartel_only_in_CIY","Transatlantic",1979,1990,192,NA,NA,NA
-"192","Ocean Lines","noncartel_only_in_CIY","Transatlantic",1979,1990,193,NA,NA,NA
-"193","Transmediterranea","noncartel_only_in_CIY","Transatlantic",1979,1990,194,NA,NA,NA
-"194","Evergreen","noncartel_only_in_CIY","Transatlantic",1980,1983,195,NA,"Ongoing",NA
-"195","Contemaris","noncartel_only_in_CIY","Transatlantic",1980,1990,196,NA,NA,NA
-"196","Mambisa","noncartel_only_in_CIY","Transatlantic",1980,1990,197,NA,NA,NA
-"197","Surinam","noncartel_only_in_CIY","Transatlantic",1980,1990,198,NA,NA,NA
-"198","WEC","noncartel_only_in_CIY","Transatlantic",1980,1990,199,NA,NA,NA
-"199","Atlantic Cargo Service","noncartel_only_in_CIY","Transatlantic",1981,1990,200,NA,NA,NA
-"200","Contship","noncartel_only_in_CIY","Transatlantic",1981,1990,201,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"201","Havenlijn","noncartel_only_in_CIY","Transatlantic",1981,1990,202,"Maersk","Subsidiary of Maersk since 2017 (Consolidated by of Hamburg Sud since 1995)",NA
-"202","Lloyd Brasileiro","noncartel_only_in_CIY","Transatlantic",1981,1990,203,NA,"Liquidated in 1998",NA
-"203","Maruba","noncartel_only_in_CIY","Transatlantic",1981,1990,204,NA,"Ongoing",NA
-"204","Transroll","noncartel_only_in_CIY","Transatlantic",1981,1990,205,NA,NA,NA
-"205","Alianca","noncartel_only_in_CIY","Transatlantic",1982,1990,206,"Maersk","Subsidiary of CMA-CGM since 2017(Merged by Hamburg Sud in 1998)",NA
-"206","EAC West Africa","noncartel_only_in_CIY","Transatlantic",1982,1990,207,NA,NA,NA
-"207","Empremar","noncartel_only_in_CIY","Transatlantic",1982,1990,208,NA,"Ongoing",NA
-"208","EWL","noncartel_only_in_CIY","Transatlantic",1982,1990,209,NA,"Ongoing",NA
-"209","Fred Olsen","noncartel_only_in_CIY","Transatlantic",1982,1990,210,NA,"Ongoing",NA
-"210","Hamburg-Sud","noncartel_only_in_CIY","Transatlantic",1982,1990,211,"Maersk","Subsidiary of Maersk since 2017",NA
-"211","Caribtainer","noncartel_only_in_CIY","Transatlantic",1983,1990,212,NA,NA,NA
-"212","Europe Paraguay","noncartel_only_in_CIY","Transatlantic",1983,1990,213,NA,NA,NA
-"213","Independent","noncartel_only_in_CIY","Transatlantic",1984,1990,214,NA,"Ongoing, Independent Container Line",NA
-"214","PSNC","noncartel_only_in_CIY","Transatlantic",1984,1990,215,NA,"Sold to German Oetker shipping group",NA
-"215","Transnave","noncartel_only_in_CIY","Transatlantic",1984,1990,216,NA,"Ongoing",NA
-"216","Booth","noncartel_only_in_CIY","Transatlantic",1985,1990,217,NA,"Ongoing",NA
-"217","CTC","noncartel_only_in_CIY","Transatlantic",1985,1990,218,NA,NA,NA
-"218","Samband","noncartel_only_in_CIY","Transatlantic",1985,1990,219,NA,"Remaned Samskip in 1991",NA
-"219","Topgallant","noncartel_only_in_CIY","Transatlantic",1985,1990,220,NA,"Exit from trunk line",NA
-"220","Brisa","noncartel_only_in_CIY","Transatlantic",1986,1990,221,NA,NA,NA
-"221","Grimaldi","noncartel_only_in_CIY","Transatlantic",1987,1990,222,NA,"Ongoing",NA
-"222","UMAG","noncartel_only_in_CIY","Transatlantic",1988,1990,223,NA,NA,NA
-"223","Knutsen Line","cartel","Transpacific",1965,1982,224,NA,"Ongoing",NA
-"224","American Mail Line","cartel","Transpacific",1968,1972,225,"CMA-CGM","Subsidiary of CMA-CGM since 2016 (Subsidiary of NOL since 1998)(Merged by American President Lines in 1973)",NA
-"225","Japanese joint service","cartel","Transpacific",1968,1986,226,NA,"A Group in Conference",NA
-"226","American President Lines","cartel","Transpacific",1968,1990,227,"CMA-CGM","Subsidiary of CMA-CGM since 2016 (Subsidiary of NOL since 1998)",NA
-"227","NYK","cartel","Transpacific",1968,1990,228,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"228","Seaway Express Lines","cartel","Transpacific",1970,1979,229,NA,NA,NA
-"229","Hellenic Lines","cartel","Transpacific",1971,1982,230,NA,"Ongoing",NA
-"230","K-Line","cartel","Transpacific",1971,1990,231,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"231","Sea-Land","cartel","Transpacific",1972,1990,232,"Maersk","Subsidiary of Maersk since 1999",NA
-"232","Zim","cartel","Transpacific",1973,1982,233,NA,"Ongoing",NA
-"233","Maersk","cartel","Transpacific",1975,1990,234,NA,"Ongoing",NA
-"234","OOCL","cartel","Transpacific",1975,1990,235,"Cosco","Subsidiary of COSCO since 2018",NA
-"235","Y-S Line","cartel","Transpacific",1976,1988,236,"NLS","Merged as NLS since 1989",1
-"236","MOL","cartel","Transpacific",1976,1990,237,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"237","United States Lines","cartel","Transpacific",1977,1984,238,NA,"Bankrupt in 1987",NA
-"238","Barber Blue Sea Line","cartel","Transpacific",1977,1990,239,"Wilhelmsen Lines A/S","Merged by Wilhelmsen Lines A/S since 1990",NA
-"239","Korea Marine Trans/NYK","cartel","Transpacific",1978,1990,240,NA,NA,NA
-"240","Neptune Orient Lines","cartel","Transpacific",1978,1990,241,"CMA-CGM","Subsidiary of CMA-CGM since 2016",NA
-"241","NYK/Showa","cartel","Transpacific",1978,1990,242,"NYK","Merged by NYK on 1998",NA
-"242","Hanjin","cartel","Transpacific",1979,1990,243,NA,"Bankrupt in 2016",NA
-"243","Japan Line","cartel","Transpacific",1981,1988,244,"NLS","Merged as NLS since 1989",1
-"244","MOL/NYK","cartel","Transpacific",1986,1990,245,"Ocean Network Express","Merged as Ocean Network Express since 2016",NA
-"245","Nissan","cartel","Transpacific",1987,1990,246,"MOL","Subsidiary of MOL since 2009",NA
-"246","NLS","cartel","Transpacific",1988,1990,247,"NYK","Merged by NYK on 1991",NA
-"247","Matson","noncartel","Transpacific",1965,1970,248,NA,"Ongoing",NA
-"248","Star Shipping","noncartel","Transpacific",1968,1990,249,NA,"Ongoing",NA
-"249","Great Eastern Shipping Corp","noncartel","Transpacific",1969,1990,250,NA,"Ongoing",NA
-"250","Pacific Far East Line","noncartel","Transpacific",1971,1978,251,NA,"Bankrupt in 1978",NA
-"251","Phoenix Container Line","noncartel","Transpacific",1971,1983,252,NA,NA,NA
-"252","Frota Oceanica","noncartel","Transpacific",1971,1990,253,"TMM","Merged by TMM in 1996",NA
-"253","Seatrain Lines","noncartel","Transpacific",1972,1980,254,NA,"Bankrupt in 1982",NA
-"254","Fesco","noncartel","Transpacific",1972,1990,255,NA,"Ongoing",NA
-"255","American Export Lines","noncartel","Transpacific",1973,1977,256,NA,"Bankrupt in 1978",NA
-"256","Evergreen","noncartel","Transpacific",1975,1990,257,NA,"Ongoing",NA
-"257","KSC","noncartel","Transpacific",1976,1988,258,"Hanjin","Merged by Hanjin in 1987",1
-"258","Farrell Lines","noncartel","Transpacific",1978,1979,259,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)",NA
-"259","East Asiatic Co. A/S","noncartel","Transpacific",1978,1990,260,"Maersk","Merged by Maersk in 1993",NA
-"260","Hapag-Lloyd","noncartel","Transpacific",1978,1990,261,NA,"Ongoing",NA
-"261","Yangming","noncartel","Transpacific",1978,1990,262,NA,"Ongoing",NA
-"262","Seaboard Pacific Line","noncartel","Transpacific",1979,1984,263,NA,NA,NA
-"263","Lykes Lines","noncartel","Transpacific",1979,1990,264,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"264","TMM","noncartel","Transpacific",1979,1990,265,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1999)",NA
-"265","Transnave","noncartel","Transpacific",1979,1990,266,NA,"Ongoing",NA
-"266","Seaway Express Lines","noncartel","Transpacific",1980,1989,267,NA,NA,NA
-"267","Cosco","noncartel","Transpacific",1980,1990,268,NA,"Ongoing",NA
-"268","CPV","noncartel","Transpacific",1980,1990,269,NA,NA,NA
-"269","Hoegh Lines","noncartel","Transpacific",1980,1990,270,NA,"Ongoing",NA
-"270","NSCP","noncartel","Transpacific",1980,1990,271,NA,NA,NA
-"271","Sea-Land","noncartel","Transpacific",1981,1982,272,"Maersk","Subsidiary of Maersk since 1999",NA
-"272","PNSC","noncartel","Transpacific",1983,1990,273,NA,"Ongoing, Pakistan National Shipping Corporation",NA
-"273","Zim","noncartel","Transpacific",1983,1990,274,NA,"Ongoing",NA
-"274","Kyowa","noncartel","Transpacific",1984,1990,275,NA,"Ongoing",NA
-"275","GBCS","noncartel","Transpacific",1985,1990,276,NA,"Ongoing, Global Bulk Containers",NA
-"276","Westwood","noncartel","Transpacific",1986,1990,277,NA,"Ongoing",NA
-"277","Nedlloyd","noncartel","Transpacific",1989,1990,278,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"278","Farrell Lines","noncartel_only_in_CIY","Transpacific",1965,1977,279,"Maersk","Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)",NA
-"279","Lykes Lines","noncartel_only_in_CIY","Transpacific",1965,1978,280,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997)",NA
-"280","Galleon","noncartel_only_in_CIY","Transpacific",1965,1990,281,NA,NA,NA
-"281","Maersk","noncartel_only_in_CIY","Transpacific",1967,1974,282,NA,"Ongoing",NA
-"282","Hoegh Lines","noncartel_only_in_CIY","Transpacific",1967,1979,283,NA,"Ongoing",NA
-"283","Yangming","noncartel_only_in_CIY","Transpacific",1969,1977,284,NA,"Ongoing",NA
-"284","Nedlloyd","noncartel_only_in_CIY","Transpacific",1970,1988,285,"Maersk","Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)",NA
-"285","American Export Lines","noncartel_only_in_CIY","Transpacific",1971,1972,286,NA,"Bankrupt in 1978",NA
-"286","OOCL","noncartel_only_in_CIY","Transpacific",1971,1974,287,"Cosco","Subsidiary of COSCO since 2018",NA
-"287","KSC","noncartel_only_in_CIY","Transpacific",1971,1975,288,"Hanjin","Merged by Hanjin in 1987",1
-"288","Hanjin","noncartel_only_in_CIY","Transpacific",1971,1978,289,NA,"Bankrupt in 2016",NA
-"289","Hapag-Lloyd","noncartel_only_in_CIY","Transpacific",1972,1977,290,NA,"Ongoing",NA
-"290","USSR","noncartel_only_in_CIY","Transpacific",1973,1990,291,NA,"We may treat as FESCO",NA
-"291","Cosco","noncartel_only_in_CIY","Transpacific",1974,1979,292,NA,"Ongoing",NA
-"292","Atlanttrafik/Barber Blue Sea","noncartel_only_in_CIY","Transpacific",1974,1990,293,"Wilhelmsen Lines A/S","Merged by Wilhelmsen Lines A/S since 1990",1
-"293","Elma","noncartel_only_in_CIY","Transpacific",1976,1990,294,NA,"dismantled in 1996",NA
-"294","Bank Line","noncartel_only_in_CIY","Transpacific",1977,1990,295,"Swire","Subsidiary of Swire since 2003",NA
-"295","Canisa","noncartel_only_in_CIY","Transpacific",1977,1990,296,NA,NA,NA
-"296","Ro-Lo Pacific Line","noncartel_only_in_CIY","Transpacific",1977,1990,297,NA,NA,NA
-"297","Compania Chilena de Navegacion Interoceanica","noncartel_only_in_CIY","Transpacific",1978,1990,298,"Maersk","Subsidiary of Maersk since 2017 (Subsidiary of Hamburg Sud since 2015)",NA
-"298","MFECS","noncartel_only_in_CIY","Transpacific",1978,1990,299,NA,"A consortium in conference",NA
-"299","Scindia","noncartel_only_in_CIY","Transpacific",1978,1990,300,NA,"Ongoing, Scindia Steam Navigation Company",NA
-"300","NLS","noncartel_only_in_CIY","Transpacific",1979,1987,301,"NYK","Merged by NYK on 1991",NA
-"301","CC Line","noncartel_only_in_CIY","Transpacific",1979,1990,302,NA,NA,NA
-"302","Lloyd Brasileiro","noncartel_only_in_CIY","Transpacific",1979,1990,303,NA,"Liquidated in 1998",NA
-"303","UASC","noncartel_only_in_CIY","Transpacific",1979,1990,304,"Hapag-Lloyd","Subsidiary of Hapag-Lloyd since 2017",NA
-"304","Japanese joint service","noncartel_only_in_CIY","Transpacific",1987,1990,305,NA,"A Group in Conference",NA
+,operator,state,market,start,end,...1,merging_firm,note,dummy_merged_by_data_period1990
+1,NYK,cartel,Asia and Eur,1971,1990,1,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+2,TRIO,cartel,Asia and Eur,1971,1990,2,NA,A Group in Conference,NA
+3,Zim,cartel,Asia and Eur,1972,1981,3,NA,Ongoing,NA
+4,OCL,cartel,Asia and Eur,1972,1986,4,P&O,Merged by P&O in 1986,1
+5,Ben Line,cartel,Asia and Eur,1972,1990,5,NA,All ships were sold in 1991,NA
+6,Hapag-Lloyd,cartel,Asia and Eur,1972,1990,6,NA,Ongoing,NA
+7,Med-Club,cartel,Asia and Eur,1972,1990,7,NA,NA,NA
+8,ScanDutch,cartel,Asia and Eur,1972,1990,8,NA,A Group in Conference,NA
+9,MOL,cartel,Asia and Eur,1974,1990,9,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+10,K-Line,cartel,Asia and Eur,1975,1990,10,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+11,Neptune Orient Lines,cartel,Asia and Eur,1975,1990,11,CMA-CGM,Subsidiary of CMA-CGM since 2016,NA
+12,OOCL,cartel,Asia and Eur,1975,1990,12,Cosco,Subsidiary of COSCO since 2018,NA
+13,Franco-Belgian Services,cartel,Asia and Eur,1976,1986,13,Maersk,Merged by Maersk in 1987,1
+14,Maersk,cartel,Asia and Eur,1976,1990,14,NA,Ongoing,NA
+15,Chargeurs Reunis,cartel,Asia and Eur,1977,1990,15,NA,Ongoing,NA
+16,Cie Generale Maritime,cartel,Asia and Eur,1977,1990,16,CMA-CGM,Merged as CMA-CGM since 1999,NA
+17,Compagnie Maritime Belge,cartel,Asia and Eur,1977,1990,17,Maersk,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998),NA
+18,East Asiatic Co. A/S,cartel,Asia and Eur,1977,1990,18,Maersk,Merged by Maersk in 1993,NA
+19,Nedlloyd,cartel,Asia and Eur,1977,1990,19,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+20,Wilhelmsen Lines A/S,cartel,Asia and Eur,1978,1990,20,NA,Ongoing,NA
+21,KSC,cartel,Asia and Eur,1979,1987,21,Hanjin,Merged by Hanjin in 1987,1
+22,Hanjin,cartel,Asia and Eur,1979,1988,22,NA,Bankrupt in 2016,NA
+23,Lloyd Triestino,cartel,Asia and Eur,1979,1990,23,Evergreen,Merged by Evergreen in 1998,NA
+24,Jugolinija,cartel,Asia and Eur,1980,1990,24,NA,Bankrupt in 2000・@・iCroatia Line),NA
+25,DSR,cartel,Asia and Eur,1986,1988,25,Hanjin,Bankrupt in 2016(Merged by Hanjin in 1997)(Merged as DSR Senetor in 1994),NA
+26,P&O Containers,cartel,Asia and Eur,1986,1990,26,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+27,Cho Yang,cartel,Asia and Eur,1987,1988,27,NA,Bankrupt in 2001,NA
+28,Sea-Land,cartel,Asia and Eur,1989,1990,28,Maersk,Subsidiary of Maersk since 1999,NA
+29,Chipolbrok,noncartel,Asia and Eur,1973,1990,29,NA,Ongoing,NA
+30,Marfret,noncartel,Asia and Eur,1973,1990,30,NA,"Ongoing, back to coastal shipping in 2000",NA
+31,ENC,noncartel,Asia and Eur,1976,1990,31,NA,NA,NA
+32,Admiral Lines,noncartel,Asia and Eur,1977,1990,32,NA,General Cargo,NA
+33,Blasco,noncartel,Asia and Eur,1978,1990,33,NA,Ongoing,NA
+34,BSC,noncartel,Asia and Eur,1978,1990,34,NA,Ongoing,NA
+35,India SS,noncartel,Asia and Eur,1978,1990,35,NA,"Ongoing, SS Shipping",NA
+36,Evergreen,noncartel,Asia and Eur,1979,1990,36,NA,Ongoing,NA
+37,DL,noncartel,Asia and Eur,1981,1990,37,NA,NA,NA
+38,Omex,noncartel,Asia and Eur,1981,1990,38,NA,NA,NA
+39,Cosco,noncartel,Asia and Eur,1982,1990,39,NA,Ongoing,NA
+40,Zim,noncartel,Asia and Eur,1982,1990,40,NA,Ongoing,NA
+41,CSC,noncartel,Asia and Eur,1983,1990,41,NA,NA,NA
+42,NSCSA,noncartel,Asia and Eur,1983,1990,42,NA,"Ongoing,National Shipping Company of Saudi Arabia(Bahri)",NA
+43,Compagnie maritime d'affretement,noncartel,Asia and Eur,1985,1990,43,CMA-CGM,Merged as CMA-CGM since 1999,NA
+44,Norasia,noncartel,Asia and Eur,1986,1990,44,CSAV,Merged by CSAV in 2000,NA
+45,Cho Yang,noncartel,Asia and Eur,1989,1990,46,NA,Bankrupt in 2001,NA
+46,DSR,noncartel,Asia and Eur,1989,1990,47,Hanjin,Bankrupt in 2016(Merged by Hanjin in 1997)(Merged as DSR Senetor in 1994),NA
+47,Hanjin,noncartel,Asia and Eur,1989,1990,48,NA,Bankrupt in 2016,NA
+48,ScanDutch,noncartel_only_in_CIY,Asia and Eur,1967,1971,49,NA,A Group in Conference,NA
+49,Maersk,noncartel_only_in_CIY,Asia and Eur,1967,1975,50,NA,Ongoing,NA
+50,Cosco,noncartel_only_in_CIY,Asia and Eur,1970,1981,51,NA,Ongoing,NA
+51,MSC,noncartel_only_in_CIY,Asia and Eur,1970,1990,52,NA,Ongoing,NA
+52,Samudera,noncartel_only_in_CIY,Asia and Eur,1971,1990,53,NA,Ongoing,NA
+53,OOCL,noncartel_only_in_CIY,Asia and Eur,1972,1974,54,Cosco,Subsidiary of COSCO since 2018,NA
+54,Jugolinija,noncartel_only_in_CIY,Asia and Eur,1972,1979,55,NA,Bankrupt in 2000・@・iCroatia Line),NA
+55,EISC,noncartel_only_in_CIY,Asia and Eur,1972,1990,56,NA,"Ongoing,Egyptian International Shipping Company",NA
+56,Occon Line,noncartel_only_in_CIY,Asia and Eur,1972,1990,57,NA,NA,NA
+57,Neptune Orient Lines,noncartel_only_in_CIY,Asia and Eur,1973,1974,58,CMA-CGM,Subsidiary of CMA-CGM since 2016,NA
+58,Blasco,noncartel_only_in_CIY,Asia and Eur,1973,1977,59,NA,Ongoing,NA
+59,Sea-Land,noncartel_only_in_CIY,Asia and Eur,1973,1988,60,Maersk,Subsidiary of Maersk since 1999,NA
+60,Blue Funnel Kine,noncartel_only_in_CIY,Asia and Eur,1976,1990,61,NA,Ended in 1988,NA
+61,Mixte,noncartel_only_in_CIY,Asia and Eur,1976,1990,62,NA,Merged by Paribas in 1995,NA
+62,P&O Containers,noncartel_only_in_CIY,Asia and Eur,1977,1985,63,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+63,Finland Steamship,noncartel_only_in_CIY,Asia and Eur,1977,1990,64,Finnlines,Merged by Finnlines in 1990,1
+64,Hong Kong Cont Line,noncartel_only_in_CIY,Asia and Eur,1977,1990,65,NA,NA,NA
+65,Sinotrans,noncartel_only_in_CIY,Asia and Eur,1977,1990,66,NA,Ongoing,NA
+66,Evergreen,noncartel_only_in_CIY,Asia and Eur,1978,1978,67,NA,Ongoing,NA
+67,Admiral Shipping,noncartel_only_in_CIY,Asia and Eur,1978,1990,68,NA,NA,NA
+68,Norient Line,noncartel_only_in_CIY,Asia and Eur,1978,1990,69,NA,Stopped operation in 1980s,NA
+69,TFH Line,noncartel_only_in_CIY,Asia and Eur,1978,1990,70,NA,NA,NA
+70,SMTM,noncartel_only_in_CIY,Asia and Eur,1979,1990,71,NA,"Ongoing, Societe Malagache de Transport Maritimes",NA
+71,Rickmers,noncartel_only_in_CIY,Asia and Eur,1980,1990,72,NA,Bankrupt in 2017,NA
+72,Contship,noncartel_only_in_CIY,Asia and Eur,1982,1990,73,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+73,Merzario,noncartel_only_in_CIY,Asia and Eur,1983,1990,74,Compagnie Maritime Belge,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)(Merged by Compagnie Maritime Belge in 1989・j,NA
+74,Conship,noncartel_only_in_CIY,Asia and Eur,1986,1990,75,NA,Ongoing,NA
+75,Wan Hai,noncartel_only_in_CIY,Asia and Eur,1987,1990,76,NA,Ongoing,NA
+76,Lykes Lines,cartel,Transatlantic,1966,1966,77,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+77,Moore-McCormack Lines Inc,cartel,Transatlantic,1966,1970,78,United States Lines,Merged by United States Lines in 1982,1
+78,Farrell Lines,cartel,Transatlantic,1966,1980,79,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
+79,United States Lines,cartel,Transatlantic,1966,1985,80,NA,Bankrupt in 1987,NA
+80,d'Amico,cartel,Transatlantic,1966,1989,81,NA,Ongoing,NA
+81,Sea-Land,cartel,Transatlantic,1966,1990,82,Maersk,Subsidiary of Maersk since 1999,NA
+82,Cie Generale Maritime,cartel,Transatlantic,1967,1989,83,CMA-CGM,Merged as CMA-CGM since 1999,NA
+83,Atlantic Container Line,cartel,Transatlantic,1967,1990,84,Grimaldi,Merged by Grimaldi  in 2001,NA
+84,Manchester Liners,cartel,Transatlantic,1968,1989,85,NA,"Liquidated in 1985, and services were taken over by OOCL",NA
+85,American Export Lines,cartel,Transatlantic,1969,1977,86,NA,Bankrupt in 1978,NA
+86,Seatrain Lines,cartel,Transatlantic,1969,1980,87,NA,Bankrupt in 1982,NA
+87,CP Ships,cartel,Transatlantic,1969,1990,88,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005,NA
+88,Hapag-Lloyd,cartel,Transatlantic,1969,1990,89,NA,Ongoing,NA
+89,Prudential Grace Line,cartel,Transatlantic,1970,1985,90,NA,Bankrupt in 1986,NA
+90,Dart Containerline,cartel,Transatlantic,1970,1989,91,NA,Services were taken over by OOCL,NA
+91,Lauro,cartel,Transatlantic,1970,1989,92,NA,NA,NA
+92,Jugolinija,cartel,Transatlantic,1973,1989,93,NA,Bankrupt in 2000・@・iCroatia Line),NA
+93,Y-S Line,cartel,Transatlantic,1974,1988,94,NLS,Merged as NLS since 1989,1
+94,Ibero Lines,cartel,Transatlantic,1977,1989,95,NA,"Ongoing, Ibero Linhas",NA
+95,Canmar/OOCL,cartel,Transatlantic,1978,1989,96,NA,NA,NA
+96,Trans Freight Lines,cartel,Transatlantic,1983,1989,97,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)(Merged by P&O in 1987),NA
+97,Nedlloyd,cartel,Transatlantic,1986,1990,98,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+98,OOCL,cartel,Transatlantic,1988,1990,99,Cosco,Subsidiary of COSCO since 2018,NA
+99,Grancolombiana,noncartel,Transatlantic,1966,1990,100,TMM,Merged by TMM in 1996,NA
+100,Star Shipping,noncartel,Transatlantic,1966,1990,101,NA,Ongoing,NA
+101,Johnson Line,noncartel,Transatlantic,1969,1972,102,Maersk,Subsidiary of Maersk since 2017 (Merged by Hamburg Sud in 1991),1
+102,Johnson-Scanstar,noncartel,Transatlantic,1969,1989,103,NA,Operation stopped in 1990,NA
+103,Joon Liner,noncartel,Transatlantic,1969,1990,104,NA,NA,NA
+104,Cast Line,noncartel,Transatlantic,1970,1980,105,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1995),NA
+105,Lash Carriers,noncartel,Transatlantic,1970,1990,106,NA,NA,NA
+106,Zim,noncartel,Transatlantic,1970,1990,107,NA,Ongoing,NA
+107,ABC Container Line,noncartel,Transatlantic,1971,1990,108,NA,Bankrupt in 1996,NA
+108,Canmar,noncartel,Transatlantic,1971,1990,109,NA,NA,NA
+109,Italia,noncartel,Transatlantic,1971,1990,110,Evergreen,Merged by Evergreen in 1998,NA
+110,TMM,noncartel,Transatlantic,1971,1990,111,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1999),NA
+111,Lykes Lines,noncartel,Transatlantic,1972,1990,112,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+112,Trasatlantica,noncartel,Transatlantic,1972,1990,113,NA,NA,NA
+113,Baltatlantic,noncartel,Transatlantic,1973,1989,114,NA,NA,NA
+114,Falline,noncartel,Transatlantic,1973,1990,115,NA,"Ongoing,Fednav Atlantic Lakes Line",NA
+115,Trans Freight Lines,noncartel,Transatlantic,1974,1982,116,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997)(Merged by P&O in 1987),NA
+116,Blasco,noncartel,Transatlantic,1975,1990,117,NA,Ongoing,NA
+117,BSC,noncartel,Transatlantic,1975,1990,118,NA,Ongoing,NA
+118,Euro-Gulf,noncartel,Transatlantic,1977,1990,119,NA,NA,NA
+119,Hoegh Lines,noncartel,Transatlantic,1977,1990,120,NA,Ongoing,NA
+120,Kent Line,noncartel,Transatlantic,1978,1990,121,NA,Ongoing,NA
+121,Gulf Container,noncartel,Transatlantic,1979,1989,122,NA,NA,NA
+122,Rainbow,noncartel,Transatlantic,1980,1990,123,NA,NA,NA
+123,Tecomar,noncartel,Transatlantic,1980,1990,124,NA,NA,NA
+124,AmTrans,noncartel,Transatlantic,1981,1990,125,NA,NA,NA
+125,Evergreen,noncartel,Transatlantic,1984,1990,126,NA,Ongoing,NA
+126,Compagnie Maritime Belge,noncartel,Transatlantic,1985,1990,127,Maersk,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998),NA
+127,MSC,noncartel,Transatlantic,1985,1990,128,NA,Ongoing,NA
+128,Maersk,noncartel,Transatlantic,1988,1990,129,NA,Ongoing,NA
+129,d'Amico,noncartel,Transatlantic,1990,1990,130,NA,Ongoing,NA
+130,Jugolinija,noncartel,Transatlantic,1990,1990,131,NA,Bankrupt in 2000・@・iCroatia Line),NA
+131,d'Amico,noncartel_only_in_CIY,Transatlantic,1965,1965,132,NA,Ongoing,NA
+132,Farrell Lines,noncartel_only_in_CIY,Transatlantic,1965,1965,133,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
+133,Grancolombiana,noncartel_only_in_CIY,Transatlantic,1965,1965,134,TMM,Merged by TMM in 1996,NA
+134,Moore-McCormack Lines Inc,noncartel_only_in_CIY,Transatlantic,1965,1965,135,United States Lines,Merged by United States Lines in 1982,1
+135,Sea-Land,noncartel_only_in_CIY,Transatlantic,1965,1965,136,Maersk,Subsidiary of Maersk since 1999,NA
+136,Star Shipping,noncartel_only_in_CIY,Transatlantic,1965,1965,137,NA,Ongoing,NA
+137,United States Lines,noncartel_only_in_CIY,Transatlantic,1965,1965,138,NA,Bankrupt in 1987,NA
+138,Lykes Lines,noncartel_only_in_CIY,Transatlantic,1965,1971,139,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+139,Seatrain Lines,noncartel_only_in_CIY,Transatlantic,1966,1968,140,NA,Bankrupt in 1982,NA
+140,GSAL,noncartel_only_in_CIY,Transatlantic,1967,1990,141,NA,NA,NA
+141,Ybarra,noncartel_only_in_CIY,Transatlantic,1967,1990,142,Maersk,Subsidiary of Maersk since 2017(Merged by Hamburg Sud in 2007),NA
+142,Hapag-Lloyd,noncartel_only_in_CIY,Transatlantic,1968,1968,143,NA,Ongoing,NA
+143,Cast Line,noncartel_only_in_CIY,Transatlantic,1969,1969,144,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1995),NA
+144,Marasia,noncartel_only_in_CIY,Transatlantic,1969,1986,145,NA,Taken over in 1987,NA
+145,Uiterwyck Lines,noncartel_only_in_CIY,Transatlantic,1969,1990,146,NA,NA,NA
+146,Atkabtuca SpA,noncartel_only_in_CIY,Transatlantic,1970,1990,147,NA,NA,NA
+147,Ciamar,noncartel_only_in_CIY,Transatlantic,1970,1990,148,NA,NA,NA
+148,Prudential Lines,noncartel_only_in_CIY,Transatlantic,1970,1990,149,NA,Bankrupt in 1986,NA
+149,Unimex/Deppe,noncartel_only_in_CIY,Transatlantic,1970,1990,150,NA,NA,NA
+150,Nedlloyd,noncartel_only_in_CIY,Transatlantic,1971,1985,151,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+151,OOCL,noncartel_only_in_CIY,Transatlantic,1971,1987,152,Cosco,Subsidiary of COSCO since 2018,NA
+152,Cia Transatlantica Espanola,noncartel_only_in_CIY,Transatlantic,1971,1990,153,NA,Bankrupt in 2012,NA
+153,Finnlines,noncartel_only_in_CIY,Transatlantic,1971,1990,154,NA,Ongoing,NA
+154,Italia marittima SpA,noncartel_only_in_CIY,Transatlantic,1971,1990,155,Evergreen,Merged by Evergreen in 1998,NA
+155,New England Express Line,noncartel_only_in_CIY,Transatlantic,1971,1990,156,NA,NA,NA
+156,Atlantic Lash,noncartel_only_in_CIY,Transatlantic,1972,1990,157,NA,NA,NA
+157,Maritime Container Line,noncartel_only_in_CIY,Transatlantic,1972,1990,158,NA,NA,NA
+158,Portline,noncartel_only_in_CIY,Transatlantic,1972,1990,159,NA,"Ongoing, established in 1984",NA
+159,USSR,noncartel_only_in_CIY,Transatlantic,1972,1990,160,NA,We may treat as FESCO,NA
+160,Bank Line,noncartel_only_in_CIY,Transatlantic,1973,1990,161,Swire,Subsidiary of Swire since 2003,NA
+161,CCL,noncartel_only_in_CIY,Transatlantic,1973,1990,162,NA,NA,NA
+162,Combi Line,noncartel_only_in_CIY,Transatlantic,1973,1990,163,NA,Ongoing,NA
+163,Eurosal,noncartel_only_in_CIY,Transatlantic,1973,1990,164,NA,A consortium in conference,NA
+164,MSC,noncartel_only_in_CIY,Transatlantic,1974,1984,165,NA,Ongoing,NA
+165,Montemar,noncartel_only_in_CIY,Transatlantic,1975,1990,166,NA,Subsidiary of Nav del Odiel,NA
+166,Contract Marine Carriers,noncartel_only_in_CIY,Transatlantic,1976,1990,167,NA,Ongoing,NA
+167,Latvian Shipping Co,noncartel_only_in_CIY,Transatlantic,1976,1990,168,NA,Ongoing,NA
+168,Nav del Odiel,noncartel_only_in_CIY,Transatlantic,1976,1990,169,NA,Ongoing,NA
+169,ScanPacific Line,noncartel_only_in_CIY,Transatlantic,1976,1990,170,NA,NA,NA
+170,Splosna Plovba,noncartel_only_in_CIY,Transatlantic,1976,1990,171,NA,Ongoing,NA
+171,Deutsche Afrika-Linien,noncartel_only_in_CIY,Transatlantic,1977,1990,172,NA,Ongoing,NA
+172,Elma,noncartel_only_in_CIY,Transatlantic,1977,1990,173,NA,dismantled in 1996,NA
+173,Harrison Line,noncartel_only_in_CIY,Transatlantic,1977,1990,174,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
+174,KNSM,noncartel_only_in_CIY,Transatlantic,1977,1990,175,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000)(Subsidiary of Nedlloyd since 1981),NA
+175,OPDR,noncartel_only_in_CIY,Transatlantic,1977,1990,176,CMA-CGM,Merged by CMA-CGM in 2014,NA
+176,Seas,noncartel_only_in_CIY,Transatlantic,1977,1990,177,NA,NA,NA
+177,CD,noncartel_only_in_CIY,Transatlantic,1978,1990,178,NA,NA,NA
+178,Compania Chilena de Navegacion Interoceanica,noncartel_only_in_CIY,Transatlantic,1978,1990,179,Maersk,Subsidiary of Maersk since 2017 (Subsidiary of Hamburg Sud since 2015),NA
+179,Constellation,noncartel_only_in_CIY,Transatlantic,1978,1990,180,NA,NA,NA
+180,Deppe,noncartel_only_in_CIY,Transatlantic,1978,1990,181,Maersk,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998) (Merged by Compagnie Maritime Belge in 1984),NA
+181,Eurobridge Lines,noncartel_only_in_CIY,Transatlantic,1978,1990,182,NA,NA,NA
+182,Ibertrans,noncartel_only_in_CIY,Transatlantic,1978,1990,183,NA,NA,NA
+183,Incotrans,noncartel_only_in_CIY,Transatlantic,1978,1990,184,NA,Ongoing,NA
+184,Marfret,noncartel_only_in_CIY,Transatlantic,1978,1990,185,NA,"Ongoing, back to coastal shipping in 2000",NA
+185,Montreal Europe Nav,noncartel_only_in_CIY,Transatlantic,1978,1990,186,NA,Ongoing,NA
+186,Quayport Line,noncartel_only_in_CIY,Transatlantic,1978,1990,187,NA,NA,NA
+187,Maersk,noncartel_only_in_CIY,Transatlantic,1979,1987,188,NA,Ongoing,NA
+188,Dannebrog,noncartel_only_in_CIY,Transatlantic,1979,1990,189,NA,Ongoing,NA
+189,DFDS,noncartel_only_in_CIY,Transatlantic,1979,1990,190,NA,"Ongoing, exit from liner business in 1999",NA
+190,Frigo,noncartel_only_in_CIY,Transatlantic,1979,1990,191,NA,NA,NA
+191,Laser Lines,noncartel_only_in_CIY,Transatlantic,1979,1990,192,NA,NA,NA
+192,Ocean Lines,noncartel_only_in_CIY,Transatlantic,1979,1990,193,NA,NA,NA
+193,Transmediterranea,noncartel_only_in_CIY,Transatlantic,1979,1990,194,NA,NA,NA
+194,Evergreen,noncartel_only_in_CIY,Transatlantic,1980,1983,195,NA,Ongoing,NA
+195,Contemaris,noncartel_only_in_CIY,Transatlantic,1980,1990,196,NA,NA,NA
+196,Mambisa,noncartel_only_in_CIY,Transatlantic,1980,1990,197,NA,NA,NA
+197,Surinam,noncartel_only_in_CIY,Transatlantic,1980,1990,198,NA,NA,NA
+198,WEC,noncartel_only_in_CIY,Transatlantic,1980,1990,199,NA,NA,NA
+199,Atlantic Cargo Service,noncartel_only_in_CIY,Transatlantic,1981,1990,200,NA,NA,NA
+200,Contship,noncartel_only_in_CIY,Transatlantic,1981,1990,201,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+201,Havenlijn,noncartel_only_in_CIY,Transatlantic,1981,1990,202,Maersk,Subsidiary of Maersk since 2017 (Consolidated by of Hamburg Sud since 1995),NA
+202,Lloyd Brasileiro,noncartel_only_in_CIY,Transatlantic,1981,1990,203,NA,Liquidated in 1998,NA
+203,Maruba,noncartel_only_in_CIY,Transatlantic,1981,1990,204,NA,Ongoing,NA
+204,Transroll,noncartel_only_in_CIY,Transatlantic,1981,1990,205,NA,NA,NA
+205,Alianca,noncartel_only_in_CIY,Transatlantic,1982,1990,206,Maersk,Subsidiary of CMA-CGM since 2017(Merged by Hamburg Sud in 1998),NA
+206,EAC West Africa,noncartel_only_in_CIY,Transatlantic,1982,1990,207,NA,NA,NA
+207,Empremar,noncartel_only_in_CIY,Transatlantic,1982,1990,208,NA,Ongoing,NA
+208,EWL,noncartel_only_in_CIY,Transatlantic,1982,1990,209,NA,Ongoing,NA
+209,Fred Olsen,noncartel_only_in_CIY,Transatlantic,1982,1990,210,NA,Ongoing,NA
+210,Hamburg-Sud,noncartel_only_in_CIY,Transatlantic,1982,1990,211,Maersk,Subsidiary of Maersk since 2017,NA
+211,Caribtainer,noncartel_only_in_CIY,Transatlantic,1983,1990,212,NA,NA,NA
+212,Europe Paraguay,noncartel_only_in_CIY,Transatlantic,1983,1990,213,NA,NA,NA
+213,Independent,noncartel_only_in_CIY,Transatlantic,1984,1990,214,NA,"Ongoing, Independent Container Line",NA
+214,PSNC,noncartel_only_in_CIY,Transatlantic,1984,1990,215,NA,Sold to German Oetker shipping group,NA
+215,Transnave,noncartel_only_in_CIY,Transatlantic,1984,1990,216,NA,Ongoing,NA
+216,Booth,noncartel_only_in_CIY,Transatlantic,1985,1990,217,NA,Ongoing,NA
+217,CTC,noncartel_only_in_CIY,Transatlantic,1985,1990,218,NA,NA,NA
+218,Samband,noncartel_only_in_CIY,Transatlantic,1985,1990,219,NA,Remaned Samskip in 1991,NA
+219,Topgallant,noncartel_only_in_CIY,Transatlantic,1985,1990,220,NA,Exit from trunk line,NA
+220,Brisa,noncartel_only_in_CIY,Transatlantic,1986,1990,221,NA,NA,NA
+221,Grimaldi,noncartel_only_in_CIY,Transatlantic,1987,1990,222,NA,Ongoing,NA
+222,UMAG,noncartel_only_in_CIY,Transatlantic,1988,1990,223,NA,NA,NA
+223,Knutsen Line,cartel,Transpacific,1965,1982,224,NA,Ongoing,NA
+224,American Mail Line,cartel,Transpacific,1968,1972,225,CMA-CGM,Subsidiary of CMA-CGM since 2016 (Subsidiary of NOL since 1998)(Merged by American President Lines in 1973),NA
+225,Japanese joint service,cartel,Transpacific,1968,1986,226,NA,A Group in Conference,NA
+226,American President Lines,cartel,Transpacific,1968,1990,227,CMA-CGM,Subsidiary of CMA-CGM since 2016 (Subsidiary of NOL since 1998),NA
+227,NYK,cartel,Transpacific,1968,1990,228,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+228,Seaway Express Lines,cartel,Transpacific,1970,1979,229,NA,NA,NA
+229,Hellenic Lines,cartel,Transpacific,1971,1982,230,NA,Ongoing,NA
+230,K-Line,cartel,Transpacific,1971,1990,231,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+231,Sea-Land,cartel,Transpacific,1972,1990,232,Maersk,Subsidiary of Maersk since 1999,NA
+232,Zim,cartel,Transpacific,1973,1982,233,NA,Ongoing,NA
+233,Maersk,cartel,Transpacific,1975,1990,234,NA,Ongoing,NA
+234,OOCL,cartel,Transpacific,1975,1990,235,Cosco,Subsidiary of COSCO since 2018,NA
+235,Y-S Line,cartel,Transpacific,1976,1988,236,NLS,Merged as NLS since 1989,1
+236,MOL,cartel,Transpacific,1976,1990,237,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+237,United States Lines,cartel,Transpacific,1977,1984,238,NA,Bankrupt in 1987,NA
+238,Barber Blue Sea Line,cartel,Transpacific,1977,1990,239,Wilhelmsen Lines A/S,Merged by Wilhelmsen Lines A/S since 1990,NA
+239,Korea Marine Trans/NYK,cartel,Transpacific,1978,1990,240,NA,NA,NA
+240,Neptune Orient Lines,cartel,Transpacific,1978,1990,241,CMA-CGM,Subsidiary of CMA-CGM since 2016,NA
+241,NYK/Showa,cartel,Transpacific,1978,1990,242,NYK,Merged by NYK on 1998,NA
+242,Hanjin,cartel,Transpacific,1979,1990,243,NA,Bankrupt in 2016,NA
+243,Japan Line,cartel,Transpacific,1981,1988,244,NLS,Merged as NLS since 1989,1
+244,MOL/NYK,cartel,Transpacific,1986,1990,245,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
+245,Nissan,cartel,Transpacific,1987,1990,246,MOL,Subsidiary of MOL since 2009,NA
+246,NLS,cartel,Transpacific,1988,1990,247,NYK,Merged by NYK on 1991,NA
+247,Matson,noncartel,Transpacific,1965,1970,248,NA,Ongoing,NA
+248,Star Shipping,noncartel,Transpacific,1968,1990,249,NA,Ongoing,NA
+249,Great Eastern Shipping Corp,noncartel,Transpacific,1969,1990,250,NA,Ongoing,NA
+250,Pacific Far East Line,noncartel,Transpacific,1971,1978,251,NA,Bankrupt in 1978,NA
+251,Phoenix Container Line,noncartel,Transpacific,1971,1983,252,NA,NA,NA
+252,Frota Oceanica,noncartel,Transpacific,1971,1990,253,TMM,Merged by TMM in 1996,NA
+253,Seatrain Lines,noncartel,Transpacific,1972,1980,254,NA,Bankrupt in 1982,NA
+254,Fesco,noncartel,Transpacific,1972,1990,255,NA,Ongoing,NA
+255,American Export Lines,noncartel,Transpacific,1973,1977,256,NA,Bankrupt in 1978,NA
+256,Evergreen,noncartel,Transpacific,1975,1990,257,NA,Ongoing,NA
+257,KSC,noncartel,Transpacific,1976,1988,258,Hanjin,Merged by Hanjin in 1987,1
+258,Farrell Lines,noncartel,Transpacific,1978,1979,259,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
+259,East Asiatic Co. A/S,noncartel,Transpacific,1978,1990,260,Maersk,Merged by Maersk in 1993,NA
+260,Hapag-Lloyd,noncartel,Transpacific,1978,1990,261,NA,Ongoing,NA
+261,Yangming,noncartel,Transpacific,1978,1990,262,NA,Ongoing,NA
+262,Seaboard Pacific Line,noncartel,Transpacific,1979,1984,263,NA,NA,NA
+263,Lykes Lines,noncartel,Transpacific,1979,1990,264,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+264,TMM,noncartel,Transpacific,1979,1990,265,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1999),NA
+265,Transnave,noncartel,Transpacific,1979,1990,266,NA,Ongoing,NA
+266,Seaway Express Lines,noncartel,Transpacific,1980,1989,267,NA,NA,NA
+267,Cosco,noncartel,Transpacific,1980,1990,268,NA,Ongoing,NA
+268,CPV,noncartel,Transpacific,1980,1990,269,NA,NA,NA
+269,Hoegh Lines,noncartel,Transpacific,1980,1990,270,NA,Ongoing,NA
+270,NSCP,noncartel,Transpacific,1980,1990,271,NA,NA,NA
+271,Sea-Land,noncartel,Transpacific,1981,1982,272,Maersk,Subsidiary of Maersk since 1999,NA
+272,PNSC,noncartel,Transpacific,1983,1990,273,NA,"Ongoing, Pakistan National Shipping Corporation",NA
+273,Zim,noncartel,Transpacific,1983,1990,274,NA,Ongoing,NA
+274,Kyowa,noncartel,Transpacific,1984,1990,275,NA,Ongoing,NA
+275,GBCS,noncartel,Transpacific,1985,1990,276,NA,"Ongoing, Global Bulk Containers",NA
+276,Westwood,noncartel,Transpacific,1986,1990,277,NA,Ongoing,NA
+277,Nedlloyd,noncartel,Transpacific,1989,1990,278,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+278,Farrell Lines,noncartel_only_in_CIY,Transpacific,1965,1977,279,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
+279,Lykes Lines,noncartel_only_in_CIY,Transpacific,1965,1978,280,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
+280,Galleon,noncartel_only_in_CIY,Transpacific,1965,1990,281,NA,NA,NA
+281,Maersk,noncartel_only_in_CIY,Transpacific,1967,1974,282,NA,Ongoing,NA
+282,Hoegh Lines,noncartel_only_in_CIY,Transpacific,1967,1979,283,NA,Ongoing,NA
+283,Yangming,noncartel_only_in_CIY,Transpacific,1969,1977,284,NA,Ongoing,NA
+284,Nedlloyd,noncartel_only_in_CIY,Transpacific,1970,1988,285,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
+285,American Export Lines,noncartel_only_in_CIY,Transpacific,1971,1972,286,NA,Bankrupt in 1978,NA
+286,OOCL,noncartel_only_in_CIY,Transpacific,1971,1974,287,Cosco,Subsidiary of COSCO since 2018,NA
+287,KSC,noncartel_only_in_CIY,Transpacific,1971,1975,288,Hanjin,Merged by Hanjin in 1987,1
+288,Hanjin,noncartel_only_in_CIY,Transpacific,1971,1978,289,NA,Bankrupt in 2016,NA
+289,Hapag-Lloyd,noncartel_only_in_CIY,Transpacific,1972,1977,290,NA,Ongoing,NA
+290,USSR,noncartel_only_in_CIY,Transpacific,1973,1990,291,NA,We may treat as FESCO,NA
+291,Cosco,noncartel_only_in_CIY,Transpacific,1974,1979,292,NA,Ongoing,NA
+292,Atlanttrafik/Barber Blue Sea,noncartel_only_in_CIY,Transpacific,1974,1990,293,Wilhelmsen Lines A/S,Merged by Wilhelmsen Lines A/S since 1990,1
+293,Elma,noncartel_only_in_CIY,Transpacific,1976,1990,294,NA,dismantled in 1996,NA
+294,Bank Line,noncartel_only_in_CIY,Transpacific,1977,1990,295,Swire,Subsidiary of Swire since 2003,NA
+295,Canisa,noncartel_only_in_CIY,Transpacific,1977,1990,296,NA,NA,NA
+296,Ro-Lo Pacific Line,noncartel_only_in_CIY,Transpacific,1977,1990,297,NA,NA,NA
+297,Compania Chilena de Navegacion Interoceanica,noncartel_only_in_CIY,Transpacific,1978,1990,298,Maersk,Subsidiary of Maersk since 2017 (Subsidiary of Hamburg Sud since 2015),NA
+298,MFECS,noncartel_only_in_CIY,Transpacific,1978,1990,299,NA,A consortium in conference,NA
+299,Scindia,noncartel_only_in_CIY,Transpacific,1978,1990,300,NA,"Ongoing, Scindia Steam Navigation Company",NA
+300,NLS,noncartel_only_in_CIY,Transpacific,1979,1987,301,NYK,Merged by NYK on 1991,NA
+301,CC Line,noncartel_only_in_CIY,Transpacific,1979,1990,302,NA,NA,NA
+302,Lloyd Brasileiro,noncartel_only_in_CIY,Transpacific,1979,1990,303,NA,Liquidated in 1998,NA
+303,UASC,noncartel_only_in_CIY,Transpacific,1979,1990,304,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2017,NA
+304,Japanese joint service,noncartel_only_in_CIY,Transpacific,1987,1990,305,NA,A Group in Conference,NA
