@@ -2,7 +2,7 @@
 1,NYK,cartel,Asia and Eur,1971,1990,1,Ocean Network Express,Merged as Ocean Network Express since 2016,NA
 2,TRIO,cartel,Asia and Eur,1971,1990,2,NA,A Group in Conference,NA
 3,Zim,cartel,Asia and Eur,1972,1981,3,NA,Ongoing,NA
-4,OCL,cartel,Asia and Eur,1972,1986,4,P\&O Containers,Merged by P&O in 1986,1
+4,OCL,cartel,Asia and Eur,1972,1986,4,P&O Containers,Merged by P&O in 1986,1
 5,Ben Line,cartel,Asia and Eur,1972,1990,5,NA,All ships were sold in 1991,NA
 6,Hapag-Lloyd,cartel,Asia and Eur,1972,1990,6,NA,Ongoing,NA
 7,Med-Club,cartel,Asia and Eur,1972,1990,7,NA,NA,NA
@@ -22,7 +22,7 @@
 21,KSC,cartel,Asia and Eur,1979,1987,21,Hanjin,Merged by Hanjin in 1987,1
 22,Hanjin,cartel,Asia and Eur,1979,1988,22,NA,Bankrupt in 2016,NA
 23,Lloyd Triestino,cartel,Asia and Eur,1979,1990,23,Evergreen,Merged by Evergreen in 1998,NA
-24,Jugolinija,cartel,Asia and Eur,1980,1990,24,NA,Bankrupt in 2000・EEE@・EEEiCroatia Line),NA
+24,Jugolinija,cartel,Asia and Eur,1980,1990,24,NA,Bankrupt in 2000・EEEE@・EEEEiCroatia Line),NA
 25,DSR,cartel,Asia and Eur,1986,1988,25,Hanjin,Bankrupt in 2016(Merged by Hanjin in 1997)(Merged as DSR Senetor in 1994),NA
 26,P&O Containers,cartel,Asia and Eur,1986,1990,26,Maersk,Subsidiary of Maersk since 2005 (Merged as P&O Nedlloyd since 1997),NA
 27,Cho Yang,cartel,Asia and Eur,1987,1988,27,NA,Bankrupt in 2001,NA
@@ -52,7 +52,7 @@
 51,MSC,noncartel_only_in_CIY,Asia and Eur,1970,1990,52,NA,Ongoing,NA
 52,Samudera,noncartel_only_in_CIY,Asia and Eur,1971,1990,53,NA,Ongoing,NA
 53,OOCL,noncartel_only_in_CIY,Asia and Eur,1972,1974,54,Cosco,Subsidiary of COSCO since 2018,NA
-54,Jugolinija,noncartel_only_in_CIY,Asia and Eur,1972,1979,55,NA,Bankrupt in 2000・EEE@・EEEiCroatia Line),NA
+54,Jugolinija,noncartel_only_in_CIY,Asia and Eur,1972,1979,55,NA,Bankrupt in 2000・EEEE@・EEEEiCroatia Line),NA
 55,EISC,noncartel_only_in_CIY,Asia and Eur,1972,1990,56,NA,"Ongoing,Egyptian International Shipping Company",NA
 56,Occon Line,noncartel_only_in_CIY,Asia and Eur,1972,1990,57,NA,NA,NA
 57,Neptune Orient Lines,noncartel_only_in_CIY,Asia and Eur,1973,1974,58,CMA-CGM,Subsidiary of CMA-CGM since 2016,NA
@@ -71,7 +71,7 @@
 70,SMTM,noncartel_only_in_CIY,Asia and Eur,1979,1990,71,NA,"Ongoing, Societe Malagache de Transport Maritimes",NA
 71,Rickmers,noncartel_only_in_CIY,Asia and Eur,1980,1990,72,NA,Bankrupt in 2017,NA
 72,Contship,noncartel_only_in_CIY,Asia and Eur,1982,1990,73,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
-73,Merzario,noncartel_only_in_CIY,Asia and Eur,1983,1990,74,Compagnie Maritime Belge,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)(Merged by Compagnie Maritime Belge in 1989・EEEj,NA
+73,Merzario,noncartel_only_in_CIY,Asia and Eur,1983,1990,74,Compagnie Maritime Belge,Subsidiary of Maersk since 1999 (Merged by Safmarine in 1998)(Merged by Compagnie Maritime Belge in 1989・EEEEj,NA
 74,Conship,noncartel_only_in_CIY,Asia and Eur,1986,1990,75,NA,Ongoing,NA
 75,Wan Hai,noncartel_only_in_CIY,Asia and Eur,1987,1990,76,NA,Ongoing,NA
 76,Lykes Lines,cartel,Transatlantic,1966,1966,77,Hapag-Lloyd,Subsidiary of Hapag-Lloyd since 2005 (Merged by CP Ships in 1997),NA
@@ -90,7 +90,7 @@
 89,Prudential Grace Line,cartel,Transatlantic,1970,1985,90,NA,Bankrupt in 1986,NA
 90,Dart Containerline,cartel,Transatlantic,1970,1989,91,NA,Services were taken over by OOCL,NA
 91,Lauro,cartel,Transatlantic,1970,1989,92,NA,NA,NA
-92,Jugolinija,cartel,Transatlantic,1973,1989,93,NA,Bankrupt in 2000・EEE@・EEEiCroatia Line),NA
+92,Jugolinija,cartel,Transatlantic,1973,1989,93,NA,Bankrupt in 2000・EEEE@・EEEEiCroatia Line),NA
 93,Y-S Line,cartel,Transatlantic,1974,1988,94,NLS,Merged as NLS since 1989,1
 94,Ibero Lines,cartel,Transatlantic,1977,1989,95,NA,"Ongoing, Ibero Linhas",NA
 95,Canmar/OOCL,cartel,Transatlantic,1978,1989,96,NA,NA,NA
@@ -128,7 +128,7 @@
 127,MSC,noncartel,Transatlantic,1985,1990,128,NA,Ongoing,NA
 128,Maersk,noncartel,Transatlantic,1988,1990,129,NA,Ongoing,NA
 129,d'Amico,noncartel,Transatlantic,1990,1990,130,NA,Ongoing,NA
-130,Jugolinija,noncartel,Transatlantic,1990,1990,131,NA,Bankrupt in 2000・EEE@・EEEiCroatia Line),NA
+130,Jugolinija,noncartel,Transatlantic,1990,1990,131,NA,Bankrupt in 2000・EEEE@・EEEEiCroatia Line),NA
 131,d'Amico,noncartel_only_in_CIY,Transatlantic,1965,1965,132,NA,Ongoing,NA
 132,Farrell Lines,noncartel_only_in_CIY,Transatlantic,1965,1965,133,Maersk,Subsidiary of Maersk since 2005 (Merged by P&O Nedlloyd in 2000),NA
 133,Grancolombiana,noncartel_only_in_CIY,Transatlantic,1965,1965,134,TMM,Merged by TMM in 1996,NA
