@@ -1,0 +1,112 @@
+---
+title: "01_clean_data"
+author: "Suguru Otani"
+date: "2022/7/2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(magrittr)
+library(ggplot2)
+```
+
+
+```{r cars, warning=FALSE, echo=FALSE}
+param_list_CIY <-
+  readr::read_csv("../output/param_list_CIY.csv") %>% 
+  dplyr::rename(
+    beta1 = x1,
+    correct_match_percent = x2
+  ) %>% 
+  dplyr::filter(
+    correct_match_percent >= max(correct_match_percent)
+  ) %>% 
+  dplyr::mutate(
+    min_beta1 = 
+      format(round(min(beta1), digits = 4), nsmall = 4),
+    max_beta1 =
+      format(round(max(beta1), digits = 4), nsmall = 4),
+    max_correct_match_percent = 
+      format(round(max(correct_match_percent), digits = 4), nsmall = 4)
+  )
+param_list_HB <-
+  readr::read_csv("../output/param_list_HB.csv") %>% 
+  dplyr::rename(
+    beta1 = x1,
+    correct_match_percent = x2
+  ) %>% 
+  dplyr::filter(
+    correct_match_percent >= max(correct_match_percent)
+  ) %>% 
+  dplyr::mutate(
+    min_beta1 = 
+      format(round(min(beta1), digits = 4), nsmall = 4),
+    max_beta1 =
+      format(round(max(beta1), digits = 4), nsmall = 4),
+    max_correct_match_percent = 
+      format(round(max(correct_match_percent), digits = 4), nsmall = 4)
+  )
+
+# operator_level_entry_exit_merger_IHS <-
+#   readr::read_csv("../input/operator_level_entry_exit_merger_IHS.csv") %>% 
+#   dplyr::distinct(
+#     parent_company,
+#     .keep_all = TRUE
+#     ) 
+
+```
+
+
+# Mergers {.tabset}
+
+## Maximum score estimator
+
+```{r, echo=FALSE}
+
+result_for_output <-
+  cbind(
+    rbind(
+      "Standardized Firm age",
+      "Standardized Firm-year-level TEU",
+      "\\% of correct matches"
+    ),
+    rbind(
+      "1",
+      paste("[",param_list_CIY$min_beta1[1] ,",",param_list_CIY$max_beta1[1] , "]", sep = ""),
+      param_list_CIY$max_correct_match_percent[1]
+      ),
+    rbind(
+      "1",
+      paste("[",param_list_HB$min_beta1[1] ,",",param_list_HB$max_beta1[1] , "]", sep = ""),
+      param_list_HB$max_correct_match_percent[1]
+      )
+    )
+result_for_output <-
+  rbind(
+    c("Regime", "1966-1990", "2005-2022"),
+    result_for_output
+  )
+
+result_for_output %>%
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = "",
+    align = "lccc"
+  ) %>%
+  kableExtra::save_kable(
+    file = here::here("figuretable/maximum_score_estimate.tex")
+  )
+result_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+```
+
+
+
+
+
+

@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-*.rds
-*.csv
+#*.rds
+#*.csv
 GTAS*
