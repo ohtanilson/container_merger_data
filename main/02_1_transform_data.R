@@ -2,43 +2,99 @@
 rm(list = ls())
 library(magrittr)
 # load data ----
-HB_data <-
-  readRDS(file = "cleaned/HB_data.rds")
-shipdetails_container_data <-
-  readRDS(file = "cleaned/shipdetails_container_data.rds")
 CIY_data <- 
   readRDS(file = "cleaned/operator_level_panel_data.rds")
+IHS_data <-
+  readRDS(file = "cleaned/shipdetails_container_data.rds")
+HB_data <-
+  readRDS(file = "cleaned/HB_data.rds")
+
 operator_level_entry_exit_merger_CIY <-
-  readr::read_csv("input/operator_level_entry_exit_merger_CIY.csv") %>% 
-  dplyr::distinct(
-    operator,
-    state,
-    .keep_all = TRUE
+  readRDS(file = "cleaned/operator_level_entry_exit_merger_CIY.rds")
+operator_level_entry_exit_merger_IHS <-
+  readRDS(file = "cleaned/operator_level_entry_exit_merger_IHS.rds")
+operator_level_entry_exit_merger_HBdata <-
+  readRDS(file = "cleaned/operator_level_entry_exit_merger_HBdata.rds")
+
+HB_data <-
+  HB_data %>% 
+  dplyr::rename(
+    operator = operator_name
   ) %>% 
   dplyr::mutate(
-    dummy_merged_until_data_period =
+    TEU = 
       ifelse(
-        # this variable is manually added in csv
-        is.na(dummy_merged_by_data_period1990) == 1,
+        is.na(TEU) == 1,
         0,
-        1
+        TEU
       )
-  )
-
-operator_level_entry_exit_merger_HBdata <-
-  readr::read_csv("input/operator_level_entry_exit_merger_HBdata.csv") %>% 
-  dplyr::distinct(
-    operator_name,
-    .keep_all = TRUE
-  ) 
-
-operator_level_entry_exit_merger_IHS <-
-  readr::read_csv("input/operator_level_entry_exit_merger_IHS.csv") %>% 
-  dplyr::distinct(
-    parent_company,
-    .keep_all = TRUE
-  ) 
-
+  ) %>% 
+  dplyr::group_by(
+    operator,
+    year#,
+    #flag_country
+  ) %>% 
+  dplyr::summarise(
+    TEU =
+      sum(TEU),
+    sum_dw_per_operator_year =
+      sum(dw, na.rm = TRUE)
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::group_by(
+    operator
+  ) %>% 
+  dplyr::arrange(
+    operator,
+    year
+  ) %>% 
+  dplyr::mutate(
+    cumsum_TEU =
+      cumsum(TEU)
+  ) %>% 
+  dplyr::ungroup() 
+IHS_data <-
+  IHS_data %>% 
+  dplyr::rename(
+    operator = parent_company
+  ) %>% 
+  dplyr::mutate(
+    TEU =
+      gross_ton# * 
+    #conversion_ratio_tons_to_TEU
+  ) %>% 
+  dplyr::mutate(
+    TEU = 
+      ifelse(
+        is.na(TEU) == 1,
+        0,
+        TEU
+      )
+  ) %>% 
+  dplyr::group_by(
+    operator,
+    year#,
+    #parent_company_country_of_control_nat1
+  ) %>% 
+  dplyr::summarise(
+    TEU =
+      sum(TEU),
+    sum_dw_per_operator_year =
+      sum(dwt, na.rm = TRUE)
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::group_by(
+    operator
+  ) %>% 
+  dplyr::arrange(
+    operator,
+    year
+  ) %>% 
+  dplyr::mutate(
+    cumsum_TEU =
+      cumsum(TEU)
+  ) %>% 
+  dplyr::ungroup() 
 
 # extract data ----
 ## extract HB_data ----
@@ -46,56 +102,56 @@ colnames(HB_data)
 
 targeted_HB_data <-
   HB_data %>% 
-  dplyr::group_by(
-    operator_name,
-    year
-  ) %>% 
-  dplyr::mutate(
-    sum_dw_per_operator_year =
-      sum(dw, na.rm = TRUE)
-  ) %>% 
-  dplyr::ungroup() %>% 
+  # dplyr::group_by(
+  #   operator,
+  #   year
+  # ) %>%
+  # dplyr::mutate(
+  #   sum_dw_per_operator_year =
+  #     sum(dw, na.rm = TRUE)
+  # ) %>%
+  # dplyr::ungroup() %>%
   dplyr::distinct(
     year,
-    operator_name,
-    sum_dw_per_operator_year,
-    flag_country
+    operator,
+    sum_dw_per_operator_year#,
+    #flag_country
   ) %>% 
   dplyr::select(
     year,
-    operator_name,
-    sum_dw_per_operator_year,
-    flag_country
+    operator,
+    sum_dw_per_operator_year#,
+    #flag_country
   ) %>% 
   dplyr::mutate(
     data_source =
       "HB"
   )
-## extract shipdetails_container_data ----
-colnames(shipdetails_container_data)
+## extract IHS_data ----
+colnames(IHS_data)
 
-targeted_shipdetails_container_data <-
-  shipdetails_container_data %>% 
-  dplyr::group_by(
-    parent_company,
-    year
-  ) %>% 
-  dplyr::mutate(
-    sum_dw_per_operator_year =
-      sum(dwt, na.rm = TRUE)
-  ) %>% 
-  dplyr::ungroup() %>% 
+targeted_IHS_data <-
+  IHS_data %>% 
+  # dplyr::group_by(
+  #   operator,
+  #   year
+  # ) %>% 
+  # dplyr::mutate(
+  #   sum_dw_per_operator_year =
+  #     sum(dwt, na.rm = TRUE)
+  # ) %>% 
+  # dplyr::ungroup() %>% 
   dplyr::distinct(
     year,
-    parent_company,
-    sum_dw_per_operator_year ,
-    parent_company_country_of_control_nat1
+    operator,
+    sum_dw_per_operator_year# ,
+    #parent_company_country_of_control_nat1
   ) %>% 
   dplyr::select(
     year,
-    parent_company,
-    sum_dw_per_operator_year ,
-    parent_company_country_of_control_nat1
+    operator,
+    sum_dw_per_operator_year# ,
+    #parent_company_country_of_control_nat1
   ) %>% 
   dplyr::mutate(
     data_source =
@@ -128,8 +184,8 @@ targeted_CIY_data <-
   dplyr::select(
     year,
     operator,
-    sum_dw_per_operator_year,
-    market
+    sum_dw_per_operator_year#,
+    #market
   ) %>% 
   dplyr::mutate(
     data_source =
@@ -142,15 +198,15 @@ colnames(targeted_HB_data) <-
     "year",
     "operator",
     "dw",
-    "country_or_market",
+    #"country_or_market",
     "data_source"
     )
-colnames(targeted_shipdetails_container_data) <-
+colnames(targeted_IHS_data) <-
   c(
     "year",
     "operator",
     "dw",
-    "country_or_market",
+    #"country_or_market",
     "data_source"
   )
 colnames(targeted_CIY_data) <-
@@ -158,7 +214,7 @@ colnames(targeted_CIY_data) <-
     "year",
     "operator",
     "dw",
-    "country_or_market",
+    #"country_or_market",
     "data_source"
   )
 
@@ -166,7 +222,7 @@ colnames(targeted_CIY_data) <-
 operator_panel_data <-
   rbind(
     targeted_HB_data,
-    targeted_shipdetails_container_data,
+    targeted_IHS_data,
     targeted_CIY_data
     )
 
@@ -175,8 +231,8 @@ operator_panel_data <-
 
 
 
-# write unique_operator_name_list ----
-unique_operator_name_list_HB_and_CIY <-
+# write unique_operator_list ----
+unique_operator_list_HB_and_CIY <-
   operator_panel_data %>% 
   dplyr::filter(
     data_source == "HB" |
@@ -192,7 +248,7 @@ unique_operator_name_list_HB_and_CIY <-
     .keep_all = TRUE
   )
 
-unique_operator_name_list_IHS <-
+unique_operator_list_IHS <-
   operator_panel_data %>% 
   dplyr::filter(
     data_source == "IHS"
@@ -213,7 +269,7 @@ unique_operator_name_list_IHS <-
   dplyr::select(
     year,
     data_source,
-    country_or_market,
+    #country_or_market,
     operator,
     #connection_HB_or_CIY
   ) %>% 
@@ -258,7 +314,7 @@ unique_operator_name_list_IHS <-
       )
   )
 unique_merging_firm_name_list <-
-  unique_operator_name_list_IHS %>%
+  unique_operator_list_IHS %>%
   dplyr::distinct(
     merging_firm
   ) %>%
@@ -267,9 +323,148 @@ unique_merging_firm_name_list <-
       stringr::str_to_title(merging_firm)
   )
 
-# save ----
+# substitute missing firm-year samples for merging covariates ----
+## change CIY data ----
 
-write.csv(unique_operator_name_list_HB_and_CIY, 
-          file = "cleaned/unique_operator_name_list_HB_and_CIY.csv")
-write.csv(unique_operator_name_list_IHS, 
-          file = "cleaned/unique_operator_name_list_IHS.csv")
+## change IHS data ----
+
+## change HB_data ----
+# Ocean Network Express (2019年からしかHBに載っていないのに、2018年にmerging firmとして載っている)
+temp <-
+  HB_data %>% 
+  dplyr::filter(
+    operator == "Ocean Network Express"
+  ) %>% 
+  dplyr::filter(
+    year == 2019
+  ) %>% 
+  dplyr::mutate(
+    year = 2018
+  )
+HB_data <-
+  rbind(
+    HB_data,
+    temp
+  )
+# Swire(2011年だけHBに存在しないが、2012年にmerging firmとして載っている)→2012年を代入
+temp <-
+  HB_data %>% 
+  dplyr::filter(
+    operator == "Swire"
+  ) %>% 
+  dplyr::filter(
+    year == 2012
+  ) %>% 
+  dplyr::mutate(
+    year = 2011
+  )
+HB_data <-
+  rbind(
+    HB_data,
+    temp
+  )
+# Suzhou Shimonoseki Ferry(2008-2022年にHBに存在するが、2007年にmerging firmとして載っている)→2008を代入
+temp <-
+  HB_data %>% 
+  dplyr::filter(
+    operator == "Suzhou Shimonoseki Ferry"
+  ) %>% 
+  dplyr::filter(
+    year == 2008
+  ) %>% 
+  dplyr::mutate(
+    year = 2007
+  )
+HB_data <-
+  rbind(
+    HB_data,
+    temp
+  )
+# TAICANG CONTAINER LINES(2012-2022年にHBに存在するが、2011年にmerging firmとして載っている)→2012を代入
+temp <-
+  HB_data %>% 
+  dplyr::filter(
+    operator == "TAICANG CONTAINER LINES"
+  ) %>% 
+  dplyr::filter(
+    year == 2012
+  ) %>% 
+  dplyr::mutate(
+    year = 2011
+  )
+HB_data <-
+  rbind(
+    HB_data,
+    temp
+  )
+# Pan Continental(HBにparent_companyとして存在しない) →PanConのことで表記ブレが問題
+# temp <-
+#   HB_data %>% 
+#   dplyr::filter(
+#     operator == "PanCon"
+#   ) %>% 
+#   dplyr::filter(
+#     year == 2012
+#   ) %>% 
+#   dplyr::mutate(
+#     year = 2011
+#   )
+# HB_data <-
+#   rbind(
+#     HB_data,
+#     temp
+#   )
+
+# drop samples which is not observed in data ----
+
+## change CIY data ----
+#Hamburg Sudに関しては古いのでデータ取れず落とす
+operator_level_entry_exit_merger_CIY <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::filter(
+    merging_firm != "Hamburg Sud" |
+      is.na(merging_firm) == 1
+  )
+
+## change IHS data ----
+
+## change HB_data ----
+operator_level_entry_exit_merger_HBdata <-
+  operator_level_entry_exit_merger_HBdata %>% 
+  dplyr::filter(
+    merging_firm != "ZEAMARINE" &
+      merging_firm != "Hyoki Kaiun"
+  ) %>% 
+  # fix typo
+  dplyr::filter(
+    ifelse(
+      merging_firm == "Ocean Network Express" &
+        end == 2008,
+      1,
+      0
+    ) == 0
+  )
+
+
+
+
+# save ----
+saveRDS(HB_data,
+        file = "output/HB_data.rds")
+saveRDS(IHS_data,
+        file = "output/IHS_data.rds")
+saveRDS(CIY_data,
+        file = "output/CIY_data.rds")
+saveRDS(operator_level_entry_exit_merger_CIY,
+        file = "output/operator_level_entry_exit_merger_CIY.rds")
+saveRDS(operator_level_entry_exit_merger_HBdata,
+        file = "output/operator_level_entry_exit_merger_HBdata.rds")
+saveRDS(operator_level_entry_exit_merger_IHS,
+        file = "output/operator_level_entry_exit_merger_IHS.rds")
+
+
+
+write.csv(unique_operator_list_HB_and_CIY, 
+          file = "cleaned/unique_operator_list_HB_and_CIY.csv")
+write.csv(unique_operator_list_IHS, 
+          file = "cleaned/unique_operator_list_IHS.csv")

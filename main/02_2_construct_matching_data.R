@@ -5,87 +5,25 @@ library(magrittr)
 conversion_ratio_tons_to_TEU = 
   20 # 20 tons = 1 TEU
 CIY_data <- 
-  readRDS(file = "cleaned/operator_level_panel_data.rds")
-HB_data <-
-  readRDS(file = "cleaned/HB_data.rds") %>% 
-  dplyr::rename(
-    operator = operator_name
-  ) %>% 
-  dplyr::mutate(
-    TEU = 
-      ifelse(
-        is.na(TEU) == 1,
-        0,
-        TEU
-      )
-  ) %>% 
-  dplyr::group_by(
-    operator,
-    year
-    ) %>% 
-  dplyr::summarise(
-    TEU =
-      sum(TEU)
-  ) %>% 
-  dplyr::ungroup() %>% 
-  dplyr::group_by(
-    operator
-  ) %>% 
-  dplyr::arrange(
-    operator,
-    year
-  ) %>% 
-  dplyr::mutate(
-    cumsum_TEU =
-      cumsum(TEU)
-  ) %>% 
-  dplyr::ungroup() 
+  readRDS(file = "output/CIY_data.rds")
 IHS_data <-
-  readRDS(file = "cleaned/shipdetails_container_data.rds") %>% 
-  dplyr::rename(
-    operator = parent_company
-  ) %>% 
-  dplyr::mutate(
-    TEU =
-      gross_ton# * 
-      #conversion_ratio_tons_to_TEU
-  ) %>% 
-  dplyr::mutate(
-    TEU = 
-      ifelse(
-        is.na(TEU) == 1,
-        0,
-        TEU
-      )
-  ) %>% 
-  dplyr::group_by(
-    operator,
-    year
-  ) %>% 
-  dplyr::summarise(
-    TEU =
-      sum(TEU)
-  ) %>% 
-  dplyr::ungroup() %>% 
-  dplyr::group_by(
-    operator
-  ) %>% 
-  dplyr::arrange(
-    operator,
-    year
-  ) %>% 
-  dplyr::mutate(
-    cumsum_TEU =
-      cumsum(TEU)
-  ) %>% 
-  dplyr::ungroup() 
+  readRDS(file = "output/IHS_data.rds")
+HB_data <-
+  readRDS(file = "output/HB_data.rds")
+
 operator_level_entry_exit_merger_CIY <-
-  readr::read_csv("input/operator_level_entry_exit_merger_CIY.csv") %>% 
+  readRDS(file = "output/operator_level_entry_exit_merger_CIY.rds")
+operator_level_entry_exit_merger_IHS <-
+  readRDS(file = "output/operator_level_entry_exit_merger_IHS.rds")
+operator_level_entry_exit_merger_HBdata <-
+  readRDS(file = "output/operator_level_entry_exit_merger_HBdata.rds")
+operator_level_entry_exit_merger_CIY <-
+  operator_level_entry_exit_merger_CIY %>%
   dplyr::distinct(
     operator,
     state,
     .keep_all = TRUE
-  ) %>% 
+  ) %>%
   dplyr::mutate(
     dummy_merged_until_data_period =
       ifelse(
@@ -94,25 +32,25 @@ operator_level_entry_exit_merger_CIY <-
         0,
         1
       )
-  ) %>% 
+  ) %>%
   dplyr::filter(
     dummy_merged_until_data_period == 1
-  ) %>% 
+  ) %>%
   dplyr::select(
     operator,
     end,
     merging_firm
-  ) 
+  )
 
-operator_level_entry_exit_merger_HB <-
-  readr::read_csv("input/operator_level_entry_exit_merger_HBdata.csv") %>% 
+operator_level_entry_exit_merger_HBdata <-
+  operator_level_entry_exit_merger_HBdata %>%
   dplyr::distinct(
     operator_name,
     .keep_all = TRUE
-  ) %>% 
+  ) %>%
   dplyr::rename(
     operator = operator_name
-  ) %>% 
+  ) %>%
   dplyr::mutate(
     dummy_merged_until_data_period =
       ifelse(
@@ -121,25 +59,25 @@ operator_level_entry_exit_merger_HB <-
         0,
         1
       )
-  ) %>% 
+  ) %>%
   dplyr::filter(
     dummy_merged_until_data_period == 1
-  ) %>% 
+  ) %>%
   dplyr::select(
     operator,
     end,
     merging_firm
-  ) 
+  )
 
 operator_level_entry_exit_merger_IHS <-
-  readr::read_csv("input/operator_level_entry_exit_merger_IHS.csv") %>% 
+  operator_level_entry_exit_merger_IHS %>%
   dplyr::distinct(
     parent_company,
     .keep_all = TRUE
-  ) %>% 
+  ) %>%
   dplyr::rename(
     operator = parent_company
-  ) %>% 
+  ) %>%
   dplyr::mutate(
     dummy_merged_until_data_period =
       ifelse(
@@ -148,15 +86,15 @@ operator_level_entry_exit_merger_IHS <-
         0,
         1
       )
-  ) %>% 
+  ) %>%
   dplyr::filter(
     dummy_merged_until_data_period == 1
-  ) %>% 
+  ) %>%
   dplyr::select(
     operator,
     end,
     merging_firm
-  ) 
+  )
 
 # construct matching data ----
 construct_matching_pair_year <-
@@ -169,7 +107,8 @@ construct_matching_pair_year <-
       #data %>% 
       dplyr::group_by(
         operator,
-        year) %>% 
+        year
+        ) %>% 
       dplyr::summarize(
         cumsum_TEU =
           sum(cumsum_TEU, na.rm = T)
@@ -287,24 +226,24 @@ matching_pair_year_CIY <-
   construct_matching_pair_year(
     CIY_data,
     operator_level_entry_exit_merger_CIY
-  ) %>% 
-  tidyr::drop_na()
+  ) #%>% 
+  #tidyr::drop_na()
 matching_pair_year_IHS <-
   construct_matching_pair_year(
     IHS_data,
     operator_level_entry_exit_merger_IHS
   )
-matching_pair_year_HB <-
+matching_pair_year_HBdata <-
   construct_matching_pair_year(
     HB_data,
-    operator_level_entry_exit_merger_HB
-  ) %>% 
-  tidyr::drop_na()
+    operator_level_entry_exit_merger_HBdata
+  ) #%>% 
+  #tidyr::drop_na()
 
 # save ----
 saveRDS(matching_pair_year_CIY,
         file = "output/matching_pair_year_CIY.rds")
 saveRDS(matching_pair_year_IHS,
         file = "output/matching_pair_year_IHS.rds")
-saveRDS(matching_pair_year_HB,
-        file = "output/matching_pair_year_HB.rds")
+saveRDS(matching_pair_year_HBdata,
+        file = "output/matching_pair_year_HBdata.rds")

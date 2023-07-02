@@ -1,0 +1,420 @@
+---
+title: "01_clean_data"
+author: "Suguru Otani"
+date: "2022/7/2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+library(ggplot2)
+```
+
+
+```{r cars, warning=FALSE}
+operator_level_entry_exit_merger_CIY <-
+  readRDS(file = "../output/operator_level_entry_exit_merger_CIY.rds")
+operator_level_entry_exit_merger_HBdata <-
+  readRDS(file = "../output/operator_level_entry_exit_merger_HBdata.rds")
+operator_level_entry_exit_merger_IHS <-
+  readRDS(file = "../output/operator_level_entry_exit_merger_IHS.rds")
+
+HB_data <-
+  readRDS(file = "../output/HB_data.rds")
+IHS_data <-
+  readRDS(file = "../output/IHS_data.rds")
+```
+
+
+# Entry, exit, and mergers {.tabset}
+
+## Operator {.tabset}
+
+### CIY {.tabset}
+
+#### Merger list {.tabset}
+
+##### Market-level
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::filter(
+    dummy_merged_until_data_period == 1
+  ) %>% 
+  dplyr::arrange(start) %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+             operator,
+             merging_firm)
+  )
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+##### Industry-level
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::filter(
+    dummy_merged_until_data_period == 1
+  ) %>% 
+  dplyr::arrange(desc(end)) %>% 
+  dplyr::distinct(
+    operator,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::arrange(start,end) %>%
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+             operator,
+             merging_firm)
+  )
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  dplyr::select(
+    operator,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::mutate(
+    merging_firm =
+      ifelse(
+        merging_firm == "P&O",
+        "P\\&O",
+        merging_firm
+      )
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = operator,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_CIY.tex")
+  )
+```
+
+
+#### Overall Transition
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_CIY_for_output <-
+  operator_level_entry_exit_merger_CIY %>% 
+  dplyr::distinct(
+    operator,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::arrange(start) %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(
+        is.na(merging_firm) == 1 &
+          dummy_merged_until_data_period == 0,
+        operator,
+        merging_firm
+        )
+  )
+ggplot(operator_level_entry_exit_merger_CIY_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment(aes(colour=merging_firm)) +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+operator_level_entry_exit_merger_CIY_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+
+
+### IHS Shipdetails {.tabset}
+
+#### Merger list
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_IHS_for_output <-
+  operator_level_entry_exit_merger_IHS %>% 
+  dplyr::filter(
+    is.na(merging_firm) == 0
+  ) %>% 
+  dplyr::arrange(start, end)
+operator_level_entry_exit_merger_IHS_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+operator_level_entry_exit_merger_IHS_for_output$parent_company <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$parent_company, 
+    pattern = "&",
+    " and ")
+
+operator_level_entry_exit_merger_IHS_for_output$parent_company <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$parent_company, 
+    pattern = "  and  ",
+    " and ")
+operator_level_entry_exit_merger_IHS_for_output$merging_firm <-
+  stringr::str_replace_all(
+    operator_level_entry_exit_merger_IHS_for_output$merging_firm, 
+    pattern = "&",
+    " and ")
+operator_level_entry_exit_merger_IHS_for_output %>% 
+  dplyr::select(
+    parent_company,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = parent_company,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_IHS.tex")
+  )
+```
+
+
+#### Overall Transition
+
+```{r, echo=FALSE}
+IHS_data_for_output <-
+  IHS_data %>% 
+  dplyr::group_by(operator) %>% 
+  dplyr::summarise(
+    start = min(year),
+    end = max(year)
+  ) %>% 
+  dplyr::ungroup() %>%
+  dplyr::arrange(start) 
+
+ggplot(IHS_data_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 1992), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 1995&
+                         start >= 1993), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 1998&
+                         start >= 1996), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 2001&
+                         start >= 1999), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 2004&
+                         start >= 2002), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+ggplot(IHS_data_for_output %>% 
+         dplyr::filter(start <= 2006&
+                         start >= 2005), 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator, -start), 
+           yend = reorder(operator, -start)
+           )) +
+  theme_classic() +
+  geom_segment() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("operator")
+
+IHS_data_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+```
+
+
+
+### HB_data {.tabset}
+
+#### Merger list
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_HBdata_for_output <-
+  operator_level_entry_exit_merger_HBdata %>% 
+  dplyr::filter(
+    is.na(merging_firm) == 0
+  ) %>% 
+  dplyr::arrange(start, end)
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  dplyr::select(
+    operator_name,
+    start,
+    end,
+    merging_firm
+  ) %>% 
+  dplyr::mutate(
+    merging_firm =
+      ifelse(
+        merging_firm == "P&O",
+        "P\\&O",
+        merging_firm
+      )
+  ) %>% 
+  dplyr::rename(
+    `Merging firm` = merging_firm,
+    `Operator` = operator_name,
+    `Start` = start,
+    `End` = end
+  ) %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_HB.tex")
+  )
+```
+
+
+
+
+#### Overall Transition
+
+```{r, echo=FALSE}
+operator_level_entry_exit_merger_HBdata_for_output <-
+  operator_level_entry_exit_merger_HBdata %>% 
+  dplyr::mutate(
+    merging_firm_color =
+      ifelse(is.na(merging_firm) == 1,
+             operator_name,
+             merging_firm)
+  )
+
+ggplot(operator_level_entry_exit_merger_HBdata_for_output, 
+       aes(x = start,
+           xend = end + 1, 
+           y = reorder(operator_name, -start), 
+           yend = reorder(operator_name, -start)
+           )) +
+  geom_segment(aes(colour=merging_firm)) +
+  theme_classic() +
+  #theme(legend.position = "none") +
+  theme(axis.text.y=element_text(size=rel(0.2))) +
+  xlab("Year") +
+  ylab("Operator name")
+operator_level_entry_exit_merger_HBdata_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+```
+
+
+
+
+
