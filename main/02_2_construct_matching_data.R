@@ -42,6 +42,33 @@ operator_level_entry_exit_merger_CIY <-
     merging_firm
   )
 
+operator_level_entry_exit_merger_IHS <-
+  operator_level_entry_exit_merger_IHS %>%
+  dplyr::distinct(
+    parent_company,
+    .keep_all = TRUE
+  ) %>%
+  dplyr::rename(
+    operator = parent_company
+  ) %>%
+  # dplyr::mutate(
+  #   dummy_merged_until_data_period =
+  #     ifelse(
+  #       # this variable is manually added in csv
+  #       is.na() == 1,
+  #       0,
+  #       1
+  #     )
+  # ) %>%
+  dplyr::filter(
+    dummy_merged_by_data_period == 1
+  ) %>%
+  dplyr::select(
+    operator,
+    end,
+    merging_firm
+  )
+
 operator_level_entry_exit_merger_HBdata <-
   operator_level_entry_exit_merger_HBdata %>%
   dplyr::distinct(
@@ -69,32 +96,7 @@ operator_level_entry_exit_merger_HBdata <-
     merging_firm
   )
 
-operator_level_entry_exit_merger_IHS <-
-  operator_level_entry_exit_merger_IHS %>%
-  dplyr::distinct(
-    parent_company,
-    .keep_all = TRUE
-  ) %>%
-  dplyr::rename(
-    operator = parent_company
-  ) %>%
-  dplyr::mutate(
-    dummy_merged_until_data_period =
-      ifelse(
-        # this variable is manually added in csv
-        is.na(merging_firm) == 1,
-        0,
-        1
-      )
-  ) %>%
-  dplyr::filter(
-    dummy_merged_until_data_period == 1
-  ) %>%
-  dplyr::select(
-    operator,
-    end,
-    merging_firm
-  )
+
 
 # construct matching data ----
 construct_matching_pair_year <-
@@ -240,6 +242,24 @@ matching_pair_year_HBdata <-
   ) #%>% 
   #tidyr::drop_na()
 
+unique_operator_name_list_matching_pair_year_IHS <-
+  matching_pair_year_IHS %>% 
+  dplyr::filter(
+    is.na(seller_operator_age_normalized) == 1 |
+      is.na(buyer_operator_age_normalized) == 1
+  ) %>% 
+  dplyr::select(
+    - seller_cumsum_TEU_normalized,
+    - buyer_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::mutate(
+    modified_buyer_name_in_IHS =
+      NA,
+    modified_seller_name_in_IHS =
+      NA
+  )
+
+
 # save ----
 saveRDS(matching_pair_year_CIY,
         file = "output/matching_pair_year_CIY.rds")
@@ -247,3 +267,6 @@ saveRDS(matching_pair_year_IHS,
         file = "output/matching_pair_year_IHS.rds")
 saveRDS(matching_pair_year_HBdata,
         file = "output/matching_pair_year_HBdata.rds")
+
+write.csv(unique_operator_name_list_matching_pair_year_IHS, 
+          file = "cleaned/unique_operator_name_list_matching_pair_year_IHS.csv")
