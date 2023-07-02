@@ -109,36 +109,36 @@ operator_level_entry_exit_merger_CIY_for_output %>%
   kableExtra::kable() %>% 
   kableExtra::kable_styling()
 
-operator_level_entry_exit_merger_CIY_for_output %>% 
-  dplyr::select(
-    operator,
-    start,
-    end,
-    merging_firm
-  ) %>% 
-  dplyr::mutate(
-    merging_firm =
-      ifelse(
-        merging_firm == "P&O",
-        "P\\&O",
-        merging_firm
-      )
-  ) %>% 
-  dplyr::rename(
-    `Merging firm` = merging_firm,
-    `Operator` = operator,
-    `Start` = start,
-    `End` = end
-  ) %>% 
-  kableExtra::kbl(
-    format = "latex",
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = ""
-  ) %>% 
-  kableExtra::save_kable(
-    file = here::here("figuretable/merger_list_CIY.tex")
-  )
+# operator_level_entry_exit_merger_CIY_for_output %>% 
+#   dplyr::select(
+#     operator,
+#     start,
+#     end,
+#     merging_firm
+#   ) %>% 
+#   dplyr::mutate(
+#     merging_firm =
+#       ifelse(
+#         merging_firm == "P&O",
+#         "P\\&O",
+#         merging_firm
+#       )
+#   ) %>% 
+#   dplyr::rename(
+#     `Merging firm` = merging_firm,
+#     `Operator` = operator,
+#     `Start` = start,
+#     `End` = end
+#   ) %>% 
+#   kableExtra::kbl(
+#     format = "latex",
+#     booktabs = TRUE,
+#     escape = FALSE,
+#     linesep = ""
+#   ) %>% 
+#   kableExtra::save_kable(
+#     file = here::here("figuretable/merger_list_CIY.tex")
+#   )
 ```
 
 
@@ -212,28 +212,28 @@ operator_level_entry_exit_merger_IHS_for_output$merging_firm <-
     operator_level_entry_exit_merger_IHS_for_output$merging_firm, 
     pattern = "&",
     " and ")
-operator_level_entry_exit_merger_IHS_for_output %>% 
-  dplyr::select(
-    parent_company,
-    start,
-    end,
-    merging_firm
-  ) %>% 
-  dplyr::rename(
-    `Merging firm` = merging_firm,
-    `Operator` = parent_company,
-    `Start` = start,
-    `End` = end
-  ) %>% 
-  kableExtra::kbl(
-    format = "latex",
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = ""
-  ) %>% 
-  kableExtra::save_kable(
-    file = here::here("figuretable/merger_list_IHS.tex")
-  )
+# operator_level_entry_exit_merger_IHS_for_output %>% 
+#   dplyr::select(
+#     parent_company,
+#     start,
+#     end,
+#     merging_firm
+#   ) %>% 
+#   dplyr::rename(
+#     `Merging firm` = merging_firm,
+#     `Operator` = parent_company,
+#     `Start` = start,
+#     `End` = end
+#   ) %>% 
+#   kableExtra::kbl(
+#     format = "latex",
+#     booktabs = TRUE,
+#     escape = FALSE,
+#     linesep = ""
+#   ) %>% 
+#   kableExtra::save_kable(
+#     file = here::here("figuretable/merger_list_IHS.tex")
+#   )
 ```
 
 
@@ -375,36 +375,36 @@ operator_level_entry_exit_merger_HBdata_for_output %>%
   kableExtra::kable() %>% 
   kableExtra::kable_styling()
 
-operator_level_entry_exit_merger_HBdata_for_output %>% 
-  dplyr::select(
-    operator_name,
-    start,
-    end,
-    merging_firm
-  ) %>% 
-  dplyr::mutate(
-    merging_firm =
-      ifelse(
-        merging_firm == "P&O",
-        "P\\&O",
-        merging_firm
-      )
-  ) %>% 
-  dplyr::rename(
-    `Merging firm` = merging_firm,
-    `Operator` = operator_name,
-    `Start` = start,
-    `End` = end
-  ) %>% 
-  kableExtra::kbl(
-    format = "latex",
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = ""
-  ) %>% 
-  kableExtra::save_kable(
-    file = here::here("figuretable/merger_list_HB.tex")
-  )
+# operator_level_entry_exit_merger_HBdata_for_output %>% 
+#   dplyr::select(
+#     operator_name,
+#     start,
+#     end,
+#     merging_firm
+#   ) %>% 
+#   dplyr::mutate(
+#     merging_firm =
+#       ifelse(
+#         merging_firm == "P&O",
+#         "P\\&O",
+#         merging_firm
+#       )
+#   ) %>% 
+#   dplyr::rename(
+#     `Merging firm` = merging_firm,
+#     `Operator` = operator_name,
+#     `Start` = start,
+#     `End` = end
+#   ) %>% 
+#   kableExtra::kbl(
+#     format = "latex",
+#     booktabs = TRUE,
+#     escape = FALSE,
+#     linesep = ""
+#   ) %>% 
+#   kableExtra::save_kable(
+#     file = here::here("figuretable/merger_list_HB.tex")
+#   )
 ```
 
 

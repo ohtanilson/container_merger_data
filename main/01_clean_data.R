@@ -37,10 +37,6 @@ operator_level_entry_exit_merger_IHS <-
 
 
 # save ----
-saveRDS(HB_data,
-        file = "cleaned/HB_data.rds")
-saveRDS(IHS_data,
-        file = "cleaned/IHS_data.rds")
 saveRDS(operator_level_entry_exit_merger_CIY,
         file = "cleaned/operator_level_entry_exit_merger_CIY.rds")
 saveRDS(operator_level_entry_exit_merger_HBdata,
