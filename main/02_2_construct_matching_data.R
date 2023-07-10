@@ -17,6 +17,15 @@ operator_level_entry_exit_merger_IHS <-
   readRDS(file = "output/operator_level_entry_exit_merger_IHS.rds")
 operator_level_entry_exit_merger_HBdata <-
   readRDS(file = "output/operator_level_entry_exit_merger_HBdata.rds")
+
+unique_operator_name_list_matching_pair_year_IHS <- 
+  readr::read_csv("input/unique_operator_name_list_matching_pair_year_IHS.csv") %>% 
+  dplyr::select(
+    seller_name,
+    buyer_name,
+    modified_seller_name_in_IHS,
+    modified_buyer_name_in_IHS
+  )
 operator_level_entry_exit_merger_CIY <-
   operator_level_entry_exit_merger_CIY %>%
   dplyr::distinct(
@@ -96,6 +105,26 @@ operator_level_entry_exit_merger_HBdata <-
     merging_firm
   )
 
+# rename merging firm ----
+
+## IHS data ----
+operator_level_entry_exit_merger_IHS <-
+  operator_level_entry_exit_merger_IHS %>% 
+  dplyr::left_join(
+    unique_operator_name_list_matching_pair_year_IHS %>% 
+      dplyr::distinct(
+        buyer_name,
+        modified_buyer_name_in_IHS
+      ),
+    by = c("merging_firm" = "buyer_name")
+  ) %>% 
+  dplyr::select(
+    - merging_firm
+  ) %>% 
+  dplyr::rename(
+    merging_firm =
+      modified_buyer_name_in_IHS
+  )
 
 
 # construct matching data ----
@@ -106,7 +135,6 @@ construct_matching_pair_year <-
     ){
     observed_characteristics <-
       data %>% 
-      #data %>% 
       dplyr::group_by(
         operator,
         year
