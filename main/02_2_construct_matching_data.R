@@ -10,6 +10,28 @@ IHS_data <-
   readRDS(file = "output/IHS_data.rds")
 HB_data <-
   readRDS(file = "output/HB_data.rds")
+IHS_data_flag_country_name <-
+  readRDS(file = "cleaned/shipdetails_container_data.rds") %>% 
+  dplyr::distinct(
+    parent_company,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::select(
+    parent_company,
+    parent_company_country_of_domicile
+  ) %>% 
+  tidyr::drop_na()
+HB_data_flag_country_name <-
+  readRDS(file = "cleaned/HB_data.rds") %>% 
+  dplyr::distinct(
+    operator_name,
+    .keep_all = TRUE
+  ) %>% 
+  dplyr::select(
+    operator_name,
+    flag_country
+  ) %>% 
+  tidyr::drop_na()
 
 operator_level_entry_exit_merger_CIY <-
   readRDS(file = "output/operator_level_entry_exit_merger_CIY.rds")
@@ -20,11 +42,12 @@ operator_level_entry_exit_merger_HBdata <-
 
 unique_operator_name_list_matching_pair_year_IHS <- 
   readr::read_csv("input/unique_operator_name_list_matching_pair_year_IHS.csv") %>% 
-  dplyr::select(
+  dplyr::distinct(
     seller_name,
     buyer_name,
     modified_seller_name_in_IHS,
-    modified_buyer_name_in_IHS
+    modified_buyer_name_in_IHS,
+    merged_by_noncontainer_firm_or_rename_dummy
   )
 operator_level_entry_exit_merger_CIY <-
   operator_level_entry_exit_merger_CIY %>%
@@ -114,12 +137,18 @@ operator_level_entry_exit_merger_IHS <-
     unique_operator_name_list_matching_pair_year_IHS %>% 
       dplyr::distinct(
         buyer_name,
-        modified_buyer_name_in_IHS
+        modified_buyer_name_in_IHS,
+        merged_by_noncontainer_firm_or_rename_dummy
       ),
     by = c("merging_firm" = "buyer_name")
   ) %>% 
+  dplyr::filter(
+    is.na(merged_by_noncontainer_firm_or_rename_dummy) ==
+      1
+  ) %>%
   dplyr::select(
-    - merging_firm
+    - merging_firm,
+    - merged_by_noncontainer_firm_or_rename_dummy
   ) %>% 
   dplyr::rename(
     merging_firm =
@@ -262,13 +291,28 @@ matching_pair_year_IHS <-
   construct_matching_pair_year(
     IHS_data,
     operator_level_entry_exit_merger_IHS
-  )
+  ) %>% 
+  dplyr::mutate(
+    buyer_operator_age_normalized = 
+      ifelse(
+        is.na(buyer_operator_age_normalized) == 1,
+        1e-6, # NA at merging timing because of entry by merger
+        buyer_operator_age_normalized
+        ),
+    buyer_cumsum_TEU_normalized =
+      ifelse(
+        is.na(buyer_cumsum_TEU_normalized) == 1,
+        1e-6, # NA at merging timing because of entry by merger
+        buyer_cumsum_TEU_normalized
+      )
+  ) %>% 
+  tidyr::drop_na()
 matching_pair_year_HBdata <-
   construct_matching_pair_year(
     HB_data,
     operator_level_entry_exit_merger_HBdata
-  ) #%>% 
-  #tidyr::drop_na()
+  ) %>% 
+  tidyr::drop_na()
 
 unique_operator_name_list_matching_pair_year_IHS <-
   matching_pair_year_IHS %>% 
@@ -288,6 +332,42 @@ unique_operator_name_list_matching_pair_year_IHS <-
   )
 
 
+## add distance between flag countries ----
+flag_country_operator_country_list <-
+  unique(
+    c(
+    matching_pair_year_CIY$seller_name,
+    matching_pair_year_CIY$buyer_name,
+    matching_pair_year_IHS$seller_name,
+    matching_pair_year_IHS$buyer_name,
+    matching_pair_year_HBdata$seller_name,
+    matching_pair_year_HBdata$buyer_name
+    )
+  ) %>% 
+  tibble::as_tibble() %>% 
+  dplyr::rename(
+    firm_name = value
+  ) %>% 
+  dplyr::distinct(firm_name) %>% 
+  dplyr::left_join(
+    IHS_data_flag_country_name,
+    by = c("firm_name" = "parent_company")
+  ) %>% 
+  dplyr::left_join(
+    HB_data_flag_country_name,
+    by = c("firm_name" = "operator_name")
+  ) %>% 
+  dplyr::mutate(
+    flag_country_geo_cepii = 
+      NA,
+    operator_country_geo_cepii =
+      NA
+  )
+country_geo_cepii <-
+  cepiigeodist::geo_cepii
+
+
+
 # save ----
 saveRDS(matching_pair_year_CIY,
         file = "output/matching_pair_year_CIY.rds")
@@ -295,6 +375,10 @@ saveRDS(matching_pair_year_IHS,
         file = "output/matching_pair_year_IHS.rds")
 saveRDS(matching_pair_year_HBdata,
         file = "output/matching_pair_year_HBdata.rds")
+
+
+write.csv(flag_country_operator_country_list, 
+          file = "cleaned/flag_country_operator_country_list.csv")
 
 write.csv(unique_operator_name_list_matching_pair_year_IHS, 
           file = "cleaned/unique_operator_name_list_matching_pair_year_IHS.csv")
