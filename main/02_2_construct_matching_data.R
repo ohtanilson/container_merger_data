@@ -10,6 +10,8 @@ IHS_data <-
   readRDS(file = "output/IHS_data.rds")
 HB_data <-
   readRDS(file = "output/HB_data.rds")
+flag_country_operator_country_list <- 
+  readr::read_csv(file = "input/flag_country_operator_country_list.csv")
 IHS_data_flag_country_name <-
   readRDS(file = "cleaned/shipdetails_container_data.rds") %>% 
   dplyr::distinct(
@@ -332,8 +334,8 @@ unique_operator_name_list_matching_pair_year_IHS <-
   )
 
 
-## add distance between flag countries ----
-flag_country_operator_country_list <-
+## get latitude and longtitude of flag countries ----
+flag_country_operator_country_list_temp <-
   unique(
     c(
     matching_pair_year_CIY$seller_name,
@@ -357,17 +359,90 @@ flag_country_operator_country_list <-
     HB_data_flag_country_name,
     by = c("firm_name" = "operator_name")
   ) %>% 
-  dplyr::mutate(
-    flag_country_geo_cepii = 
-      NA,
-    operator_country_geo_cepii =
-      NA
+  dplyr::left_join(
+    flag_country_operator_country_list,
+    by = c("firm_name" = "firm_name")
+  ) %>% 
+  dplyr::select(
+    firm_name,
+    flag_country_geo_cepii
   )
 country_geo_cepii <-
-  cepiigeodist::geo_cepii
-
-
-
+  cepiigeodist::geo_cepii %>% 
+  dplyr::select(
+    country,
+    lat,
+    lon
+  )
+flag_country_operator_lat_long_list <-
+  flag_country_operator_country_list_temp %>% 
+  dplyr::left_join(
+    country_geo_cepii,
+    by = c("flag_country_geo_cepii" = "country")
+  ) 
+### CIY data ----
+matching_pair_year_CIY <-
+  matching_pair_year_CIY %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("seller_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    seller_flag_country_geo_cepii = flag_country_geo_cepii,
+    seller_lon = lon,
+    seller_lat = lat
+  ) %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("buyer_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    buyer_flag_country_geo_cepii = flag_country_geo_cepii,
+    buyer_lon = lon,
+    buyer_lat = lat
+  )
+### IHS data ----
+matching_pair_year_IHS <-
+  matching_pair_year_IHS %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("seller_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    seller_flag_country_geo_cepii = flag_country_geo_cepii,
+    seller_lon = lon,
+    seller_lat = lat
+  ) %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("buyer_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    buyer_flag_country_geo_cepii = flag_country_geo_cepii,
+    buyer_lon = lon,
+    buyer_lat = lat
+  )
+### HB data ----
+matching_pair_year_HBdata  <-
+  matching_pair_year_HBdata %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("seller_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    seller_flag_country_geo_cepii = flag_country_geo_cepii,
+    seller_lon = lon,
+    seller_lat = lat
+  ) %>% 
+  dplyr::left_join(
+    flag_country_operator_lat_long_list,
+    by = c("buyer_name" = "firm_name")
+  ) %>% 
+  dplyr::rename(
+    buyer_flag_country_geo_cepii = flag_country_geo_cepii,
+    buyer_lon = lon,
+    buyer_lat = lat
+  )
 # save ----
 saveRDS(matching_pair_year_CIY,
         file = "output/matching_pair_year_CIY.rds")
@@ -377,8 +452,8 @@ saveRDS(matching_pair_year_HBdata,
         file = "output/matching_pair_year_HBdata.rds")
 
 
-write.csv(flag_country_operator_country_list, 
-          file = "cleaned/flag_country_operator_country_list.csv")
+# write.csv(flag_country_operator_country_list, 
+#           file = "cleaned/flag_country_operator_country_list.csv")
 
 write.csv(unique_operator_name_list_matching_pair_year_IHS, 
           file = "cleaned/unique_operator_name_list_matching_pair_year_IHS.csv")
