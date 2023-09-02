@@ -161,19 +161,19 @@ merger_list <-
     `Year` = end
   ) %>% 
   dplyr::mutate(
-    `Buyer` =
+    `Seller` =
       ifelse(
-        `Buyer` == "ROYAL P&O NEDLLOYD NV (KONINKL",
+        `Seller` == "ROYAL P&O NEDLLOYD NV (KONINKL",
         "ROYAL P\\&O NEDLLOYD NV",
-        `Buyer`
+        `Seller`
       )
   ) %>% 
   dplyr::mutate(
-    `Buyer` =
+    `Seller` =
       ifelse(
-        `Buyer` == "IMC SHIPPING CO PTE LTD (IMCSC",
+        `Seller` == "IMC SHIPPING CO PTE LTD (IMCSC",
         "IMC SHIPPING CO PTE LTD",
-        `Buyer`
+        `Seller`
       )
   )
 merger_list %>% 
