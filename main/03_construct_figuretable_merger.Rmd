@@ -77,6 +77,14 @@ merger_list <-
     `Seller` = seller_name,
     `Buyer` = buyer_name,
     `Year` = end
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "P&O Containers",
+        "P\\&O Containers",
+        `Buyer`
+      )
   )
 merger_list %>% 
   kableExtra::kable() %>% 
@@ -151,6 +159,22 @@ merger_list <-
     `Seller` = seller_name,
     `Buyer` = buyer_name,
     `Year` = end
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "ROYAL P&O NEDLLOYD NV (KONINKL",
+        "ROYAL P\\&O NEDLLOYD NV",
+        `Buyer`
+      )
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "IMC SHIPPING CO PTE LTD (IMCSC",
+        "IMC SHIPPING CO PTE LTD",
+        `Buyer`
+      )
   )
 merger_list %>% 
   kableExtra::kable() %>% 
@@ -309,6 +333,7 @@ merger_list <-
     `Buyer` = buyer_name,
     `Year` = end
   )
+
 merger_list %>% 
   kableExtra::kable() %>% 
   kableExtra::kable_styling()
