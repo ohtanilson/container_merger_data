@@ -175,6 +175,14 @@ merger_list <-
         "IMC SHIPPING CO PTE LTD",
         `Seller`
       )
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "IMC SHIPPING CO PTE LTD (IMCSC",
+        "IMC SHIPPING CO PTE LTD",
+        `Buyer`
+      )
   )
 merger_list %>% 
   kableExtra::kable() %>% 
