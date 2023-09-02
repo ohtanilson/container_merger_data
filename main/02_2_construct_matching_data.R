@@ -373,6 +373,10 @@ country_geo_cepii <-
     country,
     lat,
     lon
+  ) %>% 
+  dplyr::distinct(
+    country,
+    .keep_all = TRUE
   )
 flag_country_operator_lat_long_list <-
   flag_country_operator_country_list_temp %>% 
