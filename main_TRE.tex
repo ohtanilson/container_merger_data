@@ -77,14 +77,30 @@ Third, our paper contributes to the literature on recent industrial policy and a
 We construct the data from combining the three data sources. 
 The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
 The second data source is IHS Markit data (IHS), which provides ship-level information between 1991 and 2005.
-The third data source is \textit{Handbook of Ocean Commerce}(HB), which provides ship-level information between 2006 and 2022. 
+The third data source is \textit{Handbook of Ocean Commerce} (HB), which provides ship-level information between 2006 and 2022. 
 Aggregating the data, we construct firm-level variables such as country name and tonnage capacity measured by TEU. 
 Finally, we manually collect institutional information and construct a merger list that contains buyer names, seller names, and merger year, then merge the list with the firm-year-level variables.
 
-Table XXX shows summary statistics of buyer and seller firms in all merger cases between 1966 and 2022.
+Table \ref{tb:summary_statistics} shows summary statistics of buyer and seller firms in all realized merger cases between 1966 and 2022. 
+First, we find that the mean of normalized firms' age decreases from 0.84 in the 1966-1990 period to 0.46 in the 2005-2022 period. This implies that mergers are likely to occur between younger firms in the recent year.
+Second, the mean of normalized firms' size is the highest in the 1966-1990 period, and it is stable in the 1991-2005 and 2005-2022 periods.
+
+\begin{table}[!htbp]
+  \begin{center}
+      \caption{Summary statistics of buyer and seller firms}
+      \label{tb:summary_statistics} 
+      \subfloat[CIY (1966-1990)]{\input{figuretable/summary_statistics_of_firms_CIY}}\\
+      \subfloat[IHS (1991-2005)]{\input{figuretable/summary_statistics_of_firms_IHS}}\\
+      \subfloat[HB (2005-2022)]{\input{figuretable/summary_statistics_of_firms_HB}}
+      
+  \end{center}\footnotesize
+  Note:
+\end{table} 
 
 
+Figure XXX illustrates distributions of realized buyer-seller-level distances.
 
+These tables and figures provide some intuition that XXX. However, disentangling the relative importance of each variable needs a more sophisticated structural model.  
 
 
 \section{Industry Background}
