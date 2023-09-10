@@ -307,6 +307,7 @@ target_date %>%
 ```
 
 
+
 #### Overall Transition
 
 ```{r, echo=FALSE}
@@ -517,6 +518,10 @@ target_date %>%
 ```
 
 
+
+
+
+
 #### Overall Transition
 
 ```{r, echo=FALSE}
@@ -549,4 +554,106 @@ operator_level_entry_exit_merger_HBdata_for_output %>%
 
 
 
+## Distance distribution
 
+```{r, echo=FALSE}
+distance_data_CIY <-
+  matching_pair_year_CIY %>% 
+  dplyr::select(
+    seller_name,
+    buyer_name,
+    seller_lat,
+    seller_lon,
+    buyer_lat,
+    buyer_lon,
+  ) %>% 
+  dplyr::mutate(
+    `Distance between firms' countries (1000km)` = 
+      acos(
+        sin(seller_lat)*sin(buyer_lat) + 
+          cos(seller_lat) * cos(buyer_lat) *
+          cos(seller_lon - buyer_lon)
+        ) * 6378.137/ 1000 
+      # sqrt(
+      #   abs(seller_lat - buyer_lat)^2 + 
+      #     abs(seller_lon - buyer_lon)^2
+      # )
+  ) %>% 
+  dplyr::mutate(
+    data = 
+      "CIY(1966-1990)"
+  )
+distance_data_IHS <-
+  matching_pair_year_IHS %>% 
+  dplyr::select(
+    seller_name,
+    buyer_name,
+    seller_lat,
+    seller_lon,
+    buyer_lat,
+    buyer_lon,
+  ) %>% 
+  dplyr::mutate(
+    `Distance between firms' countries (1000km)` = 
+      acos(
+        sin(seller_lat)*sin(buyer_lat) + 
+          cos(seller_lat) * cos(buyer_lat) *
+          cos(seller_lon - buyer_lon)
+        ) * 6378.137/ 1000 
+  ) %>% 
+  dplyr::mutate(
+    data = 
+      "IHS(1991-2005)"
+  )
+distance_data_HB <-
+  matching_pair_year_HBdata %>% 
+  dplyr::select(
+    seller_name,
+    buyer_name,
+    seller_lat,
+    seller_lon,
+    buyer_lat,
+    buyer_lon,
+  ) %>% 
+  dplyr::mutate(
+    `Distance between firms' countries (1000km)` = 
+      acos(
+        sin(seller_lat)*sin(buyer_lat) + 
+          cos(seller_lat) * cos(buyer_lat) *
+          cos(seller_lon - buyer_lon)
+        ) * 6378.137/ 1000 
+  ) %>% 
+  dplyr::mutate(
+    data = 
+      "HB(2006-2022)"
+  )
+
+distance_data <-
+  rbind(
+    distance_data_CIY,
+    distance_data_IHS,
+    distance_data_HB
+  )
+
+x <-
+  ggplot(
+    distance_data, 
+    aes(`Distance between firms' countries (1000km)`,
+        shape = data, color = data)
+    ) +
+  stat_ecdf(geom = "step", alpha = 0.6)  +
+  theme_classic() + 
+  scale_color_viridis_d() +
+  theme(legend.position = 'top',
+        legend.text = element_text(size=8)) +
+  ylab("CDF") +
+  xlim(0, 20.4)
+x
+figure_name <- 
+  "../figuretable/distance_cdf.png"
+ggsave(filename = figure_name,
+       plot = x,
+       device = "png",
+       width = 4,
+       height = 3)
+```

@@ -454,8 +454,19 @@ matching_pair_year_HBdata  <-
 
 
 # drop weird matching institutionally ----
-
-
+matching_pair_year_IHS <-
+  matching_pair_year_IHS %>% 
+  dplyr::mutate(
+    end =
+      # last year inconsistency
+      ifelse(end >= 2006, 2005, end)
+  )
+matching_pair_year_HBdata <-
+  matching_pair_year_HBdata %>% 
+  dplyr::filter(
+    end >= 2006
+  )
+  
 
 # save ----
 saveRDS(matching_pair_year_CIY,
