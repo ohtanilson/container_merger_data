@@ -227,6 +227,10 @@ construct_matching_pair_year <-
       dplyr::rename(
         buyer_operator_age = operator_age,
         buyer_cumsum_TEU = cumsum_TEU
+      ) %>% 
+      dplyr::filter(
+        is.na(buyer_name) == 0 &
+          is.na(seller_name) == 0
       )
     max_cumsum_TEU <-
       max(
