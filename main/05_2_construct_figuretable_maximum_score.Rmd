@@ -1,5 +1,5 @@
 ---
-title: "01_clean_data"
+title: "05_2_construct_figuretable_maximum_score.Rmd"
 author: "Suguru Otani"
 date: "2022/7/2"
 output: html_document

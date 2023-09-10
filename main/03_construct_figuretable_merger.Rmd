@@ -9,6 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(magrittr)
 library(ggplot2)
+library(modelsummary)
+options(modelsummary_format_numeric_latex = "plain") # for modelsummary output
 ```
 
 
@@ -101,6 +103,58 @@ merger_list %>%
     file = here::here("figuretable/merger_list_CIY.tex")
   )
 ```
+
+#### Summary statistics
+
+```{r, echo=FALSE}
+seller_data <-
+  matching_pair_year_CIY %>% 
+  dplyr::select(
+    #seller_name,
+    seller_operator_age_normalized,
+    seller_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = seller_operator_age_normalized,
+    `Size TEU (Normalized)` = seller_cumsum_TEU_normalized
+  )
+buyer_data <-
+  matching_pair_year_CIY %>% 
+  dplyr::select(
+    #buyer_name,
+    buyer_operator_age_normalized,
+    buyer_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = buyer_operator_age_normalized,
+    `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
+  )
+target_date <-
+  rbind(
+    seller_data,
+    buyer_data
+    )
+f <- 
+  (`Age (Normalized)` +
+     `Size TEU (Normalized)`) ~ 
+  N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
+modelsummary::datasummary(
+  f,
+  data = target_date
+  )
+target_date %>% 
+  modelsummary::datasummary(
+    f,
+    escape = FALSE,
+    data = .,
+    output = "latex_tabular"
+  ) %>% 
+  gsub("\\multicolumn.*\\\\", "", .) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/summary_statistics_of_firms_CIY.tex")
+  )
+```
+
 
 
 #### Overall Transition
@@ -197,6 +251,58 @@ merger_list %>%
   ) %>% 
   kableExtra::save_kable(
     file = here::here("figuretable/merger_list_IHS.tex")
+  )
+```
+
+
+#### Summary statistics
+
+```{r, echo=FALSE}
+seller_data <-
+  matching_pair_year_IHS %>% 
+  dplyr::select(
+    #seller_name,
+    seller_operator_age_normalized,
+    seller_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = seller_operator_age_normalized,
+    `Size TEU (Normalized)` = seller_cumsum_TEU_normalized
+  )
+buyer_data <-
+  matching_pair_year_IHS %>% 
+  dplyr::select(
+    #buyer_name,
+    buyer_operator_age_normalized,
+    buyer_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = buyer_operator_age_normalized,
+    `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
+  )
+target_date <-
+  rbind(
+    seller_data,
+    buyer_data
+    )
+f <- 
+  (`Age (Normalized)` +
+     `Size TEU (Normalized)`) ~ 
+  N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
+modelsummary::datasummary(
+  f,
+  data = target_date
+  )
+target_date %>% 
+  modelsummary::datasummary(
+    f,
+    escape = FALSE,
+    data = .,
+    output = "latex_tabular"
+  ) %>% 
+  gsub("\\multicolumn.*\\\\", "", .) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/summary_statistics_of_firms_IHS.tex")
   )
 ```
 
@@ -359,6 +465,56 @@ merger_list %>%
 ```
 
 
+#### Summary statistics
+
+```{r, echo=FALSE}
+seller_data <-
+  matching_pair_year_HBdata %>% 
+  dplyr::select(
+    #seller_name,
+    seller_operator_age_normalized,
+    seller_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = seller_operator_age_normalized,
+    `Size TEU (Normalized)` = seller_cumsum_TEU_normalized
+  )
+buyer_data <-
+  matching_pair_year_HBdata %>% 
+  dplyr::select(
+    #buyer_name,
+    buyer_operator_age_normalized,
+    buyer_cumsum_TEU_normalized
+  ) %>% 
+  dplyr::rename(
+    `Age (Normalized)` = buyer_operator_age_normalized,
+    `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
+  )
+target_date <-
+  rbind(
+    seller_data,
+    buyer_data
+    )
+f <- 
+  (`Age (Normalized)` +
+     `Size TEU (Normalized)`) ~ 
+  N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
+modelsummary::datasummary(
+  f,
+  data = target_date
+  )
+target_date %>% 
+  modelsummary::datasummary(
+    f,
+    escape = FALSE,
+    data = .,
+    output = "latex_tabular"
+  ) %>% 
+  gsub("\\multicolumn.*\\\\", "", .) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/summary_statistics_of_firms_HB.tex")
+  )
+```
 
 
 #### Overall Transition
