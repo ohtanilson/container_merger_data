@@ -69,8 +69,12 @@ IHS_data <-
 
 ```{r, echo=FALSE}
 merger_list <-
-  matching_pair_year_CIY %>% 
+  matching_pair_year_CIY  %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
+  ) %>% 
   dplyr::select(
+    ID,
     seller_name,
     buyer_name,
     end
@@ -207,7 +211,11 @@ operator_level_entry_exit_merger_CIY_for_output %>%
 ```{r, echo=FALSE}
 merger_list <-
   matching_pair_year_IHS %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
+  ) %>% 
   dplyr::select(
+    ID,
     seller_name,
     buyer_name,
     end
@@ -444,7 +452,11 @@ IHS_data_for_output %>%
 ```{r, echo=FALSE}
 merger_list <-
   matching_pair_year_HBdata %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
+  ) %>% 
   dplyr::select(
+    ID,
     seller_name,
     buyer_name,
     end
@@ -453,6 +465,9 @@ merger_list <-
     `Seller` = seller_name,
     `Buyer` = buyer_name,
     `Year` = end
+  ) %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
   )
 
 merger_list %>% 
