@@ -128,21 +128,24 @@ buyer_data <-
   dplyr::rename(
     `Age (Normalized)` = buyer_operator_age_normalized,
     `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
-  )
-target_date <-
+  ) 
+target_date_CIY <-
   rbind(
     seller_data,
     buyer_data
-    )
+    ) %>% 
+  dplyr::mutate(
+    data = "CIY (1966-1990)"
+  )
 f <- 
   (`Age (Normalized)` +
      `Size TEU (Normalized)`) ~ 
   N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
 modelsummary::datasummary(
   f,
-  data = target_date
+  data = target_date_CIY
   )
-target_date %>% 
+target_date_CIY %>% 
   modelsummary::datasummary(
     f,
     escape = FALSE,
@@ -280,20 +283,23 @@ buyer_data <-
     `Age (Normalized)` = buyer_operator_age_normalized,
     `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
   )
-target_date <-
+target_date_IHS <-
   rbind(
     seller_data,
     buyer_data
-    )
+    ) %>% 
+  dplyr::mutate(
+    data = "IHS (1991-2005)"
+  )
 f <- 
   (`Age (Normalized)` +
      `Size TEU (Normalized)`) ~ 
   N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
 modelsummary::datasummary(
   f,
-  data = target_date
+  data = target_date_IHS
   )
-target_date %>% 
+target_date_IHS %>% 
   modelsummary::datasummary(
     f,
     escape = FALSE,
@@ -491,20 +497,23 @@ buyer_data <-
     `Age (Normalized)` = buyer_operator_age_normalized,
     `Size TEU (Normalized)` = buyer_cumsum_TEU_normalized
   )
-target_date <-
+target_date_HBdata <-
   rbind(
     seller_data,
     buyer_data
-    )
+    ) %>% 
+  dplyr::mutate(
+    data = "HB (2006-2022)"
+  )
 f <- 
   (`Age (Normalized)` +
      `Size TEU (Normalized)`) ~ 
   N + (mean + sd + min + max)*Arguments(na.rm = TRUE)
 modelsummary::datasummary(
   f,
-  data = target_date
+  data = target_date_HBdata
   )
-target_date %>% 
+target_date_HBdata %>% 
   modelsummary::datasummary(
     f,
     escape = FALSE,
@@ -651,6 +660,65 @@ x <-
 x
 figure_name <- 
   "../figuretable/distance_cdf.png"
+ggsave(filename = figure_name,
+       plot = x,
+       device = "png",
+       width = 4,
+       height = 3)
+```
+
+
+## Size distribution
+
+```{r, echo=FALSE}
+size_age_data <-
+  rbind(
+    target_date_CIY,
+    target_date_IHS,
+    target_date_HBdata
+    )
+x <-
+  ggplot(
+    size_age_data, 
+    aes(`Size TEU (Normalized)`,
+        shape = data, color = data)
+    ) +
+  stat_ecdf(geom = "step", alpha = 0.6)  +
+  theme_classic() + 
+  scale_color_viridis_d() +
+  theme(legend.position = 'top',
+        legend.text = element_text(size=8)) +
+  ylab("CDF") +
+  xlim(0, 1)
+x
+figure_name <- 
+  "../figuretable/normalized_size_cdf.png"
+ggsave(filename = figure_name,
+       plot = x,
+       device = "png",
+       width = 4,
+       height = 3)
+```
+
+## Age distribution
+
+```{r, echo=FALSE}
+x <-
+  ggplot(
+    size_age_data, 
+    aes(`Age (Normalized)`,
+        shape = data, color = data)
+    ) +
+  stat_ecdf(geom = "step", alpha = 0.6)  +
+  theme_classic() + 
+  scale_color_viridis_d() +
+  theme(legend.position = 'top',
+        legend.text = element_text(size=8)) +
+  ylab("CDF") +
+  xlim(0, 1)
+x
+figure_name <- 
+  "../figuretable/normalized_age_cdf.png"
 ggsave(filename = figure_name,
        plot = x,
        device = "png",

@@ -266,8 +266,12 @@ construct_matching_pair_year <-
         seller_name,
         buyer_name,
         end,
+        seller_operator_age,
+        seller_cumsum_TEU,
         seller_operator_age_normalized,
         seller_cumsum_TEU_normalized,
+        buyer_operator_age,
+        buyer_cumsum_TEU,
         buyer_operator_age_normalized,
         buyer_cumsum_TEU_normalized
       ) 
@@ -311,8 +315,8 @@ matching_pair_year_IHS <-
         1e-6, # NA at merging timing because of entry by merger
         buyer_cumsum_TEU_normalized
       )
-  ) %>% 
-  tidyr::drop_na()
+  )# %>% 
+  #tidyr::drop_na()
 matching_pair_year_HBdata <-
   construct_matching_pair_year(
     HB_data,
