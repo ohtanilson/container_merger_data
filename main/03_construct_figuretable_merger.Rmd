@@ -578,6 +578,90 @@ operator_level_entry_exit_merger_HBdata_for_output %>%
 
 
 
+## Number of mergers
+
+```{r, echo=FALSE}
+matching_data <-
+  rbind(
+    matching_pair_year_CIY,
+    matching_pair_year_IHS,
+    matching_pair_year_HBdata
+  ) %>% 
+  dplyr::select(
+    seller_name,
+    buyer_name,
+    end
+  ) %>% 
+  dplyr::rename(
+    `Year` = end
+  ) %>% 
+  dplyr::group_by(
+    `Year`
+  ) %>% 
+  dplyr::summarise(
+    `Number of mergers` =
+      dplyr::n()
+  ) %>% 
+  dplyr::ungroup()
+merger_date_for_plot <-
+  seq(1966, 2022, 1) %>% 
+  tibble::as_tibble() %>% 
+  dplyr::rename(
+    Year = value
+  ) %>% 
+  dplyr::left_join(
+    matching_data,
+    by = c("Year" = "Year")
+  ) %>% 
+  dplyr::mutate(
+    `Number of mergers` =
+      ifelse(
+        is.na(`Number of mergers`) == 1,
+        0,
+        `Number of mergers`
+      )
+  )
+
+x <-
+  ggplot(
+    merger_date_for_plot,
+    aes(
+      x = `Year`,
+      y = `Number of mergers`
+      )
+    ) + 
+  geom_line(size = 1.0) +
+  geom_point() +
+  theme_classic() + 
+  scale_color_viridis_d() +
+  xlim(1966, 2022) +
+  ylim(0, 8) +
+  ylab("Number of mergers") +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 1966, color = "red", alpha = 0.4) + 
+  geom_vline(xintercept = 1970, linetype = "longdash") + 
+  geom_vline(xintercept = 1980, linetype = "longdash") + 
+  geom_vline(xintercept = 1990, linetype = "longdash") + 
+  geom_vline(xintercept = 1990, color = "red", alpha = 0.4) + 
+  geom_vline(xintercept = 2000, linetype = "longdash") + 
+  geom_vline(xintercept = 2005, color = "red", alpha = 0.4) +
+  geom_vline(xintercept = 2010, linetype = "longdash") + 
+  geom_vline(xintercept = 2020, linetype = "longdash") + 
+  geom_vline(xintercept = 2022, color = "red", alpha = 0.4) 
+x
+figure_name <-
+  "../figuretable/number_of_mergers.png"
+ggsave(filename = figure_name,
+       plot = x,
+       device = "png",
+       width = 4,
+       height = 3)
+```
+
+
+
+
+
 ## Distance distribution
 
 ```{r, echo=FALSE}
