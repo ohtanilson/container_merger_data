@@ -170,8 +170,8 @@ result_for_output <-
     )
 result_for_output <-
   rbind(
-    c("Regime", "1966-1990", "1991-2005" , "2006-2022"),
-    c("", "", "" , ""),
+    c("Regime", "", "1966-1990", "1991-2005" , "2006-2022"),
+    c("", "", "", "" , ""),
     result_for_output
   )
 
