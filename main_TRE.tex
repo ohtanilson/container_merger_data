@@ -272,10 +272,23 @@ Concretely, we specify the joint production function $f(b,s)$ as
 \end{align*}
 where $\varepsilon_{bs}$ is assumed to be i.i.d. errors drawn from the zero median distribution. 
 
+All observed variables are standardized to $[0,1]$.
 
 \section{Results}
 
-Table \ref{tb:maximum_score_estimate}
+Table \ref{tb:maximum_score_estimate} reports the estimation results. 
+
+Since we use realized merger cases, we could not construct a 95 \% confidence interval with enough subsampled data via bootstrap.
+Instead, the numbers in brackets indicate the lower and upper bounds of a set of maximizers of the objective function. 
+If the lower and upper bounds are the same, then the parameters are point-identified. Otherwise, the parameters are partially identified.
+
+First, the estimated coefficient of the firm's size shows an interesting transition. 
+The sign is changed from ambiguous between 1966 and 1990, positive between 1991 and 2005, to negative between 2006 and 2022. 
+In particular, between 1991 and 2005, as a positive factor, a firm's size is more important than a firm's age by seven to nine times in merger decisions, that is, mergers of larger firms are likely to occur.
+On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, mergers of smaller firms are likely to occur.
+
+Second, the sign of the distance of seller and buyer firms is negative across all regimes but the level decreases between 2006 and 2022. 
+This means that mergers of firms in distant countries are likely to occur, but the importance level relative to a firm's age has decreased to economically zero in recent years.
 
 \begin{table}[!htbp]
   \begin{center}
@@ -283,7 +296,7 @@ Table \ref{tb:maximum_score_estimate}
       \label{tb:maximum_score_estimate} 
       \input{figuretable/maximum_score_estimate}
   \end{center}\footnotesize
-  Note:  The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, I require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For point estimation, 100 runs were performed for all specifications. The numbers in parentheses are lower and upper bounds of a set of maximizers of the maximum rank estimator.  Parameters that can take on only a finite number of values (here +1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[0,1]$. 
+  Note:  The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, I require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For point estimation, 100 runs were performed for all specifications. The numbers in parentheses are lower and upper bounds of a set of maximizers of the maximum rank estimator.  Parameters that can take on only a finite number of values (here 1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[0,1]$. 
 \end{table} 
 
 \section{Counterfactual}
