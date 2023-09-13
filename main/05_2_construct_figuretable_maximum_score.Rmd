@@ -18,35 +18,68 @@ param_list_CIY <-
   readr::read_csv("../output/param_list_CIY.csv") %>% 
   dplyr::rename(
     beta1 = x1,
-    correct_match_percent = x2
+    beta2 = x2,
+    correct_match_percent = x3
   ) %>% 
   dplyr::filter(
     correct_match_percent >= max(correct_match_percent)
   ) %>% 
   dplyr::mutate(
     min_beta1 = 
-      format(round(min(beta1), digits = 4), nsmall = 4),
+      format(round(min(beta1), digits = 3), nsmall = 3),
     max_beta1 =
-      format(round(max(beta1), digits = 4), nsmall = 4),
+      format(round(max(beta1), digits = 3), nsmall = 3),
+    min_beta2 = 
+      format(round(min(beta2), digits = 3), nsmall = 3),
+    max_beta2 =
+      format(round(max(beta2), digits = 3), nsmall = 3),
     max_correct_match_percent = 
-      format(round(max(correct_match_percent), digits = 4), nsmall = 4)
+      format(round(max(correct_match_percent), digits = 3), nsmall = 3)
   )
+param_list_IHS <-
+  readr::read_csv("../output/param_list_IHS.csv") %>% 
+  dplyr::rename(
+    beta1 = x1,
+    beta2 = x2,
+    correct_match_percent = x3
+  ) %>% 
+  dplyr::filter(
+    correct_match_percent >= max(correct_match_percent)
+  ) %>% 
+  dplyr::mutate(
+    min_beta1 = 
+      format(round(min(beta1), digits = 3), nsmall = 3),
+    max_beta1 =
+      format(round(max(beta1), digits = 3), nsmall = 3),
+    min_beta2 = 
+      format(round(min(beta2), digits = 3), nsmall = 3),
+    max_beta2 =
+      format(round(max(beta2), digits = 3), nsmall = 3),
+    max_correct_match_percent = 
+      format(round(max(correct_match_percent), digits = 3), nsmall = 3)
+  )
+
 param_list_HB <-
   readr::read_csv("../output/param_list_HB.csv") %>% 
   dplyr::rename(
     beta1 = x1,
-    correct_match_percent = x2
+    beta2 = x2,
+    correct_match_percent = x3
   ) %>% 
   dplyr::filter(
     correct_match_percent >= max(correct_match_percent)
   ) %>% 
   dplyr::mutate(
     min_beta1 = 
-      format(round(min(beta1), digits = 4), nsmall = 4),
+      format(round(min(beta1), digits = 3), nsmall = 3),
     max_beta1 =
-      format(round(max(beta1), digits = 4), nsmall = 4),
+      format(round(max(beta1), digits = 3), nsmall = 3),
+    min_beta2 = 
+      format(round(min(beta2), digits = 3), nsmall = 3),
+    max_beta2 =
+      format(round(max(beta2), digits = 3), nsmall = 3),
     max_correct_match_percent = 
-      format(round(max(correct_match_percent), digits = 4), nsmall = 4)
+      format(round(max(correct_match_percent), digits = 3), nsmall = 3)
   )
 
 # operator_level_entry_exit_merger_IHS <-
@@ -68,24 +101,65 @@ param_list_HB <-
 result_for_output <-
   cbind(
     rbind(
-      "Standardized Firm age",
-      "Standardized Firm-year-level TEU",
+      "Firm age: $\\beta_1$",
+      "Firm size (TEU): $\\beta_2$",
+      "Distance: $\\beta_3$",
       "\\% of correct matches"
     ),
     rbind(
       "1",
-      paste("[",param_list_CIY$min_beta1[1] ,",",param_list_CIY$max_beta1[1] , "]", sep = ""),
+      paste(
+        "[",
+        param_list_CIY$min_beta1[1] ,",",
+        param_list_CIY$max_beta1[1] , "]",
+        sep = ""
+        ),
+      paste(
+        "[",
+        param_list_CIY$min_beta2[1] ,",",
+        param_list_CIY$max_beta2[1] , "]",
+        sep = ""
+        ),
       param_list_CIY$max_correct_match_percent[1]
       ),
+    # IHS
     rbind(
       "1",
-      paste("[",param_list_HB$min_beta1[1] ,",",param_list_HB$max_beta1[1] , "]", sep = ""),
+      paste(
+        "[",
+        param_list_IHS$min_beta1[1] ,",",
+        param_list_IHS$max_beta1[1] , "]", 
+        sep = ""
+        ),
+      paste(
+        "[",
+        param_list_IHS$min_beta2[1] ,",",
+        param_list_IHS$max_beta2[1] , "]", 
+        sep = ""
+        ),
+      param_list_IHS$max_correct_match_percent[1]
+      ),
+    # HB
+    rbind(
+      "1",
+      paste(
+        "[",
+        param_list_HB$min_beta1[1] ,",",
+        param_list_HB$max_beta1[1] , "]", 
+        sep = ""
+        ),
+      paste(
+        "[",
+        param_list_HB$min_beta2[1] ,",",
+        param_list_HB$max_beta2[1] , "]", 
+        sep = ""
+        ),
       param_list_HB$max_correct_match_percent[1]
       )
     )
 result_for_output <-
   rbind(
-    c("Regime", "1966-1990", "2005-2022"),
+    c("Regime", "1966-1990", "1991-2005" , "2006-2022"),
     result_for_output
   )
 

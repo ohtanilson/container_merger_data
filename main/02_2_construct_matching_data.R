@@ -314,9 +314,20 @@ matching_pair_year_IHS <-
         is.na(buyer_cumsum_TEU_normalized) == 1,
         1e-6, # NA at merging timing because of entry by merger
         buyer_cumsum_TEU_normalized
+      ),
+    seller_operator_age_normalized = 
+      ifelse(
+        is.na(seller_operator_age_normalized) == 1,
+        1e-6, # NA at merging timing because of entry by merger
+        seller_operator_age_normalized
+      ),
+    seller_cumsum_TEU_normalized =
+      ifelse(
+        is.na(seller_cumsum_TEU_normalized) == 1,
+        1e-6, # NA at merging timing because of entry by merger
+        seller_cumsum_TEU_normalized
       )
-  )# %>% 
-  #tidyr::drop_na()
+  )
 matching_pair_year_HBdata <-
   construct_matching_pair_year(
     HB_data,
@@ -433,6 +444,12 @@ matching_pair_year_IHS <-
     buyer_flag_country_geo_cepii = flag_country_geo_cepii,
     buyer_lon = lon,
     buyer_lat = lat
+  ) %>% 
+  dplyr::filter(
+    is.na(buyer_lat) == 0
+  ) %>% 
+  dplyr::filter(
+    is.na(seller_lat) == 0
   )
 ### HB data ----
 matching_pair_year_HBdata  <-

@@ -580,17 +580,24 @@ display: none;
 </div>
 
 
-<pre><code>## Rows: 100 Columns: 2
+<pre><code>## Rows: 100 Columns: 3
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## dbl (2): x1, x2
+## dbl (3): x1, x2, x3
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-## Rows: 100 Columns: 2
+## Rows: 100 Columns: 3
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## dbl (2): x1, x2
+## dbl (3): x1, x2, x3
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 100 Columns: 3
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## dbl (3): x1, x2, x3
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -608,12 +615,15 @@ Regime
 1966-1990
 </td>
 <td style="text-align:left;">
-2005-2022
+1991-2005
+</td>
+<td style="text-align:left;">
+2006-2022
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Standardized Firm age
+Firm age: <span class="math inline">\(\beta_1\)</span>
 </td>
 <td style="text-align:left;">
 1
@@ -621,16 +631,36 @@ Standardized Firm age
 <td style="text-align:left;">
 1
 </td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Standardized Firm-year-level TEU
+Firm size (TEU): <span class="math inline">\(\beta_2\)</span>
 </td>
 <td style="text-align:left;">
-[3e-04,0.0331]
+[-9.503,9.475]
 </td>
 <td style="text-align:left;">
-[0.0019,0.1197]
+[7.124,9.338]
+</td>
+<td style="text-align:left;">
+[-1.421,-1.421]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Distance: <span class="math inline">\(\beta_3\)</span>
+</td>
+<td style="text-align:left;">
+[-9.977,-0.687]
+</td>
+<td style="text-align:left;">
+[-3.210,-2.702]
+</td>
+<td style="text-align:left;">
+[-0.004,-0.004]
 </td>
 </tr>
 <tr>
@@ -638,10 +668,13 @@ Standardized Firm-year-level TEU
 % of correct matches
 </td>
 <td style="text-align:left;">
-0.9643
+1.000
 </td>
 <td style="text-align:left;">
-0.9715
+0.932
+</td>
+<td style="text-align:left;">
+0.982
 </td>
 </tr>
 </tbody>
