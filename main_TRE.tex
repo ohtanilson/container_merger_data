@@ -40,12 +40,14 @@ Current version: \today
 \maketitle
 
 \begin{abstract}
-We construct a novel unified panel dataset of mergers in the global container shipping industry between 1966 and 2022. Using the data, we construct a structural matching model \citep{fox2018qe} to describe the historical transition of the importance of tonnage capacity and geographical proximity on merger decisions. 
-\textcolor{blue}{We find that XXX.}
+We construct a novel unified list of mergers in the global container shipping industry between 1966  (the beginning of the industry) and 2022. Using the list with proprietary data, we construct a structural matching model \citep{fox2018qe} to describe the historical transition of the importance of a firm's age, size, and geographical proximity on merger decisions. 
+We find that, as a positive factor, a firm's size is more important than a firm's age by seven to nine times as a merger incentive between 1991 and 2005.
+On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, the firm's size works as a disincentive.
+We also find that mergers of firms in distant countries are likely to occur, but the importance level has decreased to economically zero in recent years. 
 \end{abstract} 
 
 \vspace{0.1in}
-\noindent\textbf{Keywords:} container shipping industry; exemption agreement; container crisis; 
+\noindent\textbf{Keywords:} container shipping industry; exemption agreement;  merger; matching 
 \vspace{0in}
 
 
@@ -53,15 +55,28 @@ We construct a novel unified panel dataset of mergers in the global container sh
 
 Container shipping is a crucial component of global trade that has revolutionized the world. 
 According to IHS Markit and Descartes Datamyne, container shipping accounts for $45.4 \%$ of amount-based imports to the U.S., $21.3 \%$ of amount-based exports from the U.S., and $10.12 \%$ of quantity-based world trade are shipped in 2021. 
-Additionally, the container shipping industry offers a fascinating opportunity to explore industry dynamics such as entry, exit, and investment since the industry began global shipping operations in 1966 \citep{otani2023industry}. 
-Despite its significance, like route-year-level prices and quantities dataset constructed by \cite{matsuda2022unified}, there is a lack of a unified dataset for the mergers in the container shipping industry, particularly for the years 1966 to 1990, which limits quantitative research during this period. 
-This study provides a unified list of all mergers in the container shipping industry between 1966 and 2022.
+Additionally, the container shipping industry offers a fascinating opportunity to explore not only industry dynamics such as entry, exit, and investment \citep{otani2023industry}, but also merger waves since the industry began global shipping operations in 1966. 
+Despite its significance, like route-year-level prices and quantities dataset constructed by \cite{matsuda2022unified}, there is a lack of a unified dataset for the mergers in the container shipping industry, particularly for the years 1966 to 1990, which limits quantitative research evaluating mergers. 
+This study provides a unified list of all realized mergers in the container shipping industry between 1966 and 2022.
 
-Combining our new dataset with proprietary ship-level data, 
+Combining our new merger list with proprietary ship-level data, we first provide the merger patterns that mergers are likely to involve relatively younger and smaller firms in more distant countries in recent years. 
+\textcolor{blue}{The data patterns are consistent with institutional evidence that XXX. For example, XXX.}
 
+The merger pattern yields several important insights into the merger waves in the global container shipping industry. 
+However, there are several potential reasons for observing this pattern. 
+For example, firms might put greater importance on a firm's size to increase tonnage shares within the market in the decision to buy firms in recent years rather than the period between 1966 and 1990. 
+Alternatively, firms might put greater importance on geographical proximity to achieve the dominant position at the local country level. 
+To disentangle these explanations and gain much more detailed insights into the different channels in a sophisticated way, we construct a structural model to quantify the relative importance of a firm's age, size, and geographical proximity by applying a novel approach, that is, matching maximum score estimator \cite{fox2018qe}. 
 
-we construct a structural model to quantify the relative importance of firm's age, size, and geographical proximity by applying a matching maximum score estimator \cite{fox2018qe}. 
-\textcolor{blue}{It is anecdotally known that XXX. }
+Our estimation results indicate that assortativeness of both size and geographical proximity contributes to merger incentives or disincentives. 
+First, the assortativeness of the firm's size changes from negative between 1991 and 2005 to positive between 2006 and 2022. 
+This implies that, between 1991 and 2005, as a positive factor, a firm's size is more important than a firm's age by seven to nine times in merger decisions, that is, a firm's size works as a merger incentive.
+On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, a firm's size works as a merger disincentive.
+Second, we find that geographical distance works as a merger disincentive for the whole period, but the importance level relative to a firm's age has decreased to economically zero in recent years. 
+This implies that merger incentives to achieve the dominant position at the local country level have decreased in recent years.
+
+\textcolor{blue}{Finally, we exercise a counterfactual simulation given the estimated parameters. 
+We investigate the effect of XX on the equilibrium number of groups. }
 
 
 
@@ -84,9 +99,16 @@ In addition, we compare historical transitions of the relative importance of the
 Third, our paper contributes to the literature on recent industrial policy and antitrust studies in the shipping industry. \cite{jeon2022learning} studies the relationship between learning and investment in the container shipping industry between 2006 and 2014 and simulates counterfactual merger scenarios in which a merger occurred between top two firms that jointly account for over 35\% of total capacity in the industry.
 \textcolor{blue}{[XXX]}
 
+The remainder of this paper is organized as follows. 
+Section \ref{sec:data_and_institutional_background} summarizes the data and institutional background of mergers in the container shipping industry.
+Section \ref{sec:empirical_analysis} constructs a structural matching model to quantify the assortativeness of observed characteristics for each regime and compare the levels across regimes.
+Section \ref{sec:results} shows estimation results.
+Section \ref{sec:counterfactuals} shows estimation results.
+Section \ref{sec:practical_implications} summarizes practical implications, discussion, and future research directions.
+Finally, Section \ref{sec:conclusion} presents our conclusions.
 
 
-\section{Data and Industry Background}
+\section{Data and Industry Background}\label{sec:data_and_institutional_background}
 
 We construct the data from combining the three data sources. 
 The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
@@ -256,39 +278,43 @@ Based on Equation \eqref{eq:stability_ineq} and equilibrium price conditions $p_
 where $p_{b',s}$ and $p_{b,s'}$ are unrealized equilibrium merger prices that cannot be observed in the data. The last two inequalities cannot be derived from the data because the researchers cannot observe how the total matching value $f(b,s)$ is shared between buyer $b$ and seller $s$.
 
 \cite{fox2018qe} proposes a maximum score
-estimator using the above inequalities. The maximum score estimator is consistent if the model satisfies a rank order property, i.e., the probability of observing matched pairs is larger than the probability of observing swapped matched pairs. We specify $f(b,s)$ as a parametric form $f(b,s|X,\beta)$ where $X$ is a vector of observed characteristics of all buyers and sellers and $\beta$ is a vector of parameters. As observed characteristics $X$, we use the age and total tonnage of each firm and the geological location of the flag country at merger timing.
+estimator using the above inequalities when we observe the transfer data or not under mild conditions. 
+The maximum score estimator is consistent if the model satisfies a rank order property, i.e., the probability of observing matched pairs is larger than the probability of observing swapped matched pairs. 
+The rank order property is equivalent to pairwise stability which is a milder property rather than stability, so that the rank order property holds under the above stability conditions. See identification details in \cite{fox2010qe} and Monte Carlo simulation results in \cite{fox2018qe} and \cite{otani2021matching_cost}.
 
-
-Given $X$, one can estimate $\beta$ by maximizing the following objective function:
+We specify $f(b,s)$ as a parametric form $f(b,s|X,\beta)$ where $X$ is a vector of observed characteristics of all buyers and sellers and $\beta$ is a vector of parameters. 
+Given the observed characteristics $X$, one can estimate $\beta$ by maximizing the following objective function:
 \begin{align}
     Q(\beta)=\sum_{(b,s)\in \mathcal{M}} \sum_{(b',s')\in \mathcal{M},(b',s')\neq (b,s)} \mathbbm{1}[f(b,s|X,\beta)+ f(b',s'|X,\beta)\ge f(b,s'|X,\beta)+f(b',s|X,\beta)]\label{eq:score_function}
 \end{align}
-where $\mathbbm{1}[\cdot]$ is an indicator function.
+where $\mathbbm{1}[\cdot]$ is an indicator function. This objective function counts the number of correctly predicted pairwise stable matching under each candidate parameter $\beta$.
 
-In our empirical application, we use the standardized firm's age and size and match-level distance variables in the observed characteristics, $X$. 
+In our empirical application, as the observed characteristics, $X$, we use the standardized firm's age, size measured by the total tonnage, and match-level distance based on the locations of the flag countries at merger timing, that is, all observed variables are standardized to $[0,1]$. 
 Concretely, we specify the joint production function $f(b,s)$ as
 \begin{align*}
     f(b,s|X,\beta)= \beta_1 \text{Age}_{b}\text{Age}_{s} + \beta_2 \text{Size}_{b}\text{Size}_{s} + \beta_3 \text{Distance}_{bs} + \varepsilon_{bs}
 \end{align*}
-where $\varepsilon_{bs}$ is assumed to be i.i.d. errors drawn from the zero median distribution. 
+where $\varepsilon_{bs}$ is assumed to be i.i.d. errors drawn from the zero median distribution as in \cite{fox2018qe}. 
 
-All observed variables are standardized to $[0,1]$.
 
-\section{Results}
+\section{Results}\label{sec:results}
 
-Table \ref{tb:maximum_score_estimate} reports the estimation results. 
-
+Table \ref{tb:maximum_score_estimate} reports the estimation results of the matching maximum score estimator. 
 Since we use realized merger cases, we could not construct a 95 \% confidence interval with enough subsampled data via bootstrap.
 Instead, the numbers in brackets indicate the lower and upper bounds of a set of maximizers of the objective function. 
 If the lower and upper bounds are the same, then the parameters are point-identified. Otherwise, the parameters are partially identified.
+The percent of correct matches is more than 90\%, so the estimated model predicts the actual mergers well.
+
 
 First, the estimated coefficient of the firm's size shows an interesting transition. 
 The sign is changed from ambiguous between 1966 and 1990, positive between 1991 and 2005, to negative between 2006 and 2022. 
-In particular, between 1991 and 2005, as a positive factor, a firm's size is more important than a firm's age by seven to nine times in merger decisions, that is, mergers of larger firms are likely to occur.
-On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, mergers of smaller firms are likely to occur.
+In particular, between 1991 and 2005, as a positive factor, a firm's size is more important than a firm's age by seven to nine times in merger decisions, that is, firm's size works as a merger incentive.
+On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, a firm's size works as a merger disincentive.
+\textcolor{blue}{This results are consistent with the institutional fact that XXX}
 
-Second, the sign of the distance of seller and buyer firms is negative across all regimes but the level decreases between 2006 and 2022. 
+Second, the estimated coefficient of the distance of seller and buyer firms shows a negative sign across all regimes but the level decreases between 2006 and 2022. 
 This means that mergers of firms in distant countries are likely to occur, but the importance level relative to a firm's age has decreased to economically zero in recent years.
+\textcolor{blue}{This results are consistent with the institutional fact that XXX}
 
 \begin{table}[!htbp]
   \begin{center}
@@ -296,19 +322,31 @@ This means that mergers of firms in distant countries are likely to occur, but t
       \label{tb:maximum_score_estimate} 
       \input{figuretable/maximum_score_estimate}
   \end{center}\footnotesize
-  Note:  The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, I require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For point estimation, 100 runs were performed for all specifications. The numbers in parentheses are lower and upper bounds of a set of maximizers of the maximum rank estimator.  Parameters that can take on only a finite number of values (here 1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[0,1]$. 
+  Note: The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, we require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For point estimation, 100 runs were performed for all specifications. The numbers in parentheses are lower and upper bounds of a set of maximizers of the maximum rank estimator.  Parameters that can take on only a finite number of values (here 1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[0,1]$. 
 \end{table} 
 
-\section{Counterfactual}
+\section{Counterfactual}\label{sec:counterfactuals}
 
-Table XXX.
+\textcolor{blue}{XXX}
 
-\section{Discussion}
+\section{Practical Implications, Discussion, and Future Research}\label{sec:practical_implications}
 
-XXX
+\subsection{Practical Implications}
+
+\textcolor{blue}{XXX}
+
+\subsection{Discussion}
+
+\textcolor{blue}{XXX}
+
+\subsection{Future Research}
+
+\textcolor{blue}{XXX}
 
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
+
+\textcolor{blue}{XXX}
 
 \bibliographystyle{aer}
 \bibliography{container_merger_data_bib}
