@@ -181,7 +181,7 @@ result_for_output %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = "",
-    align = "lccc"
+    align = "lcccc"
   ) %>%
   kableExtra::row_spec(1, hline_after = TRUE) %>% 
   kableExtra::save_kable(
