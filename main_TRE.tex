@@ -57,7 +57,10 @@ Additionally, the container shipping industry offers a fascinating opportunity t
 Despite its significance, like route-year-level prices and quantities dataset constructed by \cite{matsuda2022unified}, there is a lack of a unified dataset for the mergers in the container shipping industry, particularly for the years 1966 to 1990, which limits quantitative research during this period. 
 This study provides a unified list of all mergers in the container shipping industry between 1966 and 2022.
 
-Combining our new dataset with proprietary data, we conduct a structural analysis to quantify the relative importance of firm's age, size, and geographical proximity by applying a matching maximum score estimator \cite{fox2018qe}. 
+Combining our new dataset with proprietary ship-level data, 
+
+
+we construct a structural model to quantify the relative importance of firm's age, size, and geographical proximity by applying a matching maximum score estimator \cite{fox2018qe}. 
 \textcolor{blue}{It is anecdotally known that XXX. }
 
 
@@ -135,7 +138,7 @@ We classify the periods into three regimes, 1966-1990, 1991-2005, and 2006-2022.
 Table \ref{tb:merger_list_CIY} summarizes all mergers based on CIY between 1966 and 1990.\footnote{In 1964, the Japanese ocean shipping industry experienced consolidation induced by the government, and 95 firms were merged into six large groups. \cite{otani2021estimating} investigates the event by a structural matching model.}
 This period involves a collusive and competitive environment with shipping conferences that are explicit and cartels globally allowed. 
 The period is studied in \cite{matsuda2022unified} and \cite{otani2023industry} in detail.
-The period is divided into the collusive (1966-1983) and competitive (1984-1990) periods due to the U.S. Shipping Act of 1984.
+The period is divided into the collusive (1966-1983) and competitive (1984-1990) periods due to the U.S. Shipping Act of 1984.\footnote{The relevant studies are \cite{wilson1991some}, \cite{pirrong1992application}, and \cite{clyde1998market}. \cite{wilson1991some} provided evidence of regime change by the Shipping Act of 1984 using data on quarterly freight rates and shipping quantities of five selected commodities only on the Transpacific route. \cite{pirrong1992application} tested the model prediction of the core theory surveyed in \cite{sjostrom2013competition} using data from two specific trade routes between 1983 and 1985. \cite{clyde1998market} studied the relationship between market power and the market share of shipping conferences after the act. }
 In the collusive period between 1966 and 1983, a single merger occurred in 1970 (Moore-McCormack Lines Inc merged by United States Lines). % and 1972 (Johnson Line merged by NA).
 In the competitive period between 1984 and 1990, two mergers occurred in 1986, three mergers occurred in 1988, and two mergers occurred in 1990. 
 \textcolor{blue}{Anecdotally, mergers in the period are driven by XXX}
@@ -145,6 +148,8 @@ In the competitive period between 1984 and 1990, two mergers occurred in 1986, t
 \paragraph{1991-2008}
 
 Table \ref{tb:merger_list_IHS} summarizes all mergers based on IHS between 1991 and 2005.
+The period involves the Ocean Shipping Reform Act (OSRA) of 1998 and this enactment divides the period into the pre-OSRA and post-OSRA periods.\footnote{See \cite{fusillo2006some,fusillo2013stability} and \cite{reitzes2002rolling} in detail. }
+We find that five mergers before 1998 and 17 mergers after 1998 occurred.
 \textcolor{blue}{Anecdotally, mergers in the period are driven by XXX}
 % Background
 % What mergers?
@@ -154,11 +159,10 @@ Table \ref{tb:merger_list_IHS} summarizes all mergers based on IHS between 1991 
 
 \paragraph{2009-2022}
 
+Table \ref{tb:merger_list_HB} summarizes all mergers based on IHS between 2006 and 2022.
+\textcolor{blue}{Anecdotally, mergers in the period are driven by XXX}
 % Background
 % What mergers?
-
-Table \ref{tb:merger_list_HB}
-
 
 
 
@@ -167,14 +171,15 @@ Table \ref{tb:merger_list_HB}
 
 \subsection{Descriptive statistics}
 
-Table \ref{tb:summary_statistics} shows summary statistics of buyer and seller firms in all realized merger cases between 1966 and 2022. 
+Table \ref{tb:summary_statistics} shows summary statistics of firm-level variables of buyer and seller firms in all realized merger cases between 1966 and 2022. 
 We construct firm-level variables such as the firm's age in the global container shipping industry and size measured by TEU in the merger year. 
 We normalized these variables from 0 (minimum age) to 1 (maximum age) in each regime for comparison across regimes.
 First, we find that the mean of normalized firms' age decreases from 0.84 in the 1966-1990 period to 0.51 in the 2006-2022 period. This implies that mergers are likely to occur between relatively younger firms in recent years.
 Second, the mean of normalized firms' size decreases from 0.23 in the 1966-1990 period to 0.08 in the 2006-2022 period. 
 This implies that mergers are likely to occur between relatively smaller firms in recent years, although the firm's absolute size increases exponentially. 
 Note that we treat new entrant firms buying incumbent firms as firms whose age and size are zero so that the above findings capture that the number of entries by mergers increases.
-Figure \ref{fg:size_cdf} illustrates XXX.
+Figure \ref{fg:size_cdf} illustrates the cumulative distributions of the normalized firm's size and age for each regime. 
+This confirms the above fact that mergers are likely to involve relatively younger and smaller firms in recent years.
 
 
 \begin{table}[!htbp]
@@ -260,7 +265,12 @@ Given $X$, one can estimate $\beta$ by maximizing the following objective functi
 \end{align}
 where $\mathbbm{1}[\cdot]$ is an indicator function.
 
-In our empirical application, we use the standardized firm's age and size and match-level distance variables in the observed characteristics.
+In our empirical application, we use the standardized firm's age and size and match-level distance variables in the observed characteristics, $X$. 
+Concretely, we specify the joint production function $f(b,s)$ as
+\begin{align*}
+    f(b,s|X,\beta)= \beta_1 \text{Age}_{b}\text{Age}_{s} + \beta_2 \text{Size}_{b}\text{Size}_{s} + \beta_3 \text{Distance}_{bs} + \varepsilon_{bs}
+\end{align*}
+where $\varepsilon_{bs}$ is assumed to be i.i.d. errors drawn from the zero median distribution. 
 
 
 \section{Results}
@@ -273,12 +283,17 @@ Table \ref{tb:maximum_score_estimate}
       \label{tb:maximum_score_estimate} 
       \input{figuretable/maximum_score_estimate}
   \end{center}\footnotesize
-  Note: 
+  Note:  The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, I require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For point estimation, 100 runs were performed for all specifications. The reported point estimates are the best-found maxima. The parentheses are 95 \% confidence intervals which are computed by taking the 2.5th percentile
+and the 97.5th percentile of the empirical sampling distribution of estimated parameters. Bootstrap uses 200 replications with 200 population seeds and 118 firms (all 12 main firms and 106 non-main firms sampled with replacement out of 106 non-main firms) per replication. Confidence intervals are not necessarily symmetric around the point estimate. Parameters that can take on only a finite number of values (here +1) converge at an arbitrarily fast rate, then they are superconsistent (denoted by (S)). The unit of measure of assortativeness of scale is a million (D/W) tonnage tons. The sub-indices $b$ and $t$ mean the buyer's and target coalition's covariates. 
 \end{table} 
 
 \section{Counterfactual}
 
 Table XXX.
+
+\section{Discussion}
+
+XXX
 
 
 \section{Conclusion}
