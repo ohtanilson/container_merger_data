@@ -104,7 +104,15 @@ result_for_output <-
       "Firm age: $\\beta_1$",
       "Firm size (TEU): $\\beta_2$",
       "Distance: $\\beta_3$",
+      "",
       "\\% of correct matches"
+    ),
+    rbind(
+      "",
+      "",
+      "",
+      "",
+      ""
     ),
     rbind(
       "1",
@@ -120,6 +128,7 @@ result_for_output <-
         param_list_CIY$max_beta2[1] , "]",
         sep = ""
         ),
+      "",
       param_list_CIY$max_correct_match_percent[1]
       ),
     # IHS
@@ -137,6 +146,7 @@ result_for_output <-
         param_list_IHS$max_beta2[1] , "]", 
         sep = ""
         ),
+      "",
       param_list_IHS$max_correct_match_percent[1]
       ),
     # HB
@@ -154,12 +164,14 @@ result_for_output <-
         param_list_HB$max_beta2[1] , "]", 
         sep = ""
         ),
+      "",
       param_list_HB$max_correct_match_percent[1]
       )
     )
 result_for_output <-
   rbind(
     c("Regime", "1966-1990", "1991-2005" , "2006-2022"),
+    c("", "", "" , ""),
     result_for_output
   )
 
@@ -171,6 +183,7 @@ result_for_output %>%
     linesep = "",
     align = "lccc"
   ) %>%
+  kableExtra::row_spec(1, hline_after = TRUE) %>% 
   kableExtra::save_kable(
     file = here::here("figuretable/maximum_score_estimate.tex")
   )
