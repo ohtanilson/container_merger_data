@@ -89,11 +89,19 @@ We construct the data from combining the three data sources.
 The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
 The second data source is IHS Markit data (IHS), which provides ship-level information between 1991 and 2005.
 The third data source is \textit{Handbook of Ocean Commerce} (HB), which provides ship-level information between 2006 and 2022. 
-Aggregating the data, we construct firm-level variables such as country name and tonnage capacity measured by TEU. 
-Finally, we manually collect institutional information and construct a merger list that contains buyer names, seller names, and merger year, then merge the list with the firm-year-level variables. 
+We denote the period in the corresponding data as a \textit{regime}, that is, we observe three regimes.
+Aggregating the ship-level data, we construct firm-level variables such as country name and tonnage capacity measured by the Twenty-foot Equivalent Unit (TEU). 
+Finally, from institutional information, we manually construct a merger list that contains buyer names, seller names, and merger year, then merge the list with the firm-year-level variables. 
+
+There are some remarks because we find that there are some inconsistencies such as a one-year lag and missing ship-level variables between these data sources and institutional facts. 
+First, we fix the inconsistencies following the observations in the newer regime data. 
+Second, we treat the firms not operating in the merged year as the firms that have a constant capacity level from the last active year in the merged year. % For example, Johnson Line was active in 1969-1972 but was merged in 1991.
+Third, we treat mergers of some container shipping seller firms by non-container-shipping firms out of the industry as exits in the container shipping industry because it does not provide any information on buyer firms.
+The final data regarding mergers is summarized in this section and used in empirical analysis in Section \ref{sec:empirical_analysis}.
 
 \subsection{Industry Background}
-We describe the industry background between 1966 and 2022 in chronological order by focusing on firms' mergers. We classify the periods into three regimes, 1966-1990, 1991-2008, and 2009-2022. Each regime corresponds with the institutional background and data source.
+We describe the industry background between 1966 and 2022 chronologically by focusing on firms' mergers. 
+We classify the periods into three regimes, 1966-1990, 1991-2005, and 2006-2022. Each regime corresponds with the institutional background and data source.
 
 \begin{table}[!htbp]
   \begin{center}
@@ -101,7 +109,7 @@ We describe the industry background between 1966 and 2022 in chronological order
       \label{tb:merger_list_CIY} 
       \input{figuretable/merger_list_CIY}
   \end{center}\footnotesize
-  Note: The firms not operated in the merged year are treated as the firms that have a constant capacity level from the last active year in the merged year. For example, Johnson Line was active in 1969-1972 but was merged in 1991.
+  %Note: 
 \end{table} 
 
 \begin{table}[!htbp]
@@ -110,7 +118,7 @@ We describe the industry background between 1966 and 2022 in chronological order
       \label{tb:merger_list_IHS} 
       \input{figuretable/merger_list_IHS}
   \end{center}\footnotesize
-  Note: 
+  %Note: 
 \end{table} 
 
 \begin{table}[!htbp]
@@ -119,32 +127,29 @@ We describe the industry background between 1966 and 2022 in chronological order
       \label{tb:merger_list_HB} 
       \input{figuretable/merger_list_HB}
   \end{center}\footnotesize
-  Note:
+  %Note:
 \end{table} 
 
 \paragraph{1966-1990} 
 
-\cite{matsuda2022unified}
-
-Table \ref{tb:merger_list_CIY} summarizes
-
-In the period between 1966 and 1983, two mergers occurred in 1970 (Moore-McCormack Lines Inc merged by United States Lines) and 1972 (Johnson Line merged by NA).
-
-In the period between 1984 and 1990, two mergers occurred in 1986, three mergers occurred in 1988, and two mergers occurred in 1990. 
-
+Table \ref{tb:merger_list_CIY} summarizes all mergers based on CIY between 1966 and 1990.\footnote{In 1964, the Japanese ocean shipping industry experienced consolidation induced by the government, and 95 firms were merged into six large groups. \cite{otani2021estimating} investigates the event by a structural matching model.}
+This period involves a collusive and competitive environment with shipping conferences that are explicit and cartels globally allowed. 
+The period is studied in \cite{matsuda2022unified} and \cite{otani2023industry} in detail.
+The period is divided into the collusive (1966-1983) and competitive (1984-1990) periods due to the U.S. Shipping Act of 1984.
+In the collusive period between 1966 and 1983, a single merger occurred in 1970 (Moore-McCormack Lines Inc merged by United States Lines). % and 1972 (Johnson Line merged by NA).
+In the competitive period between 1984 and 1990, two mergers occurred in 1986, three mergers occurred in 1988, and two mergers occurred in 1990. 
+\textcolor{blue}{Anecdotally, mergers in the period are driven by XXX}
 % Background
 % What mergers?
-
-
-
-\cite{matsuda2022unified}
 
 \paragraph{1991-2008}
 
+Table \ref{tb:merger_list_IHS} summarizes all mergers based on IHS between 1991 and 2005.
+\textcolor{blue}{Anecdotally, mergers in the period are driven by XXX}
 % Background
 % What mergers?
 
-Table \ref{tb:merger_list_IHS}
+
 
 
 \paragraph{2009-2022}
@@ -163,7 +168,7 @@ Table \ref{tb:merger_list_HB}
 \subsection{Descriptive statistics}
 
 Table \ref{tb:summary_statistics} shows summary statistics of buyer and seller firms in all realized merger cases between 1966 and 2022. 
-We construct firm-level variables such as the firm's age in the global container shipping industry and size measured by the Twenty-foot Equivalent Unit (TEU) in the merger year. 
+We construct firm-level variables such as the firm's age in the global container shipping industry and size measured by TEU in the merger year. 
 We normalized these variables from 0 (minimum age) to 1 (maximum age) in each regime for comparison across regimes.
 First, we find that the mean of normalized firms' age decreases from 0.84 in the 1966-1990 period to 0.51 in the 2006-2022 period. This implies that mergers are likely to occur between relatively younger firms in recent years.
 Second, the mean of normalized firms' size decreases from 0.23 in the 1966-1990 period to 0.08 in the 2006-2022 period. 
