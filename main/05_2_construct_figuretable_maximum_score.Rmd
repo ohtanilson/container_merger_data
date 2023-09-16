@@ -291,13 +291,18 @@ digits = 3), nsmall = 3)
 result_for_output <-
   rbind(
     c("Regime", "", "1991-2005" , "2006-2022"),
-    c("\\% total match (counterfactual/data)", "",  
-      rate_number_of_merger_IHS , rate_number_of_merger_HB),
-    c("\\% same match (counterfactual/data)", "",  
-      rate_number_of_same_merger_HB , rate_number_of_same_merger_HB),
     c("Matching Num (data)", "",  
       length(matching_pair_year_IHS_different_country$matching_lat),
-      length(matching_pair_year_HB_different_country$matching_lat))
+      length(matching_pair_year_HB_different_country$matching_lat)),
+    c("Matching Num (counterfactual)", "",  
+      length(matching_pair_year_IHS_counterfactual$matching_lat),
+      length(matching_pair_year_HB_counterfactual$matching_lat)),
+    c("\\% total match (counterfactual/data)", "",  
+      rate_number_of_merger_IHS , rate_number_of_merger_HB),
+    c("","","",""),
+    c("\\% same match (counterfactual/data)", "",  
+      rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
+    
   )
 
 result_for_output %>%
