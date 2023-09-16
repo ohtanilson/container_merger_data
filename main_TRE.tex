@@ -44,7 +44,7 @@ We construct a novel unified list of mergers in the global container shipping in
 We find that, as a positive factor, a firm's size is more important than a firm's age by seven to nine times as a merger incentive between 1991 and 2005.
 On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, the firm's size works as a disincentive.
 We also find that the distance between buyer and seller firms works as a disincentive for the whole period, but the importance level has decreased to economically zero in recent years. 
-\textcolor{blue}{In counterfactual simulations, XXX}
+In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects not only the number of permitted mergers in different countries but also the merger configuration, that is, buyer-seller-match pairs.
 \end{abstract} 
 
 \vspace{0.1in}
@@ -79,9 +79,12 @@ On the other hand, between 2006 and 2022, as a negative factor, a firm's size is
 Second, we find that geographical distance works as a merger disincentive for the whole period, but the importance level relative to a firm's age has decreased to economically zero in recent years. 
 This implies that merger incentives to achieve the dominant position at the local country level decrease.
 
-\textcolor{blue}{Finally, we exercise a counterfactual simulation given the estimated parameters. 
-We investigate the effect of XX . }
-
+Finally, we exercise a counterfactual simulation given the estimated parameters. 
+We investigate the effect of the prohibition of mergers between firms in the same country on matching outcomes. This type of blocking merger is the most controversial topic in competition policies. 
+For example, on June 21, 2017, South Africa's Competition Commission issued a statement stating that it "forbade" the integration of the container business by the three shipping lines of NYK, MOL, and KLINE. 
+The commission cited concerns about market consolidation by domestic companies and cartel issues involving these companies in the car carrier business.
+The country's competition court finally approved the integration on January 17, 2018, but this could impact the planned launch of the integrated container company, Ocean Network Express.
+In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects not only the number of permitted mergers in different countries but also the merger configuration, that is, buyer-seller-match pairs.
 
 
 \subsection{Related literature}
@@ -315,7 +318,7 @@ The stability conditions for buyer firm $b \in \mathcal{N}_b$ and seller firm $s
     V_s(b,s) &\ge V_s(b',s) \quad \forall b' \in \mathcal{N}_b\cup \emptyset,b'\neq b.\nonumber
 \end{align}
 
-Based on Equation \eqref{eq:stability_ineq} and equilibrium price conditions $p_{b',s}\le p_{b,s}$ and $p_{b,s'}\le p_{b',s'}$ in \cite{akkus2015ms}, we construct the inequalities for matches $(b,s)\in \mathcal{M}$ and $(b',s')\in \mathcal{M}, (b',s')\neq(b,s)$ as follows:
+Based on Inequalities \eqref{eq:stability_ineq} and equilibrium price conditions $p_{b',s}\le p_{b,s}$ and $p_{b,s'}\le p_{b',s'}$ in \cite{akkus2015ms}, we construct the inequalities for matches $(b,s)\in \mathcal{M}$ and $(b',s')\in \mathcal{M}, (b',s')\neq(b,s)$ as follows:
 \begin{align}
     f(b,s)-f(b,s')&\ge p_{b,s}-p_{b,s'}\ge p_{b,s}-p_{b',s'},\label{eq:pairwise_stable_ineq}\\
     f(b',s')-f(b',s)&\ge p_{b',s'}-p_{b',s}\ge p_{b',s'}-p_{b,s},\nonumber\\
@@ -338,10 +341,11 @@ In the absence of transfer data, given the observed characteristics $X$, one can
     Q(\beta)=\sum_{(b,s)\in \mathcal{M}} \sum_{(b',s')\in \mathcal{M},(b',s')\neq (b,s)} \mathbbm{1}[f(b,s|X,\beta)+ f(b',s'|X,\beta)\ge f(b,s'|X,\beta)+f(b',s|X,\beta)]\label{eq:score_function}
 \end{align}
 where $\mathbbm{1}[\cdot]$ is an indicator function. 
-The inequality is constructed by adding the first two inequalities in \eqref{eq:pairwise_stable_ineq}.
-This objective function counts the number of correctly predicted pairwise stable matching under each candidate parameter $\beta$.
+The inequality is constructed by adding the first two inequalities and canceling out transfers $p_{b,s}$ and $p_{b',s'}$ in Inequalities \eqref{eq:pairwise_stable_ineq}.
+The objective function \eqref{eq:score_function} counts the number of correctly predicted pairwise stable matching under each candidate parameter $\beta$.
 
-In our empirical application, as the observed characteristics, $X$, we use the standardized firm's age, size measured by the total tonnage, and match-level distance based on the locations of the flag countries at merger timing, that is, all observed variables are standardized to $[1e-6,1]$. 
+
+In our empirical application, as the observed characteristics, $X$, we use the standardized firm's age, size measured by the total tonnage, and match-level distance calculated from the locations of the flag countries at merger timing, that is, all observed variables are standardized to $[1e-6,1]$. 
 Concretely, we specify the joint production function $f(b,s)$ as
 \begin{align}
     f(b,s|X,\beta)= \beta_1 \text{Age}_{b}\text{Age}_{s} + \beta_2 \text{Size}_{b}\text{Size}_{s} + \beta_3 \text{Distance}_{bs} + \varepsilon_{bs},\label{eq:joint_production}
@@ -375,7 +379,7 @@ This means that mergers of firms in distant countries are likely to occur, but t
       \label{tb:maximum_score_estimate} 
       \input{figuretable/maximum_score_estimate}
   \end{center}\footnotesize
-  Note: The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, we require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For estimation, 100 runs were performed for all specifications. The numbers in parentheses are the lower and upper bounds of the set of maximizers of the maximum rank estimator.  Parameters that can take on only a finite number of values (here 1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[1e-6,1]$. 
+  Note: The objective function was numerically maximized using differential evolution (DE) algorithm in \texttt{BlackBoxOptim.jl} package. For DE algorithm, we require setting the domain of parameters and the number of population seeds so that we fix the former to $[-10, 10]$. For estimation, 100 runs of 1,000 seeds were performed for all specifications. The numbers in parentheses are the lower and upper bounds of the set of maximizers of the maximum rank estimator. Parameters that can take on only a finite number of values (here 1) converge at an arbitrarily fast rate, then they are superconsistent. The unit of measure of all variables is normalized to $[1e-6,1]$. 
 \end{table} 
 
 \section{Counterfactual}\label{sec:counterfactuals}
@@ -387,7 +391,7 @@ The country's competition court finally approved the integration on January 17, 
 \textcolor{blue}{[Other example?]}
 
 In our counterfactual simulation, given estimated parameters, we simulate the matching outcome under the hypothetical scenario that mergers between firms in the same country are prohibited. 
-Mechanically, this scenario imposes that 
+Mechanically, first, this scenario uses the merger cases of firms in different countries and imposes that 
 the joint production function \eqref{eq:joint_production} is changed to
 \begin{align*}
     f(b,s|X,\beta)= \begin{cases}
@@ -395,8 +399,43 @@ the joint production function \eqref{eq:joint_production} is changed to
         -\infty, \quad \text{otherwise}.
     \end{cases}
 \end{align*}
+Second, given counterfactual $f(b,s|X,\beta)$, we compute an equilibrium matching allocation. 
+Let $F(b,s|X,\beta)=f(b,s|X,\beta)+\varepsilon_{bs}$ be the match value function of match $(b,s)$ where $\varepsilon_{bs}$ is drawn from zero median distribution. The equilibrium one-to-one matching allocation $\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}$ is calculated by the following linear programming problem proposed by \cite{shapley1971assignment}:
+\begin{align*}
+    \max_{\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}} &F(b,s|X,\beta)\cdot m(b,s),\\
+    \text{s.t. } 0&\le \sum_{b\in\mathcal{N}_b}m(b,s)\le 1\quad  \forall s \in \mathcal{N}_s,\\
+    0&\le \sum_{s\in\mathcal{N}_s}m(b,s)\le 1\quad \forall b \in \mathcal{N}_b,\\
+    0&\le m(b,s) \quad \forall b \in \mathcal{N}_b,\forall s \in \mathcal{N}_s
+\end{align*}
+where the dual of this linear programming problem also gives equilibrium prices. 
+We allow firms to be unmatched to avoid gaining negative joint production functions.
+In the simulation, we fix the parameters to the upper bounds of estimated parameters in Table \ref{tb:maximum_score_estimate}, and we draw 100 i.i.d. draws of $\varepsilon_{bs}$ from the standard normal distribution $N(0,1)$, then solve the above linear programming problem.
+We confirm that using the lower bounds of parameters gives almost the same results.
+We report the most frequently observed matching outcomes.
 
-\textcolor{blue}{Table XXX}
+\begin{table}[!htbp]
+  \begin{center}
+      \caption{Counterfactual simulations under the prohibition of mergers of firms in the same country}
+      \label{tb:number_of_mergers_counterfactual} 
+      \input{figuretable/number_of_mergers_counterfactual}
+  \end{center}\footnotesize
+  %Note: 
+\end{table} 
+
+Table \ref{tb:number_of_mergers_counterfactual} reports the counterfactual simulation results under the prohibition of mergers between firms in the same country. 
+Since only one merger of firms in different countries happened between 1966 and 1990, we focus on the periods between 1991 and 2005, and between 2006 and 20022.
+First, between 1991 and 2005, the number of mergers between firms in different countries decreases by 28.6\% in the counterfactual scenario because XXX. 
+Also, 22.2\% of the counterfactual merger pairs are the same as actual pairs.
+This implies that XXX.
+
+Second, between 2006 and 20022, the number of mergers between firms in different countries is the same as the data. 
+Also, 22.2\% of the counterfactual merger pairs are the same as actual pairs. 
+This implies that XXX.
+
+Therefore, we find that the prohibition of mergers between firms in the same country affects not only the number of permitted mergers in different countries but also the merger configuration, that is, buyer-seller-match pairs.
+
+
+
 
 \section{Interviews}\label{sec:interviews}
 
@@ -443,8 +482,13 @@ Pursuing this direction will require a different econometric approach such as th
 \section{Conclusion}\label{sec:conclusion}
 We construct a novel unified list of mergers in the global container shipping industry between 1966 (the beginning of the industry) and 2022. 
 Combining the list with proprietary data, we construct a structural matching model \citep{fox2018qe} to describe the historical transition of the importance of a firm's age, size, and geographical proximity on merger decisions. 
-We find different transition patterns of a firm's age, size, and geographical proximity.
-\textcolor{blue}{In counterfactual simulations, XXX}
+We find different transition patterns of the importance of a firm's age, size, and geographical proximity.
+In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects not only the number of permitted mergers in different countries but also the merger configuration, that is, buyer-seller-match pairs.
+
+\textbf{Acknowledgement} \\
+\textcolor{blue}{We benefited from anonymous referees and participants at the XXX. We thank Akimitsu Ashida and Hiroyuki Sato for sharing industry knowledge and expertise as ex-chairperson in the 1980s and Jeremy Fox for introducing methodology. And we thank Mikio Tasaka, Yasuhiro Fujita, Jong-khil Han and Yutaka Yamomoto for professional comments. This study was supported by JSPS KAKENHI Grant Numbers 20K22129 and 22K13501. }
+
+
 
 \bibliographystyle{aer}
 \bibliography{container_merger_data_bib}
