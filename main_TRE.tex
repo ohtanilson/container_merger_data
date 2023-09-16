@@ -400,9 +400,9 @@ the joint production function \eqref{eq:joint_production} is changed to
     \end{cases}
 \end{align*}
 Second, given counterfactual $f(b,s|X,\beta)$, we compute an equilibrium matching allocation. 
-Let $F(b,s|X,\beta)=f(b,s|X,\beta)+\varepsilon_{bs}$ be the match value function of match $(b,s)$ where $\varepsilon_{bs}$ is drawn from zero median distribution. The equilibrium one-to-one matching allocation $\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}$ is calculated by the following linear programming problem proposed by \cite{shapley1971assignment}:
+The equilibrium one-to-one matching allocation $\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}$ is calculated by the following linear programming problem proposed by \cite{shapley1971assignment}:
 \begin{align*}
-    \max_{\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}} &F(b,s|X,\beta)\cdot m(b,s),\\
+    \max_{\{m(b,s)\}_{b\in\mathcal{N}_b,s\in\mathcal{N}_s}} &f(b,s|X,\beta)\cdot m(b,s),\\
     \text{s.t. } 0&\le \sum_{b\in\mathcal{N}_b}m(b,s)\le 1\quad  \forall s \in \mathcal{N}_s,\\
     0&\le \sum_{s\in\mathcal{N}_s}m(b,s)\le 1\quad \forall b \in \mathcal{N}_b,\\
     0&\le m(b,s) \quad \forall b \in \mathcal{N}_b,\forall s \in \mathcal{N}_s
@@ -427,7 +427,6 @@ Since only one merger of firms in different countries happened between 1966 and 
 First, between 1991 and 2005, the number of mergers between firms in different countries decreases by 28.6\% in the counterfactual scenario because XXX. 
 Also, 22.2\% of the counterfactual merger pairs are the same as actual pairs.
 This implies that XXX.
-
 Second, between 2006 and 20022, the number of mergers between firms in different countries is the same as the data. 
 Also, 22.2\% of the counterfactual merger pairs are the same as actual pairs. 
 This implies that XXX.
