@@ -299,7 +299,7 @@ result_for_output <-
       length(matching_pair_year_HB_counterfactual$matching_lat)),
     c("\\% total match (counterfactual/data)", "",  
       rate_number_of_merger_IHS , rate_number_of_merger_HB),
-    c("","","",""),
+    #c("","","",""),
     c("\\% same match (counterfactual/data)", "",  
       rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
     
