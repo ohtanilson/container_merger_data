@@ -94,6 +94,14 @@ counterfactual_HB_max_beta <-
   readr::read_csv("../output/counterfactual_HB_max_beta.csv")
 counterfactual_HB_min_beta <-
   readr::read_csv("../output/counterfactual_HB_min_beta.csv")
+predicted_IHS_max_beta <-
+  readr::read_csv("../output/predicted_IHS_max_beta.csv")
+predicted_IHS_min_beta <-
+  readr::read_csv("../output/predicted_IHS_min_beta.csv")
+predicted_HB_max_beta <-
+  readr::read_csv("../output/predicted_HB_max_beta.csv")
+predicted_HB_min_beta <-
+  readr::read_csv("../output/predicted_HB_min_beta.csv")
 # operator_level_entry_exit_merger_IHS <-
 #   readr::read_csv("../input/operator_level_entry_exit_merger_IHS.csv") %>% 
 #   dplyr::distinct(
@@ -222,6 +230,16 @@ matching_pair_year_IHS_different_country <-
     matching_lat
   ) %>% 
   dplyr::arrange(matching_lat)
+matching_pair_year_IHS_predicted <-
+  predicted_IHS_max_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
 matching_pair_year_IHS_counterfactual <-
   counterfactual_IHS_max_beta %>% 
   dplyr::mutate(
@@ -246,6 +264,16 @@ matching_pair_year_HB_different_country <-
     matching_lat
   ) %>% 
   dplyr::arrange(matching_lat)
+matching_pair_year_HB_predicted <-
+  predicted_HB_max_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
 matching_pair_year_HB_counterfactual <-
   counterfactual_HB_max_beta %>% 
   dplyr::mutate(
@@ -260,47 +288,47 @@ matching_pair_year_HB_counterfactual <-
 rate_number_of_merger_IHS <-
   format(round(
     length(matching_pair_year_IHS_counterfactual$matching_lat)/
-  length(matching_pair_year_IHS_different_country$matching_lat),
+  length(matching_pair_year_IHS_predicted$matching_lat),
   digits = 3), nsmall = 3)
 rate_number_of_same_merger_IHS <-
   format(round(1 - 
   length(
     setdiff(
-      matching_pair_year_IHS_different_country$matching_lat,
-      matching_pair_year_IHS_counterfactual$matching_lat
+      matching_pair_year_IHS_counterfactual$matching_lat,
+      matching_pair_year_IHS_predicted$matching_lat
     )
   )/length(matching_pair_year_IHS_different_country$matching_lat),
   digits = 3), nsmall = 3)
 rate_number_of_merger_HB <-
   format(round(
     length(matching_pair_year_HB_counterfactual$matching_lat)/
-  length(matching_pair_year_HB_different_country$matching_lat),
+  length(matching_pair_year_HB_predicted$matching_lat),
   digits = 3), nsmall = 3)
 rate_number_of_same_merger_HB <-
   format(round(
     1 - 
   length(
     setdiff(
-      matching_pair_year_HB_different_country$matching_lat,
-      matching_pair_year_HB_counterfactual$matching_lat
+      matching_pair_year_HB_counterfactual$matching_lat,
+      matching_pair_year_HB_predicted$matching_lat
     )
-  )/length(matching_pair_year_HB_different_country$matching_lat),
+  )/length(matching_pair_year_HB_predicted$matching_lat),
 digits = 3), nsmall = 3)
   
 
 result_for_output <-
   rbind(
     c("Regime", "", "1991-2005" , "2006-2022"),
-    c("Matching Num (data)", "",  
-      length(matching_pair_year_IHS_different_country$matching_lat),
-      length(matching_pair_year_HB_different_country$matching_lat)),
-    c("Matching Num (counterfactual)", "",  
-      length(matching_pair_year_IHS_counterfactual$matching_lat),
-      length(matching_pair_year_HB_counterfactual$matching_lat)),
-    c("\\% total match (counterfactual/data)", "",  
+    c("Matching Num (benchmark)", "",  
+      length(matching_pair_year_IHS_predicted$matching_lat),
+      length(matching_pair_year_HB_predicted$matching_lat)),
+    # c("Matching Num (counterfactual)", "",  
+    #   length(matching_pair_year_IHS_counterfactual$matching_lat),
+    #   length(matching_pair_year_HB_counterfactual$matching_lat)),
+    c("\\% total match (counterfactual/benchmark)", "",  
       rate_number_of_merger_IHS , rate_number_of_merger_HB),
     #c("","","",""),
-    c("\\% same match (counterfactual/data)", "",  
+    c("\\% same match (counterfactual/benchmark)", "",  
       rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
     
   )
