@@ -114,7 +114,7 @@ predicted_HB_min_beta <-
 
 # Mergers {.tabset}
 
-## Maximum score estimator
+## Maximum score estimator {.tabset}
 
 ```{r, echo=FALSE}
 
@@ -213,8 +213,9 @@ result_for_output %>%
 ```
 
 
-## Counterfactual
+## Counterfactual{.tabset}
 
+### Upper bounds of beta
 
 ```{r, echo=FALSE}
 matching_pair_year_IHS_different_country <-
@@ -343,7 +344,144 @@ result_for_output %>%
   ) %>%
   kableExtra::row_spec(1, hline_after = TRUE) %>% 
   kableExtra::save_kable(
-    file = here::here("figuretable/number_of_mergers_counterfactual.tex")
+    file = here::here("figuretable/number_of_mergers_counterfactual_upper_bound.tex")
+  )
+result_for_output %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+```
+
+
+### Lower bounds of beta
+
+```{r, echo=FALSE}
+matching_pair_year_IHS_different_country <-
+  matching_pair_year_IHS %>% 
+  dplyr::filter(
+    seller_lat != buyer_lat
+  ) %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+matching_pair_year_IHS_predicted <-
+  predicted_IHS_min_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+matching_pair_year_IHS_counterfactual <-
+  counterfactual_IHS_min_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+matching_pair_year_HB_different_country <-
+  matching_pair_year_HBdata %>% 
+  dplyr::filter(
+    seller_lat != buyer_lat &
+      seller_lon != buyer_lon
+  ) %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+matching_pair_year_HB_predicted <-
+  predicted_HB_min_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+matching_pair_year_HB_counterfactual <-
+  counterfactual_HB_min_beta %>% 
+  dplyr::mutate(
+    matching_lat =
+      paste(seller_lat, buyer_lat)
+  ) %>% 
+  dplyr::select(
+    matching_lat
+  ) %>% 
+  dplyr::arrange(matching_lat)
+
+rate_number_of_merger_IHS <-
+  format(round(
+    length(matching_pair_year_IHS_counterfactual$matching_lat)/
+  length(matching_pair_year_IHS_predicted$matching_lat),
+  digits = 3), nsmall = 3)
+rate_number_of_same_merger_IHS <-
+  format(round(1 - 
+  length(
+    setdiff(
+      matching_pair_year_IHS_counterfactual$matching_lat,
+      matching_pair_year_IHS_predicted$matching_lat
+    )
+  )/length(matching_pair_year_IHS_different_country$matching_lat),
+  digits = 3), nsmall = 3)
+rate_number_of_merger_HB <-
+  format(round(
+    length(matching_pair_year_HB_counterfactual$matching_lat)/
+  length(matching_pair_year_HB_predicted$matching_lat),
+  digits = 3), nsmall = 3)
+rate_number_of_same_merger_HB <-
+  format(round(
+    1 - 
+  length(
+    setdiff(
+      matching_pair_year_HB_counterfactual$matching_lat,
+      matching_pair_year_HB_predicted$matching_lat
+    )
+  )/length(matching_pair_year_HB_predicted$matching_lat),
+digits = 3), nsmall = 3)
+  
+
+result_for_output <-
+  rbind(
+    c("Regime", "", "1991-2005" , "2006-2022"),
+    c("Matching Num (benchmark)", "",  
+      length(matching_pair_year_IHS_predicted$matching_lat),
+      length(matching_pair_year_HB_predicted$matching_lat)),
+    # c("Matching Num (counterfactual)", "",  
+    #   length(matching_pair_year_IHS_counterfactual$matching_lat),
+    #   length(matching_pair_year_HB_counterfactual$matching_lat)),
+    c("\\% total match (counterfactual/benchmark)", "",  
+      rate_number_of_merger_IHS , rate_number_of_merger_HB),
+    #c("","","",""),
+    c("\\% same match (counterfactual/benchmark)", "",  
+      rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
+    
+  )
+
+result_for_output %>%
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = "",
+    align = "lccc"
+  ) %>%
+  kableExtra::row_spec(1, hline_after = TRUE) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/number_of_mergers_counterfactual_lower_bound.tex")
   )
 result_for_output %>% 
   kableExtra::kable() %>% 
