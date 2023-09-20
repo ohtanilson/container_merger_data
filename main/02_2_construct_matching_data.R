@@ -481,6 +481,9 @@ matching_pair_year_IHS <-
     end =
       # last year inconsistency
       ifelse(end >= 2006, 2005, end)
+  ) %>% 
+  dplyr::filter(
+    ifelse(seller_name == buyer_name, 1, 0) == 0 
   )
 matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 

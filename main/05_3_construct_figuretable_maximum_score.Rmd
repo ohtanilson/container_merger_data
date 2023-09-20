@@ -1,5 +1,5 @@
 ---
-title: "05_2_construct_figuretable_maximum_score.Rmd"
+title: "05_3_construct_figuretable_maximum_score.Rmd"
 author: "Suguru Otani"
 date: "2022/7/2"
 output: html_document
@@ -417,19 +417,6 @@ generate_counterfactual_table <-
         "]",
         sep = ""
       )
-    matching_number_IHS <-
-      paste(
-        "[",
-        format(round(
-          min(matching_pair_year_IHS_predicted),
-          digits = 3), nsmall = 3),
-        ",",
-        format(round(
-          max(matching_pair_year_IHS_predicted),
-          digits = 3), nsmall = 3),
-        "]",
-        sep = ""
-      )
     
     rate_number_of_merger_HB <-
       paste(
@@ -457,20 +444,7 @@ generate_counterfactual_table <-
         "]",
         sep = ""
       )
-    matching_number_HB <-
-      paste(
-        "[",
-        format(round(
-          min(matching_pair_year_HB_predicted),
-          digits = 3), nsmall = 3),
-        ",",
-        format(round(
-          max(matching_pair_year_HB_predicted),
-          digits = 3), nsmall = 3),
-        "]",
-        sep = ""
-      )
-      
+    
     
     result_for_output <-
       rbind(
@@ -478,8 +452,8 @@ generate_counterfactual_table <-
         c(
           "Matching Num (data)", 
           "",  
-          matching_number_IHS,
-          matching_number_HB
+          dim(matching_pair_year_IHS)[1],
+          dim(matching_pair_year_HBdata)[1]
           ),
         # c("Matching Num (counterfactual)", "",  
         #   length(matching_pair_year_IHS_counterfactual$matching_lat),
