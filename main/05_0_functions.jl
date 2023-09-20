@@ -128,7 +128,7 @@ function estimate_maximum_score(
 end
 
 
-function matchval2(Ab,At,Bb,Bt,seller_lat,seller_lon,buyer_lat,buyer_lon,true_β)
+function matchval2(Ab,At,Bb,Bt,seller_lat,seller_lon,buyer_lat,buyer_lon,true_β,counterfactual_distance)
     distance_term = zeros(length(Ab))
     distance_1000km = zeros(length(Ab))
     for ii = 1:length(Ab)
@@ -140,7 +140,11 @@ function matchval2(Ab,At,Bb,Bt,seller_lat,seller_lon,buyer_lat,buyer_lon,true_β
                 buyer_lon[ii]
                 )
         if distance_1000km[ii] == 0
-            distance_term[ii] = -9999
+            if counterfactual_distance == true
+                distance_term[ii] = -9999
+            else
+                distance_term[ii] = true_β[2].*distance_1000km[ii]
+            end
         else
             distance_term[ii] = true_β[2].*distance_1000km[ii]
         end
@@ -152,13 +156,13 @@ function matchval2(Ab,At,Bb,Bt,seller_lat,seller_lon,buyer_lat,buyer_lon,true_β
 end
 function givemedata2(
     ;
+    counterfactual_distance = true,
     data = data_IHS,
     sd_err = 1.0,
     true_β = [1, 1],
     random_seed = 1
     )
     Random.seed!(random_seed)
-    # buydata = rand(Distributions.MvNormal(means, covars), N)
     buydata = 
         DataFramesMeta.@chain data begin
         DataFramesMeta.@select :buyer_operator_age_normalized :buyer_cumsum_TEU_normalized :buyer_lat :buyer_lon
@@ -166,21 +170,14 @@ function givemedata2(
     N = size(buydata)[1]
     buyid = Array{Int64,1}(1:N)
     buydata = hcat(buyid, buydata)
-    #buydata = convert(DataFrame, buydata)
     rename!(buydata, [:id, :Ab, :Bb, :buyer_lat, :buyer_lon])
 
-    #tardata = rand(Distributions.MvNormal(means, covars), N)
     tardata = 
         DataFramesMeta.@chain data begin
         DataFramesMeta.@select :seller_operator_age_normalized :seller_cumsum_TEU_normalized :seller_lat :seller_lon
     end  
-
     tarid = Array((1+N):(N+N))
-    # non-interactive term
-    println("non-interactive Match specific term: Ct = rnorm(N, 10, 1)")
-    #Ct = rand(Distributions.Normal(10, 1), N)
     tardata = hcat(tarid, tardata)
-    #tardata = convert(DataFrame, tardata)
     rename!(tardata, [:id, :At, :Bt, :seller_lat, :seller_lon])
 
     matchmaker = expand_grid(buyid, tarid)
@@ -188,19 +185,33 @@ function givemedata2(
     matchdat = DataFrames.leftjoin(matchmaker, tardata, on = [:tarid => :id])
     matchdat = DataFrames.leftjoin(matchdat, buydata, on = [:buyid => :id])
     sort!(matchdat, [:buyid, :tarid]);
-    #matchdat = within(matchdat, mval <- matchval(Ab,At,Bb,Bt))
-    mval = matchval2(
-           matchdat.Ab,
-           matchdat.At,
-           matchdat.Bb,
-           matchdat.Bt,
-           matchdat.buyer_lat,
-           matchdat.buyer_lon,
-           matchdat.seller_lat,
-           matchdat.seller_lon,
-           true_β
-           )
-    #matchdat = within(matchdat, mval <- mval + rnorm(length(matchdat$mval), mean = 0, sd_err) )
+    if counterfactual_distance == true
+        mval = matchval2(
+            matchdat.Ab,
+            matchdat.At,
+            matchdat.Bb,
+            matchdat.Bt,
+            matchdat.buyer_lat,
+            matchdat.buyer_lon,
+            matchdat.seller_lat,
+            matchdat.seller_lon,
+            true_β,
+            counterfactual_distance
+            )
+    else
+        mval = matchval2(
+            matchdat.Ab,
+            matchdat.At,
+            matchdat.Bb,
+            matchdat.Bt,
+            matchdat.buyer_lat,
+            matchdat.buyer_lon,
+            matchdat.seller_lat,
+            matchdat.seller_lon,
+            true_β,
+            counterfactual_distance
+            )
+    end
     mval = mval .+ rand(Distributions.Normal(0, sd_err), length(mval))
     matchdat = hcat(matchdat, mval)
     rename!(matchdat, :x1 => :mval)
@@ -210,7 +221,7 @@ function givemedata2(
     utility = zeros(N,N)
     for i = 1:N
         for j = 1:N
-            utility[i,j] = obj[(i-1)*N+j]
+            utility[i,j] = obj[(i-1)*N+j] + 100 # to delete unmatched case
         end
     end
 
@@ -228,8 +239,6 @@ function givemedata2(
     println("objvalue = ", objv)
     matches = JuMP.value.(x)
     # restore unmatched
-    unmatched_buyid = [1:1:N;][vec(sum(matches,dims=2) .== 0)]
-    unmatched_tarid = [(N+1):1:(N+N);]'[sum(matches,dims=1) .== 0]
     matches = vec(matches')
     matchdat = hcat(matchdat, matches)
     rename!(matchdat, :x1 => :matches)

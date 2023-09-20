@@ -108,6 +108,142 @@ predicted_HB_min_beta <-
 #     parent_company,
 #     .keep_all = TRUE
 #     ) 
+generate_counterfactual_to_benchmark <-
+  function(
+    matching_pair_year_IHS,
+    predicted_IHS_max_beta,
+    counterfactual_IHS_max_beta,
+    matching_pair_year_HBdata,
+    predicted_HB_max_beta,
+    counterfactual_HB_max_beta,
+    target_simulation_id
+    ){
+    matching_pair_year_IHS_different_country <-
+      matching_pair_year_IHS %>% 
+      # dplyr::filter(
+      #   seller_lat != buyer_lat
+      # ) %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    matching_pair_year_IHS_predicted <-
+      predicted_IHS_max_beta %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)
+      ) %>%
+      dplyr::filter(
+        simulation_id == target_simulation_id
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    matching_pair_year_IHS_counterfactual <-
+      counterfactual_IHS_max_beta %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)#,
+        # matching_id =
+        #   paste(seller_lat, buyer_lat, seller_operator_age_normalized, buyer_operator_age_normalized)
+      ) %>%
+      # pick up the most common matching
+      # dplyr::group_by(matching_id) %>% 
+      # dplyr::mutate(
+      #   frequency = dplyr::n()
+      # ) %>% 
+      # dplyr::ungroup() %>% 
+      dplyr::filter(
+        simulation_id == target_simulation_id
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    matching_pair_year_HB_different_country <-
+      matching_pair_year_HBdata %>% 
+      # dplyr::filter(
+      #   seller_lat != buyer_lat &
+      #     seller_lon != buyer_lon
+      # ) %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    matching_pair_year_HB_predicted <-
+      predicted_HB_max_beta %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)
+      ) %>% 
+      dplyr::filter(
+        simulation_id == target_simulation_id
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    matching_pair_year_HB_counterfactual <-
+      counterfactual_HB_max_beta %>% 
+      dplyr::filter(
+        simulation_id == target_simulation_id
+      ) %>% 
+      dplyr::mutate(
+        matching_lat =
+          paste(seller_lat, buyer_lat)
+      ) %>% 
+      dplyr::select(
+        matching_lat
+      ) %>% 
+      dplyr::arrange(matching_lat)
+    # probability
+    rate_number_of_merger_IHS <-
+      length(matching_pair_year_IHS_counterfactual$matching_lat)/
+      length(matching_pair_year_IHS_different_country$matching_lat)
+    
+    rate_number_of_same_merger_IHS <-
+      1 - 
+      length(
+        setdiff(
+          matching_pair_year_IHS_counterfactual$matching_lat,
+          matching_pair_year_IHS_different_country$matching_lat
+        )
+      )/length(matching_pair_year_IHS_different_country$matching_lat)
+    rate_number_of_merger_HB <-
+      length(matching_pair_year_HB_counterfactual$matching_lat)/
+      length(matching_pair_year_HB_different_country$matching_lat)
+    rate_number_of_same_merger_HB <-
+      1 - 
+      length(
+        setdiff(
+          matching_pair_year_HB_counterfactual$matching_lat,
+          matching_pair_year_HB_different_country$matching_lat
+        )
+      )/length(matching_pair_year_HB_predicted$matching_lat)
+  res <-
+    list(
+      rate_number_of_merger_IHS = rate_number_of_merger_IHS,
+      rate_number_of_same_merger_IHS = rate_number_of_same_merger_IHS,
+      rate_number_of_merger_HB = rate_number_of_merger_HB,
+      rate_number_of_same_merger_HB = rate_number_of_same_merger_HB,
+      matching_pair_year_IHS_predicted = matching_pair_year_IHS_predicted,
+      matching_pair_year_IHS_counterfactual = matching_pair_year_IHS_counterfactual,
+      matching_pair_year_HB_predicted = matching_pair_year_HB_predicted,
+      matching_pair_year_HB_counterfactual = matching_pair_year_HB_counterfactual
+    )
+  return(res)
+}
+
+
 
 ```
 
@@ -218,122 +354,163 @@ result_for_output %>%
 ### Upper bounds of beta
 
 ```{r, echo=FALSE}
-matching_pair_year_IHS_different_country <-
-  matching_pair_year_IHS %>% 
-  # dplyr::filter(
-  #   seller_lat != buyer_lat
-  # ) %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_IHS_predicted <-
-  predicted_IHS_max_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>%
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_IHS_counterfactual <-
-  counterfactual_IHS_max_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>%
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_different_country <-
-  matching_pair_year_HBdata %>% 
-  # dplyr::filter(
-  #   seller_lat != buyer_lat &
-  #     seller_lon != buyer_lon
-  # ) %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_predicted <-
-  predicted_HB_max_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_counterfactual <-
-  counterfactual_HB_max_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-
-rate_number_of_merger_IHS <-
-  format(round(
-    length(matching_pair_year_IHS_counterfactual$matching_lat)/
-  length(matching_pair_year_IHS_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_same_merger_IHS <-
-  format(round(1 - 
-  length(
-    setdiff(
-      matching_pair_year_IHS_counterfactual$matching_lat,
-      matching_pair_year_IHS_different_country$matching_lat
-    )
-  )/length(matching_pair_year_IHS_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_merger_HB <-
-  format(round(
-    length(matching_pair_year_HB_counterfactual$matching_lat)/
-  length(matching_pair_year_HB_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_same_merger_HB <-
-  format(round(
-    1 - 
-  length(
-    setdiff(
-      matching_pair_year_HB_counterfactual$matching_lat,
-      matching_pair_year_HB_different_country$matching_lat
-    )
-  )/length(matching_pair_year_HB_predicted$matching_lat),
-digits = 3), nsmall = 3)
-  
+generate_counterfactual_table <-
+  function(
+    matching_pair_year_IHS,
+    predicted_IHS_max_beta,
+    counterfactual_IHS_max_beta,
+    matching_pair_year_HBdata,
+    predicted_HB_max_beta,
+    counterfactual_HB_max_beta
+    ){
+    rate_number_of_merger_IHS = c(1:100)
+    rate_number_of_same_merger_IHS = c(1:100)
+    rate_number_of_merger_HB = c(1:100)
+    rate_number_of_same_merger_HB = c(1:100)
+    matching_pair_year_IHS_predicted = c(1:100)
+    matching_pair_year_IHS_counterfactual = c(1:100)
+    matching_pair_year_HB_predicted = c(1:100)
+    matching_pair_year_HB_counterfactual = c(1:100)
+    for(i in 1:100){
+      temp_list <-
+        generate_counterfactual_to_benchmark(
+          matching_pair_year_IHS,
+          predicted_IHS_max_beta,
+          counterfactual_IHS_max_beta,
+          matching_pair_year_HBdata,
+          predicted_HB_max_beta,
+          counterfactual_HB_max_beta,
+          target_simulation_id = i
+          )
+      rate_number_of_merger_IHS[i] = temp_list$rate_number_of_merger_IHS
+      rate_number_of_same_merger_IHS[i] = temp_list$rate_number_of_same_merger_IHS
+      rate_number_of_merger_HB[i] = temp_list$rate_number_of_merger_HB
+      rate_number_of_same_merger_HB[i] = temp_list$rate_number_of_same_merger_HB
+      matching_pair_year_IHS_predicted[i] = dim(temp_list$matching_pair_year_IHS_predicted)[1]
+      matching_pair_year_IHS_counterfactual[i] = dim(temp_list$matching_pair_year_IHS_counterfactual)[1]
+      matching_pair_year_HB_predicted[i] = dim(temp_list$matching_pair_year_HB_predicted)[1]
+      matching_pair_year_HB_counterfactual[i] = dim(temp_list$matching_pair_year_HB_counterfactual)[1]
+    }
+    rate_number_of_merger_IHS <-
+      paste(
+        "[",
+        format(round(
+          min(rate_number_of_merger_IHS),
+        digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(rate_number_of_merger_IHS),
+        digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+    rate_number_of_same_merger_IHS <-
+      paste(
+        "[",
+        format(round(
+          min(rate_number_of_same_merger_IHS),
+          digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(rate_number_of_same_merger_IHS),
+          digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+    matching_number_IHS <-
+      paste(
+        "[",
+        format(round(
+          min(matching_pair_year_IHS_predicted),
+          digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(matching_pair_year_IHS_predicted),
+          digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+    
+    rate_number_of_merger_HB <-
+      paste(
+        "[",
+        format(round(
+          min(rate_number_of_merger_HB),
+        digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(rate_number_of_merger_HB),
+        digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+    rate_number_of_same_merger_HB <-
+      paste(
+        "[",
+        format(round(
+          min(rate_number_of_same_merger_HB),
+          digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(rate_number_of_same_merger_HB),
+          digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+    matching_number_HB <-
+      paste(
+        "[",
+        format(round(
+          min(matching_pair_year_HB_predicted),
+          digits = 3), nsmall = 3),
+        ",",
+        format(round(
+          max(matching_pair_year_HB_predicted),
+          digits = 3), nsmall = 3),
+        "]",
+        sep = ""
+      )
+      
+    
+    result_for_output <-
+      rbind(
+        c("Regime", "", "1991-2005" , "2006-2022"),
+        c(
+          "Matching Num (data)", 
+          "",  
+          matching_number_IHS,
+          matching_number_HB
+          ),
+        # c("Matching Num (counterfactual)", "",  
+        #   length(matching_pair_year_IHS_counterfactual$matching_lat),
+        #   length(matching_pair_year_HB_counterfactual$matching_lat)),
+        c(
+          "\\% total match (counterfactual/data)",
+          "",  
+          rate_number_of_merger_IHS ,
+          rate_number_of_merger_HB
+          ),
+        #c("","","",""),
+        c(
+          "\\% same match (counterfactual/data)",
+          "",  
+          rate_number_of_same_merger_HB, 
+          rate_number_of_same_merger_HB
+          )
+        
+      )
+    return(result_for_output)
+  }
 
 result_for_output <-
-  rbind(
-    c("Regime", "", "1991-2005" , "2006-2022"),
-    c("Matching Num (data)", "",  
-      length(matching_pair_year_IHS_predicted$matching_lat),
-      length(matching_pair_year_HB_predicted$matching_lat)),
-    # c("Matching Num (counterfactual)", "",  
-    #   length(matching_pair_year_IHS_counterfactual$matching_lat),
-    #   length(matching_pair_year_HB_counterfactual$matching_lat)),
-    c("\\% total match (counterfactual/data)", "",  
-      rate_number_of_merger_IHS , rate_number_of_merger_HB),
-    #c("","","",""),
-    c("\\% same match (counterfactual/data)", "",  
-      rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
-    
-  )
-
+  generate_counterfactual_table(
+    matching_pair_year_IHS,
+    predicted_IHS_max_beta,
+    counterfactual_IHS_max_beta,
+    matching_pair_year_HBdata,
+    predicted_HB_max_beta,
+    counterfactual_HB_max_beta
+    )
 result_for_output %>%
   kableExtra::kbl(
     format = "latex",
@@ -355,121 +532,15 @@ result_for_output %>%
 ### Lower bounds of beta
 
 ```{r, echo=FALSE}
-matching_pair_year_IHS_different_country <-
-  matching_pair_year_IHS %>% 
-  # dplyr::filter(
-  #   seller_lat != buyer_lat
-  # ) %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_IHS_predicted <-
-  predicted_IHS_min_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_IHS_counterfactual <-
-  counterfactual_IHS_min_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_different_country <-
-  matching_pair_year_HBdata %>% 
-  # dplyr::filter(
-  #   seller_lat != buyer_lat &
-  #     seller_lon != buyer_lon
-  # ) %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_predicted <-
-  predicted_HB_min_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-matching_pair_year_HB_counterfactual <-
-  counterfactual_HB_min_beta %>% 
-  dplyr::mutate(
-    matching_lat =
-      paste(seller_lat, buyer_lat)
-  ) %>% 
-  dplyr::select(
-    matching_lat
-  ) %>% 
-  dplyr::arrange(matching_lat)
-
-rate_number_of_merger_IHS <-
-  format(round(
-    length(matching_pair_year_IHS_counterfactual$matching_lat)/
-  length(matching_pair_year_IHS_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_same_merger_IHS <-
-  format(round(1 - 
-  length(
-    setdiff(
-      matching_pair_year_IHS_counterfactual$matching_lat,
-      matching_pair_year_IHS_different_country$matching_lat
-    )
-  )/length(matching_pair_year_IHS_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_merger_HB <-
-  format(round(
-    length(matching_pair_year_HB_counterfactual$matching_lat)/
-  length(matching_pair_year_HB_different_country$matching_lat),
-  digits = 3), nsmall = 3)
-rate_number_of_same_merger_HB <-
-  format(round(
-    1 - 
-  length(
-    setdiff(
-      matching_pair_year_HB_counterfactual$matching_lat,
-      matching_pair_year_HB_different_country$matching_lat
-    )
-  )/length(matching_pair_year_HB_predicted$matching_lat),
-digits = 3), nsmall = 3)
-  
-
 result_for_output <-
-  rbind(
-    c("Regime", "", "1991-2005" , "2006-2022"),
-    c("Matching Num (benchmark)", "",  
-      length(matching_pair_year_IHS_predicted$matching_lat),
-      length(matching_pair_year_HB_predicted$matching_lat)),
-    # c("Matching Num (counterfactual)", "",  
-    #   length(matching_pair_year_IHS_counterfactual$matching_lat),
-    #   length(matching_pair_year_HB_counterfactual$matching_lat)),
-    c("\\% total match (counterfactual/benchmark)", "",  
-      rate_number_of_merger_IHS , rate_number_of_merger_HB),
-    #c("","","",""),
-    c("\\% same match (counterfactual/benchmark)", "",  
-      rate_number_of_same_merger_HB , rate_number_of_same_merger_HB)
-    
-  )
+  generate_counterfactual_table(
+    matching_pair_year_IHS,
+    predicted_IHS_min_beta,
+    counterfactual_IHS_min_beta,
+    matching_pair_year_HBdata,
+    predicted_HB_min_beta,
+    counterfactual_HB_min_beta
+    )
 
 result_for_output %>%
   kableExtra::kbl(

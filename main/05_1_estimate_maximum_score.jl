@@ -15,8 +15,8 @@ using BlackBoxOptim # on behalf of DEoptim
 # using LaTeXStrings
 # using DelimitedFiles
 using VegaLite
-
-#include("03_0_functions.jl")
+using Distributed
+Distributed.@everywhere include("../main/05_0_functions.jl")
 matching_pair_year_CIY = VegaLite.load("../container_merger_data/output/matching_pair_year_CIY.rds")
 matching_pair_year_IHS = VegaLite.load("../container_merger_data/output/matching_pair_year_IHS.rds")
 matching_pair_year_HB = VegaLite.load("../container_merger_data/output/matching_pair_year_HBdata.rds")
