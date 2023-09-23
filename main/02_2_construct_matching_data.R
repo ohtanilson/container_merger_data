@@ -472,9 +472,41 @@ matching_pair_year_HBdata  <-
     buyer_lon = lon,
     buyer_lat = lat
   )
-
+# fixed merger year ----
+## HB data ----
+matching_pair_year_HBdata <-
+  matching_pair_year_HBdata %>% 
+  # fixed merger year
+  dplyr::mutate(
+    end = 
+      ifelse(
+        (
+          ifelse(seller_name == "Hamburg Sud", 1, 0) == 
+            1&
+            ifelse(buyer_name == "Maersk", 1, 0) ==
+            1 
+        )  == 1,
+        2018,
+        end
+      )
+  ) %>% 
+  # fixed merger year
+  dplyr::mutate(
+    end = 
+      ifelse(
+        (
+          ifelse(seller_name == "APL", 1, 0) == 
+            1&
+            ifelse(buyer_name == "CMA-CGM", 1, 0) ==
+            1 
+        ) == 1,
+        2017,
+        end
+      )
+  )
 
 # drop weird matching institutionally ----
+## IHS data ----
 matching_pair_year_IHS <-
   matching_pair_year_IHS %>% 
   dplyr::mutate(
@@ -484,13 +516,110 @@ matching_pair_year_IHS <-
   ) %>% 
   dplyr::filter(
     ifelse(seller_name == buyer_name, 1, 0) == 0 
+  ) %>% 
+  # same firm different name
+  dplyr::filter(
+    (ifelse(seller_name == "MISC BERHAD", 1, 0) == 
+      1&
+      ifelse(buyer_name == "Malaysia Shipping Corp Sdn Bhd", 1, 0) ==
+      1) == 0 
+  ) %>% 
+  # same firm different name
+  dplyr::filter(
+    (ifelse(seller_name == "CHINA MERCHANTS STEAM NAVIGATI", 1, 0) == 
+       1&
+       ifelse(buyer_name == "China Merchants Group", 1, 0) ==
+       1) == 0 
   )
+## HB data ----
 matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 
   dplyr::filter(
     end >= 2006
   )
-  
+matching_pair_year_HBdata <-
+  matching_pair_year_HBdata %>% 
+  # resolvent of route-level consortium
+  dplyr::filter(
+    ifelse(seller_name == "CMA-CGM/MSC", 1, 0) == 
+      0
+  ) %>% 
+  # same firm different name
+  dplyr::filter(
+    (
+      ifelse(seller_name == "PONL", 1, 0) == 
+      1&
+      ifelse(buyer_name == "Maersk", 1, 0) ==
+      1 
+    ) == 0
+  ) %>% 
+  # reconfiguration of SHK group
+  dplyr::filter(
+    (
+      ifelse(seller_name == "S. S. Ferry/Orient Ferry", 1, 0) == 
+        1&
+        ifelse(buyer_name == "Suzhou Shimonoseki Ferry", 1, 0) ==
+        1 
+    ) == 0
+  ) %>% 
+  # already exist in IHS
+  dplyr::filter(
+    (
+      ifelse(seller_name == "APL/PIL", 1, 0) == 
+        1&
+        ifelse(buyer_name == "CMA-CGM", 1, 0) ==
+        1 
+    ) == 0
+  ) %>% 
+  # rename in IHS
+  dplyr::filter(
+    (
+      ifelse(seller_name == "Sealand Asia", 1, 0) == 
+        1&
+        ifelse(buyer_name == "Maersk", 1, 0) ==
+        1 
+    ) == 0
+  )
+matching_pair_year_HBdata <-
+  matching_pair_year_HBdata %>% 
+  dplyr::mutate(
+    inconsistent_indicator =
+      ifelse(
+        (
+          ifelse(seller_name == "Safmarine", 1, 0) == 
+            1&
+            ifelse(buyer_name == "Maersk", 1, 0) ==
+            1 
+          ) |
+          (
+            ifelse(seller_name == "Delmas", 1, 0) == 
+              1&
+              ifelse(buyer_name == "CMA-CGM", 1, 0) ==
+              1 
+          ) |
+          (
+            ifelse(seller_name == "ANL", 1, 0) == 
+              1&
+              ifelse(buyer_name == "CMA-CGM", 1, 0) ==
+              1 
+          ) #|
+          # (
+          #   ifelse(seller_name == "APL", 1, 0) == 
+          #     1&
+          #     ifelse(buyer_name == "CMA-CGM", 1, 0) ==
+          #     1 
+          # ) |
+          # (
+          #   ifelse(seller_name == "Hamburg Sud", 1, 0) == 
+          #     1&
+          #     ifelse(buyer_name == "Maersk", 1, 0) ==
+          #     1 
+          # )  
+          == 1,
+        1,
+        0
+      )
+  )
 
 # save ----
 saveRDS(matching_pair_year_CIY,

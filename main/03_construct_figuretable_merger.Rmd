@@ -447,11 +447,16 @@ IHS_data_for_output %>%
 
 ### HB_data {.tabset}
 
-#### Merger list
+#### Merger list {.tabset}
+
+##### Merger list (consistent)
 
 ```{r, echo=FALSE}
 merger_list <-
   matching_pair_year_HBdata %>% 
+  dplyr::filter(
+    inconsistent_indicator == 0
+  ) %>% 
   dplyr::mutate(
     ID = dplyr::row_number()
   ) %>% 
@@ -483,6 +488,56 @@ merger_list %>%
   ) %>% 
   kableExtra::save_kable(
     file = here::here("figuretable/merger_list_HB.tex")
+  )
+```
+
+##### Merger list (inconsistent)
+
+```{r, echo=FALSE}
+merger_list <-
+  matching_pair_year_HBdata %>% 
+  dplyr::filter(
+    inconsistent_indicator == 1
+  ) %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
+  ) %>% 
+  dplyr::select(
+    ID,
+    seller_name,
+    buyer_name,
+    end
+  ) %>% 
+  dplyr::rename(
+    `Seller` = seller_name,
+    `Buyer` = buyer_name,
+    `Year` = end
+  ) %>% 
+  dplyr::mutate(
+    ID = dplyr::row_number()
+  ) %>% 
+  dplyr::arrange(`Year`)
+
+merger_list$`Note` <-
+  c(
+    "Merger occurred in 1999",
+    "Merger occurred in 2005",
+    "Merger occurred in 1998"
+  )
+  
+merger_list %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling()
+
+merger_list %>% 
+  kableExtra::kbl(
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = ""
+  ) %>% 
+  kableExtra::save_kable(
+    file = here::here("figuretable/merger_list_HB_inconsistent.tex")
   )
 ```
 
@@ -585,7 +640,8 @@ matching_data <-
   rbind(
     matching_pair_year_CIY,
     matching_pair_year_IHS,
-    matching_pair_year_HBdata
+    matching_pair_year_HBdata %>% 
+      dplyr::select(- inconsistent_indicator)
   ) %>% 
   dplyr::select(
     seller_name,

@@ -33,7 +33,21 @@ operator_level_entry_exit_merger_IHS <-
     .keep_all = TRUE
   ) 
 
+# fixed missing merger data ----
+# operator_level_entry_exit_merger_HBdata <-
+#   rbind(
+#     operator_level_entry_exit_merger_HBdata,
+#   c(
+#     184,
+#     "OOCL",
+#     2005,
+#     2018,
+#     "COSCO",
+#     NA
+#     )
+# )
 
+  
 
 
 # save ----
