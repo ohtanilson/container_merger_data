@@ -40,11 +40,10 @@ Current version: \today
 \maketitle
 
 \begin{abstract}
-We construct a novel unified list of mergers in the global container shipping industry between 1966  (the beginning of the industry) and 2022. Combining the list with proprietary data, we construct a structural matching model \citep{fox2018qe} to describe the historical transition of the importance of a firm's age, size, and geographical proximity on merger decisions. 
-We find that, as a positive factor, a firm's size is more important than a firm's age by seven to nine times as a merger incentive between 1991 and 2005.
-On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, the firm's size works as a disincentive.
-We also find that the distance between buyer and seller firms works as a disincentive for the whole period, but the importance level has decreased to economically zero in recent years. 
-In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects the merger configuration of all firms in the industry.
+We create a comprehensive list of mergers within the global container shipping industry from 1966 (the industry's inception) to 2022. Combining this list with proprietary data, we employ a structural matching model (Fox 2018) to elucidate the historical shift in the significance of a firm's age, size, and geographical proximity in merger decisions.
+Our findings indicate that, as a positive factor, a firm's size outweighs its age by a factor of seven to nine as a merger incentive between 1991 and 2005. Conversely, between 2006 and 2022, a firm's size surpasses its age by a factor of 1.4, functioning as a disincentive.
+Furthermore, we observe that the distance between buyer and seller firms serves as a disincentive throughout the entire period, albeit its importance has dwindled to virtually zero in recent years.
+In counterfactual simulations, we uncover that the prohibition of mergers between firms within the same country impacts not only the configuration of prohibited mergers but also those permitted.
 \end{abstract} 
 
 \vspace{0.1in}
@@ -54,38 +53,36 @@ In counterfactual simulations, we find that the prohibition of mergers between f
 
 \section{Introduction}
 
-Container shipping is a crucial component of global trade that has revolutionized the world. 
-According to IHS Markit and Descartes Datamyne, container shipping accounts for $45.4 \%$ of amount-based imports to the U.S., $21.3 \%$ of amount-based exports from the U.S., and $10.12 \%$ of quantity-based world trade are shipped in 2021. 
-Additionally, the container shipping industry offers a fascinating opportunity to explore not only industry dynamics such as entry, exit, and investment \citep{otani2023industry}, but also merger waves since the industry began global shipping operations in 1966. 
-Despite its significance, like route-year-level prices and quantities dataset constructed by \cite{matsuda2022unified}, there is a lack of a unified dataset for the mergers in the container shipping industry, particularly for the years 1966 to 1990, which limits quantitative research evaluating mergers. 
-This study provides a unified list of all realized mergers in the container shipping industry between 1966 and 2022.
+Container shipping plays a pivotal role in global trade, revolutionizing the world. According to data from IHS Markit and Descartes Datamyne, it constituted 45.4\% of amount-based imports to the U.S., 21.3\% of amount-based exports from the U.S., and 10.12\% of quantity-based world trade in 2021.
+Moreover, the container shipping industry presents an intriguing opportunity to investigate industry dynamics, including entry, exit, and investment \citep{otani2023industry}, as well as the history of mergers since its global shipping operations inception in 1966.
+Despite its significance, there exists a notable absence of a consolidated dataset for container shipping mergers, particularly from 1966 to 1990, hindering quantitative research in this area. 
+This study addresses this gap by providing a unified list of all realized mergers in the container shipping industry spanning from 1966 to 2022.
 
-Using our new merger list, we first illustrate the merger waves between 1966 and 2022 in the global container shipping industry and compare them with the transitions of prices and quantities constructed by \cite{matsuda2022unified}. 
-We find that merger waves occurred after the enactment of the Shipping Act of 1984, that is, cartel breakdown, and significant merger waves were observed after 2005, corresponding to the exponentially growing quantity trend under competitive prices.
-This suggests that we divide the industry history into three \textit{regimes}, 1966-1990, 1991-2005, and 2006-2022 following the corresponding data.
-Second, combining our merger list with proprietary ship-level data, we provide the merger patterns that mergers are likely to involve relatively younger and smaller firms in more distant countries in recent years. 
+Using our new merger list, we initially depict the merger waves in the global container shipping industry from 1966 to 2022, comparing them to the price and quantity transitions crafted by \cite{matsuda2022unified}.
+We observe that the first merger waves emerged following the enactment of the Shipping Act of 1984. 
+Subsequently, significant merger waves occurred after 2005, aligning with the exponential growth in quantities under competitive prices. With targeted periods of the data sources, this observation leads us to categorize the industry's history into three distinct "regimes" corresponding to the data: 1966-1990, 1991-2005, and 2006-2022.
+Additionally, by merging our merger list with proprietary ship-level data, we delineate the merger patterns, revealing a tendency for mergers to involve relatively younger and smaller firms in more distant countries in recent years.
 \textcolor{blue}{The data patterns are consistent with institutional evidence that XXX. For example, XXX.}
 
-The merger pattern yields several important insights into the merger waves in the global container shipping industry. 
-However, there are several potential reasons for observing this pattern. 
-For example, firms might put greater importance on a firm's size to increase tonnage shares within the market in the decision to buy firms in recent years rather than the period between 1966 and 1990. 
-Alternatively, firms might put greater importance on geographical proximity to achieve the dominant position at the local country level. 
-To disentangle these explanations and gain much more detailed insights into the different channels in a sophisticated way, we construct a structural model to quantify the relative importance of a firm's age, size, and geographical proximity by applying a novel approach, that is, matching maximum score estimator \cite{fox2018qe}. 
+The merger pattern provides crucial insights into the global container shipping industry merger waves.
+However, multiple factors could account for this pattern. 
+For instance, recent acquisitions may prioritize a firm's size to expand market tonnage shares, unlike the period from 1966 to 1990. Alternatively, companies may emphasize geographical proximity to establish dominance at the local level.
+To untangle these explanations and gain more precise insights into various channels, we employ a structural model that quantifies the relative significance of a firm's age, size, and geographical proximity using a novel approach — the matching maximum score estimator \cite{fox2018qe}.
 
 Our estimation results indicate that assortativeness of both size and geographical proximity contributes to merger incentives or disincentives. 
-First, the assortativeness of the firm's size changes from negative between 1991 and 2005 to positive between 2006 and 2022. 
-This implies that, between 1991 and 2005, as a positive factor, a firm's size is more important than a firm's age by seven to nine times in merger decisions, that is, a firm's size works as a merger incentive.
-On the other hand, between 2006 and 2022, as a negative factor, a firm's size is more important than a firm's age by 1.4 times, that is, a firm's size works as a merger disincentive.
-Second, we find that geographical distance works as a merger disincentive for the whole period, but the importance level relative to a firm's age has decreased to economically zero in recent years. 
-This implies that merger incentives to achieve the dominant position at the local country level decrease.
+First, the assortativeness of firm size shifts from negative (1991-2005) to positive (2006-2022). 
+During 1991-2005, a firm's size supersedes its age by a factor of seven to nine, serving as a merger incentive.
+Conversely, between 2006 and 2022, a firm's size surpasses its age by 1.4 times, acting as a merger disincentive.
+Additionally, we observe that geographical distance acts as a merger disincentive throughout the entire period, albeit its relative importance compared to a firm's age has dwindled to economic insignificance in recent years. 
+This suggests diminished merger incentives for establishing dominance at the local country level.
 
-Finally, we exercise a counterfactual simulation given the estimated parameters. 
-We investigate the effect of the prohibition of mergers between firms in the same country on matching outcomes. This type of blocking merger is the most controversial topic in competition policies. 
-For example, on June 21, 2017, South Africa's Competition Commission issued a statement stating that it "forbade" the integration of the container business by the three shipping lines of NYK, MOL, and KLINE. 
-The commission cited concerns about market consolidation by domestic companies and cartel issues involving these companies in the car carrier business.
-The country's competition court finally approved the integration on January 17, 2018, but this could impact the planned launch of the integrated container company, Ocean Network Express.
-In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects the merger configuration of all firms in the industry.
+Finally, we conduct a counterfactual simulation based on the estimated parameters to examine the consequences of prohibiting mergers between firms within the same country.
 
+This type of merger restriction is highly contentious within the global market's competition policies. 
+For instance, on June 21, 2017, South Africa's Competition Commission issued a statement forbidding the consolidation of container businesses by three shipping lines—NYK, MOL, and KLINE. 
+The commission expressed concerns about market consolidation by domestic companies and cartel issues related to these firms in the car carrier business.
+Although the country's competition court eventually approved the integration on January 17, 2018, its potential impact on the planned launch of the integrated container company, Ocean Network Express, remains noteworthy.
+In our counterfactual simulations, we discover that prohibiting mergers between firms in the same country affects not only the merger outcomes of the involved firms but also those engaged in permitted mergers. This foretells the ripple effect of local competition policies, influencing both local markets and the global market configuration.
 
 \subsection{Related literature}
 
@@ -124,27 +121,27 @@ Section \ref{sec:industry_background} and summary statistics for the variables i
 
 
 \subsection{Data source}\label{sec:data_source}
-We construct the data from combining the three data sources. 
-The first data source is \textit{the Containerization International Yearbook} (CIY), which provides ship-level information between 1966 and 1990.
-The second data source is IHS Markit data (IHS), which provides ship-level information between 1991 and 2005.
-The third data source is \textit{Handbook of Ocean Commerce} (HB), which provides ship-level information between 2006 and 2022. 
-We denote the period in the corresponding data as a \textit{regime}, that is, we observe three regimes, 1966-1990, 1991-2005, and 2006-2022.
-Aggregating the ship-level data, we construct firm-year-level variables such as country name and tonnage capacity measured by the Twenty-foot Equivalent Unit (TEU). 
-Finally, from institutional information, we manually construct a merger list that contains buyer names, seller names, and merger year, then merge the list with the firm-year-level variables. 
+We compile data by merging three distinct sources.
+The initial source is the Containerization International Yearbook (CIY), offering ship-level information from 1966 to 1990. 
+The second source is IHS Markit data (IHS), which provides ship-level information spanning 1991 to 2005. 
+The third source, the Handbook of Ocean Commerce (HB), furnishes ship-level data covering the years 2006 to 2022.
+We classify these periods in the respective data sources as "regimes," resulting in three regimes: 1966-1990, 1991-2005, and 2006-2022.
+By consolidating ship-level data, we construct firm-year-level variables, including country names and tonnage capacity measured in Twenty-foot Equivalent Units (TEU).
+Finally, we manually create a merger list containing buyer and seller names along with merger years. 
+This list is subsequently integrated with the firm-year-level variables using institutional information.
 
 There are some remarks because we find that there are some inconsistencies such as a one-year lag and missing ship-level variables between these data sources and institutional facts. 
 First, we fix the inconsistencies following the observations in the newer regime data. 
 Second, we treat the firms not operating in the merged year as the firms that have a constant capacity level from the last active year in the merged year. % For example, Johnson Line was active in 1969-1972 but was merged in 1991.
-Third, we treat mergers of some container shipping seller firms by non-container-shipping firms out of the industry as exits in the container shipping industry because it does not provide any information on buyer firms.
+Third, we treat mergers of container shipping seller firms by non-container-shipping firms outside the industry as exits from the container shipping sector, as these mergers lack information on buyer firms.
 The final data regarding mergers is summarized in this section and used in empirical analysis in Section \ref{sec:empirical_analysis}.
 
 Figure \ref{fg:number_of_mergers} illustrates the number of mergers between 1966 and 2022 based on our merger list.
 For comparison, Figure \ref{fg:container_freight_rate_and_shipping_quantity_each_route} illustrates the trends in route-year-level shipping prices and quantities between 1966 and 2009.
 Comparing these figures provides graphical intuition. 
-First, merger waves occurred after the enactment of the Shipping Act of 1984, that is, cartel breakdown.
-This implies that collusive behaviors do not matter in mergers.
-Second, merger waves are observed after 2005, corresponding to the exponentially growing quantity trend under competitive prices. 
-This suggests that we divide the industry history into three \textit{regimes}, 1966-1990, 1991-2005, and 2006-2022 following the corresponding data.
+First, Merger waves emerged post the enactment of the Shipping Act of 1984, signaling a shift from collusive behaviors.
+Second, subsequent merger waves align with the exponential growth in quantities under competitive prices post-2005.
+As a result, we categorize the industry's history into three distinct "regimes": 1966-1990, 1991-2005, and 2006-2022, in accordance with the corresponding data.
 
 
 \begin{figure}[!ht]
@@ -173,8 +170,8 @@ This suggests that we divide the industry history into three \textit{regimes}, 1
 
 \subsection{Industry Background}\label{sec:industry_background}
 We describe the industry background between 1966 and 2022 chronologically by focusing on firms' mergers. 
-As discussed above, we classify the whole period into three regimes, 1966-1990, 1991-2005, and 2006-2022. Each regime corresponds with the institutional background and data source.
-In the following merger lists, we intentionally keep the original names of firms in each regime data although there are inconsistencies across these data.
+As mentioned earlier, we divide the entire period into three distinct regimes—1966-1990, 1991-2005, and 2006-2022—aligned with the institutional background and data sources.
+In the subsequent merger lists, we deliberately retain the original firm names for each regime's data, despite potential inconsistencies across these datasets.
 
 \begin{table}[!htbp]
   \begin{center}
@@ -242,16 +239,15 @@ Table \ref{tb:merger_list_HB} summarizes all mergers based on IHS between 2006 a
 
 \subsection{Descriptive statistics}\label{sec:descriptive_statistics}
 
-Table \ref{tb:summary_statistics} shows summary statistics of firm-year-level variables of buyer and seller firms in all realized merger cases between 1966 and 2022. 
-We construct firm-year-level variables such as the firm's age in the global container shipping industry and size measured by TEU in the merger year. 
-We normalize these variables from 0 (minimum age) to 1 (maximum age) in each regime for comparison across regimes.
-First, we find that the mean of normalized firms' age decreases from 0.84 in the 1966-1990 period to 0.51 in the 2006-2022 period. 
-This implies that mergers are likely to occur between relatively younger firms in recent years.
-Second, the mean of normalized firms' size decreases from 0.23 in the 1966-1990 period to 0.08 in the 2006-2022 period. 
-This implies that mergers are likely to occur between relatively smaller firms in recent years, although the firm's absolute size increases exponentially, in particular, between 2006 and 2022. 
-Note that we treat new entrant firms buying incumbent firms as firms whose age and size are zero so that the above findings capture that the number of entries by mergers increases.
-Figure \ref{fg:size_cdf} illustrates the cumulative distributions of the normalized firm's size and age for each regime. 
-This confirms the above fact that mergers are likely to involve relatively younger and smaller firms in recent years.
+Table \ref{tb:summary_statistics} presents summary statistics for firm-year-level variables of buyer and seller firms in all realized merger cases spanning 1966 to 2022. 
+These variables include the firm's age in the global container shipping industry and size measured by TEU in the merger year. 
+We normalize these values from 0 (minimum age or size) to 1 (maximum age or size) within each regime for inter-regime comparison.
+First, we observe a decline in the mean of normalized firm ages, from 0.84 in the 1966-1990 period to 0.51 in the 2006-2022 period. 
+This suggests that recent mergers tend to involve relatively younger firms.
+Second, the mean of normalized firm sizes decreases from 0.23 in the 1966-1990 period to 0.08 in the 2006-2022 period.
+This indicates that recent mergers tend to involve relatively smaller firms, despite the exponential growth in firm size, particularly from 2006 to 2022.
+It's worth noting that we treat new entrant firms purchasing incumbent firms as having an age and size of zero, reflecting the increased number of entries through mergers.
+Figure \ref{fg:size_cdf} illustrates the cumulative distributions of normalized firm size and age for each regime, reinforcing the observation that recent mergers tend to feature younger and smaller firms.
 
 
 \begin{table}[!htbp]
@@ -291,14 +287,14 @@ This confirms the above fact that mergers are likely to involve relatively young
 \end{figure}
 
 
-Figure \ref{fg:distance_cdf} illustrates distributions of realized match-level distances. 
-We find that almost all mergers between 1966 and 1990 involve buyer and seller firms in the same country. 
-Although the share of mergers in the same country is more than 40 \% in the whole period, the share of mergers of firms between countries separated by distance increases in recent years. 
-This implies that the reason why mergers occur might change from domestic one to global one due to the prosperity and expansion of international container transport.
+Figure \ref{fg:distance_cdf} depicts distributions of realized match-level distances.
+We observe that nearly all mergers between 1966 and 1990 involve buyer and seller firms within the same country. 
+Although mergers within the same country account for over 40\% of the entire period, mergers between firms separated by distance have seen an increase in recent years. 
+This shift suggests that the reasons for mergers have transitioned from domestic to global, driven by the growth and expansion of international container transport.
 
-These tables and figures provide some intuition that mergers are likely to involve relatively younger and smaller firms in more distant countries in recent years. 
-However, disentangling the relative importance of each variable with limited data needs a more sophisticated structural model.
-In Section \ref{sec:empirical_analysis}, we construct a structural matching model to quantify the relative importance of each variable and compare the transition across regimes.
+These visualizations provide initial insights into the involvement of relatively younger and smaller firms in more distant countries in recent mergers. 
+However, comprehensively assessing the relative importance of each variable with limited data requires a sophisticated structural model. 
+In Section \ref{sec:empirical_analysis}, we introduce a structural matching model to quantify the significance of each variable and analyze the transitions across regimes.
 
 
 
@@ -308,7 +304,7 @@ In Section \ref{sec:empirical_analysis}, we construct a structural matching mode
 Our objective is to quantify the assortativeness of observed characteristics for each regime and compare the levels across regimes. 
 We employ a matching maximum score estimator developed by \cite{fox2018qe}, which is one of the most well-known methods for measuring matching assortativeness.
 
-For exposition, we model mergers in each regime as a two-sided one-to-one transferable matching game in a single market. Let $\mathcal{N}_b$ and $\mathcal{N}_s$ be the sets of potential finite buyers and sellers respectively. Let $b=1,\cdots,|\mathcal{N}_b|$ be buyer firms and let $s=1,\cdots,|\mathcal{N}_s|$ be seller firms where $|\cdot|$ is cardinality. Let $\mathcal{N}_{b}^{m}$ denote the set of ex-post matched buyers and $\mathcal{N}_{b}^{u}$ denote that of ex-post unmatched buyers such that $\mathcal{N}_b= \mathcal{N}_{b}^{m}\cup\mathcal{N}_{b}^{u}$ and $\mathcal{N}_{b}^{m}\cap\mathcal{N}_{b}^{u}=\emptyset$. For the seller side, define $\mathcal{N}_{s}^{u}$ and $\mathcal{N}_{s}^{m}$ as the set of ex-post matched and unmatched sellers such that $\mathcal{N}_s= \mathcal{N}_{s}^{m}\cup\mathcal{N}_{s}^{u}$ and $\mathcal{N}_{s}^{m}\cap\mathcal{N}_{s}^{u}=\emptyset$. Let $\mathcal{M}^m$ be the sets of all ex-post matched pairs $(b,s)\in\mathcal{N}_{b}^{m}\times \mathcal{N}_{s}^{m}$. Let $\mathcal{M}$ denote the set of all ex-post matched pairs $(b,s)\in\mathcal{M}^{m}$ and unmatched pairs $(\tilde{b},\emptyset)$ and $(\emptyset,\tilde{s})$ for all $\tilde{b}\in \mathcal{N}_b^u$ and $\tilde{s}\in \mathcal{N}_s^u$ where $\emptyset$ means a null agent generating unmatched payoff. 
+We model mergers in each regime as a two-sided one-to-one transferable matching game in a single market. Let $\mathcal{N}_b$ and $\mathcal{N}_s$ be the sets of potential finite buyers and sellers respectively. Let $b=1,\cdots,|\mathcal{N}_b|$ be buyer firms and let $s=1,\cdots,|\mathcal{N}_s|$ be seller firms where $|\cdot|$ is cardinality. Let $\mathcal{N}_{b}^{m}$ denote the set of ex-post matched buyers and $\mathcal{N}_{b}^{u}$ denote that of ex-post unmatched buyers such that $\mathcal{N}_b= \mathcal{N}_{b}^{m}\cup\mathcal{N}_{b}^{u}$ and $\mathcal{N}_{b}^{m}\cap\mathcal{N}_{b}^{u}=\emptyset$. For the seller side, define $\mathcal{N}_{s}^{u}$ and $\mathcal{N}_{s}^{m}$ as the set of ex-post matched and unmatched sellers such that $\mathcal{N}_s= \mathcal{N}_{s}^{m}\cup\mathcal{N}_{s}^{u}$ and $\mathcal{N}_{s}^{m}\cap\mathcal{N}_{s}^{u}=\emptyset$. Let $\mathcal{M}^m$ be the sets of all ex-post matched pairs $(b,s)\in\mathcal{N}_{b}^{m}\times \mathcal{N}_{s}^{m}$. Let $\mathcal{M}$ denote the set of all ex-post matched pairs $(b,s)\in\mathcal{M}^{m}$ and unmatched pairs $(\tilde{b},\emptyset)$ and $(\emptyset,\tilde{s})$ for all $\tilde{b}\in \mathcal{N}_b^u$ and $\tilde{s}\in \mathcal{N}_s^u$ where $\emptyset$ means a null agent generating unmatched payoff. 
 
 Each firm can match at most one agent on the other side, so  $|\mathcal{N}_b^{m}|=|\mathcal{N}_s^{m}|$. The matching joint production function is defined as $f(b,s)=V_b(b,s)+V_s(b,s)$ where $V_b:\mathcal{M}\rightarrow \mathbb{R}$ and $V_s:\mathcal{M}\rightarrow \mathbb{R}$. The net matching values for buyer $b$ and seller $s$ are defined as $V_b(b,s)=f(b,s)-p_{b,s}$ and $V_s(b,s)+p_{b,s}$, where $p_{b,s}\in \mathbb{R}_{+}$ is the equilibrium merger price paid to seller firm $s$ by buyer firm $b$ and $p_{b\emptyset}=p_{\emptyset s}=0$. For scale normalization, we assume $V_b(b,\emptyset)=0$ and $V_s(\emptyset,s)=0$ for all $b\in \mathcal{N}_b$ and $s\in \mathcal{N}_s$. Each buyer maximizes $V_b(b,s)$ across seller firms, whereas each seller maximizes $V_s(b,s)$ across buyer firms. 
 
@@ -479,7 +475,7 @@ Pursuing this direction will require a different econometric approach such as th
 We construct a novel unified list of mergers in the global container shipping industry between 1966 (the beginning of the industry) and 2022. 
 Combining the list with proprietary data, we construct a structural matching model \citep{fox2018qe} to describe the historical transition of the importance of a firm's age, size, and geographical proximity on merger decisions. 
 We find different transition patterns of the importance of a firm's age, size, and geographical proximity.
-In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects the merger configuration of all firms in the industry.
+In counterfactual simulations, we find that the prohibition of mergers between firms in the same country affects the merger configuration of not only firms involved in prohibited mergers but also firms involved in permitted mergers.
 
 \textbf{Acknowledgement} \\
 \textcolor{blue}{We benefited from anonymous referees and participants at the XXX. We thank Akimitsu Ashida and Hiroyuki Sato for sharing industry knowledge and expertise as ex-chairperson in the 1980s and Jeremy Fox for introducing methodology. And we thank Mikio Tasaka, Yasuhiro Fujita, Jong-khil Han and Yutaka Yamomoto for professional comments. This study was supported by JSPS KAKENHI Grant Numbers 20K22129 and 22K13501. }
