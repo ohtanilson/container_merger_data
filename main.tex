@@ -28,7 +28,7 @@
 \newtheorem{example}{Example}
 \newtheorem{lemma}{Lemma}
 
-\title{Unified Merger List in the Container Shipping Industry from 1966 to 2022: A Structural Estimation of Merger Matching}
+\title{Unified Merger List in the Container Shipping Industry from 1966 to 2022: A Structural Estimation of M\&A Matching}
 %\author{Suguru Otani\thanks{Market Design Center, University of Tokyo. Email: suguru.otani@e.u-tokyo.ac.jp}\quad  Takuma Matsuda\thanks{Faculty of Commerce, Takushoku University. Email: tmatsuda@ner.takushoku-u.ac.jp}}
 \date{
 First version: October 15, 2023\\
@@ -110,7 +110,7 @@ In terms of dynamic matching models, they mainly follow \cite{gowrisankaran1999d
 Conversely, in terms of static matching models, \cite{uetake2019entry} develop an empirical two-sided non-transferred utility matching model with externalities using moment inequalities and investigate the effect of entry deregulation on the ``with whom"-decisions of bank mergers by the Riegle-Neal Act. 
 \cite{akkus2015ms} address the same Act with a different approach. 
 They add transfer data and construct a one-to-one matching model with transfer utility and find that merger value increased from cost efficiencies in overlapping markets, relaxing regulations, and the network effects exhibited by acquirer-target matching. 
-Our paper follows \cite{akkus2015ms} and focuses on endogenous mergers in a single, static, large matching market for each regime, quantifying the relative importance of tonnage capacity and geographical proximity, which are the main economic forces driving firms to pursue mergers to gain cost efficiency in the shipping industry \citep{notteboom2004container}. 
+Our paper follows \cite{akkus2015ms} and focuses on endogenous mergers in a single, static, large matching market for each regime, quantifying the relative importance of tonnage capacity and geographical proximity, which are the main economic forces driving firms to pursue mergers to gain cost efficiency in the shipping industry \citep{notteboom2004container}.\footnote{\textcolor{blue}{[Add M\&A studies in container shipping.]}} 
 In addition, we compare the historical transitions of the relative importance of the variables to derive the potentially different merger incentives behind merger waves in the industry.
 
 To the best of our knowledge, no prior studies have comprehensively examined all mergers in the container shipping industry. Our merger dataset stands as the initial benchmark, making a significant contribution to maritime transportation literature. The only relevant paper in the industrial organization literature is \cite{akkus2015ms}. Our findings for the period 1966-1990 align with their observation that large acquirer banks tend to match with larger target banks in the U.S. banking industry. However, our findings for the period 2006-2022 reveal new features distinct from those reported by \cite{akkus2015ms}.
@@ -191,7 +191,7 @@ As a result, we categorize the industry's history into three distinct ``regimes"
   \label{fg:container_freight_rate_and_shipping_quantity_each_route}
   \end{center}
 \footnotesize
-  Note: Prices are adjusted to the CPI in the U.S. in 1995. See details in \cite{matsuda2022unified}.
+  Note: Prices are adjusted to the CPI in the U.S. in 1995. \textcolor{blue}{Dotted vertical lines show the timing of cartel breakdown events of the Container Crisis.} See details in \cite{matsuda2022unified}.
 \end{figure}
 
 \subsection{Industry Background}\label{sec:industry_background}
@@ -225,7 +225,7 @@ In the subsequent merger lists, we deliberately retain the original firm names f
       \subfloat[HB (2006-2022): Inconsistent merger cases]{\input{figuretable/merger_list_HB_inconsistent}}
   \end{center}\footnotesize
   Note: In Panel (a), we list the seller of ID21 as APL, which was acquired by NOL in 1997, because the merged entity continued to list APL as the registered operator name in the HB data up until 2017. Additionally, we have identified the buyer of ID13 as Maersk, rather than Hamburg Sud, because Maersk purchased Hamburg Sud in 2018.
-  Panel (b) provides merger cases that have inconsistencies with the institutional background because ships operated by merged firms can keep the past operator name after merger years.  In addition, we omit COSCO's merger of OOCL in 2018 because the merged OOCL's vessels keep OOCL as the registered operator name in the HB data until 2022; therefore, we could not identify the renewal timing of the registered operator names.
+  Panel (b) provides merger cases that have inconsistencies with the institutional background because ships operated by merged firms can keep the past operator name after merger years.  In addition, we omit COSCO's merger of OOCL in 2018 because the merged OOCL's vessels keep OOCL as the registered operator name in the HB data until 2022; therefore, we could not identify the renewal timing of the registered operator names. \textcolor{blue}{Norasia-CSAV, MacAndrews-CMACGM[Inconsistent]}
 \end{table} 
 
 \paragraph{1966-1990} 
@@ -302,6 +302,7 @@ In 2015, CMA-CGM merged NOL and Chinese government decided to merge the containe
 In 2016, Hapag-Lloyd's merger with UASC and Maersk's merger with Hamburg Sud were announced, and in Japan, NYK, MOL, and KLINE announced the merger of their liner shipping divisions.
 In August 2016, the first bankruptcy of a major shipping company (Hanjin Shipping) occurred since the formation of alliances.
 Restructuring in the 2010s has been significant in scale, with eight container shipping companies bankrupt or merged between 2015 and 2018.
+
 
 
 \subsection{Descriptive statistics}\label{sec:descriptive_statistics}
@@ -454,7 +455,7 @@ In the global container shipping industry, mergers between firms in the same cou
 For example, on June 21, 2017, South Africa's Competition Commission issued a statement stating that it "forbade" the integration of the container business by the three shipping lines of NYK, MOL, and KLINE. 
 The commission cited concerns about market consolidation by domestic companies and cartel issues involving these companies in the car carrier business.
 The country's competition court finally approved the integration on January 17, 2018; however, this could impact the planned launch of the integrated container company, Ocean Network Express. 
-In another example, COSCO and China Shipping`s alliance decision in 2015 could face scrutiny from regulators as the market share in some east-west trades is likely to breach the 30\% mark if the new entity joins the group. Above 30\%, alliances must ensure their agreements comply with EU rules outlawing anti-competitive behavior.
+In another example, COSCO and \textcolor{blue}{China Shipping's} alliance decision in 2015 could face scrutiny from regulators as the market share in some east-west trades is likely to breach the 30\% mark if the new entity joins the group. Above 30\%, alliances must ensure their agreements comply with EU rules outlawing anti-competitive behavior.
 
 
 In our counterfactual simulation, given estimated parameters, we simulate the matching outcome under the hypothetical scenario that mergers between firms in the same country are prohibited. 
@@ -546,6 +547,8 @@ For example, if Japanese container shipping companies were restricted from mergi
 
 Analyzing historical merger trends provides insights into future patterns. Notably, there is a considerable size disparity between the top five global shipping companies and those below them, indicating ongoing potential for mergers. For example, in regions like South Korea, China, and Taiwan, several small and medium-sized container shipping companies have yet to undergo mergers. The formation of alliances, such as the Korea Shipping Partnership in 2017 and the K Alliance in 2021, highlights the continued potential for mergers in these regions. This ongoing trend underscores the relevance of considering mergers in the shipping industry for industry professionals.
 
+
+
 \subsection{Discussion}
 We summarize the potential concerns for the data and methodology. 
 First, we merge three data sources that record potentially different variables and observations for each regime. 
@@ -604,5 +607,23 @@ The differences come from the fact that the data collected by IHS is incomplete,
 First, as noted by Hiroyuki Sato, former Vice President of Mitsui O.S.K. Lines, numerous small shipping companies not listed in these tables have succumbed to intense competition and declared bankruptcy. This situation arises partly due to the absence of historical vessel data for merged firms in our dataset, which prevents the identification of such mergers. Due to the similar data limitation, as shown in the footnote of our merger lists, our analysis excludes several notable mergers, including the Royal Nedlloyd and Peninsular and Oriental Containers (P\&O Containers) in 1997, NYK and Showa Kaiun in 1998, Maersk and Sea-Land in 1999, and CMA and CGM in 1999. Additionally, we do not account for Ben Line's merger with EAC in 1991, Maersk's acquisition of Ben Line in 1997, Hanjin's merger with Germany's Senator in 1997, CP Ships' merger with Lykes in 1997, the Australian ANZDL in 1998, and Mexican TMM in 1999.
 
 Second, delays and incompleteness in updating operator name information present a significant challenge. This issue primarily stems from the continued use of merged companies' names by the acquiring firm for years following the merger. Several instances exist where we were unable to pinpoint the exact timing of operator name updates in the HB data. Panel (b) of Table \ref{tb:merger_list_HB} highlights mergers with discrepancies that do not align with institutional backgrounds. For instance, APL continued to appear in the HB data until 2017. We also exclude the merger of COSCO and OOCL in 2018 from our analysis, as the merged entity continued to list OOCL as the registered operator name in the HB data until 2022.
+
+\textcolor{blue}{
+\paragraph{Difference between mergers and acquisitions}The M&A deals listed in Tables 1 to 3 can be classified as either mergers or acquisitions. The majority of the cases in Table \ref{tb:merger_list_CIY} were mergers, with the exception of one case. The other case also neared to merger as the company was purchasing services from a company that was withdrawing from the container industry.}
+
+\textcolor{blue}{The cases shown in Table \ref{tb:merger_list_IHS} are mainly from the second half of the 1990s onwards, although the majority of cases are classified as acquisitions. There are instances where the acquired company's brand was deemed valuable and therefore retained (APL and CP SHIPS), as well as cases where the company was retained to oversee other operations, such as ship ownership (SVITZER and DANSK). In some instances, the company in question is subsequently absorbed (as was the case with DELMAS and CP SHIPS). Nine cases out of the 18 cases in Table \ref{tb:merger_list_HB} can be classified as acquisitions.
+}
+
+\textcolor{blue}{Mergers and acquisitions differ in whether the target company survives, and are essentially different things in terms of corporate decision-making. However, as in the analysis in this paper, as long as the main focus of the analysis is on the scale of service provision and the transport network itself, it can be seen that there is no significant difference between merger and acquisition in the container transport business. Because even in cases where only the container transport business is acquired from the target company, or the buyer company remains as a shareholder or retains the brand, the independence of the transport network is considered to be low.
+}
+
+\textcolor{blue}{Mergers and acquisitions differ in whether the target company survives, and are essentially different things in terms of corporate decision-making. However, as in the analysis in this paper, as long as the main focus of the analysis is on the scale of service provision and the transport network itself, it can be seen that there is no significant difference between merger and acquisition in the container transport business. Because even in cases where only the container transport business is acquired from the target company, or the buyer company remains as a shareholder or retains the brand, the independence of the transport network is considered to be low.
+}
+
+\textcolor{blue}{\paragraph{Other sectors and using fleet capacity as firm size}The list includes shipping companies operating in various sectors beyond container shipping, such as COSCO, CHINA SHIPPING, Japanese companies, and Maersk in the energy sector. However, since our research focuses on understanding mergers in container transport, we believe the inclusion of companies with diverse operations is acceptable. Also, we use operated fleet capacity rather than owned capacity as our metric, as it correlates well with sales volumes and serves as an appropriate indicator of company size.
+}
+
+}
+
 
 \end{document}
