@@ -78,12 +78,14 @@ merger_list <-
     ID,
     seller_name,
     buyer_name,
-    end
+    end,
+    matching_type
   ) %>% 
   dplyr::rename(
     `Seller` = seller_name,
     `Buyer` = buyer_name,
-    `Year` = end
+    `Year` = end,
+    `Type` = matching_type
   ) %>% 
   dplyr::mutate(
     `Buyer` =
@@ -219,12 +221,14 @@ merger_list <-
     ID,
     seller_name,
     buyer_name,
-    end
+    end,
+    matching_type
   ) %>% 
   dplyr::rename(
     `Seller` = seller_name,
     `Buyer` = buyer_name,
-    `Year` = end
+    `Year` = end,
+    `Type` = matching_type
   ) %>% 
   dplyr::mutate(
     `Seller` =
@@ -247,6 +251,15 @@ merger_list <-
       ifelse(
         `Buyer` == "IMC SHIPPING CO PTE LTD (IMCSC",
         "IMC SHIPPING CO PTE LTD",
+        `Buyer`
+      )
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "A P MOLLER"&
+          `Seller` == "FARRELL LINES INC",
+        "CSAV",
         `Buyer`
       )
   )
@@ -456,6 +469,9 @@ IHS_data_for_output %>%
 merger_list <-
   matching_pair_year_HBdata %>% 
   dplyr::filter(
+    matching_type != "deleted"
+  ) %>% 
+  dplyr::filter(
     inconsistent_indicator == 0
   ) %>% 
   dplyr::mutate(
@@ -465,16 +481,26 @@ merger_list <-
     ID,
     seller_name,
     buyer_name,
-    end
+    end,
+    matching_type
   ) %>% 
   dplyr::rename(
     `Seller` = seller_name,
     `Buyer` = buyer_name,
-    `Year` = end
+    `Year` = end,
+    `Type` = matching_type
   ) %>% 
   dplyr::mutate(
     ID = dplyr::row_number()
-  )
+  ) %>% 
+  dplyr::mutate(
+    `Buyer` =
+      ifelse(
+        `Buyer` == "CCL",
+        "GOTO Shipping International Ltd",
+        `Buyer`
+      )
+  ) 
 
 merger_list %>% 
   kableExtra::kable() %>% 

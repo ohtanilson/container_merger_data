@@ -73,7 +73,8 @@ operator_level_entry_exit_merger_CIY <-
   dplyr::select(
     operator,
     end,
-    merging_firm
+    merging_firm,
+    matching_type
   )
 
 operator_level_entry_exit_merger_IHS <-
@@ -100,7 +101,8 @@ operator_level_entry_exit_merger_IHS <-
   dplyr::select(
     operator,
     end,
-    merging_firm
+    merging_firm,
+    matching_type
   )
 
 operator_level_entry_exit_merger_HBdata <-
@@ -127,7 +129,8 @@ operator_level_entry_exit_merger_HBdata <-
   dplyr::select(
     operator,
     end,
-    merging_firm
+    merging_firm,
+    matching_type
   )
 
 # rename merging firm ----
@@ -201,6 +204,7 @@ construct_matching_pair_year <-
       dplyr::select(
         operator,
         end,
+        matching_type,
         merging_firm
       ) %>% 
       dplyr::arrange(end) %>% 
@@ -266,6 +270,7 @@ construct_matching_pair_year <-
         seller_name,
         buyer_name,
         end,
+        matching_type,
         seller_operator_age,
         seller_cumsum_TEU,
         seller_operator_age_normalized,
@@ -517,6 +522,10 @@ matching_pair_year_IHS <-
   dplyr::filter(
     ifelse(seller_name == buyer_name, 1, 0) == 0 
   ) %>% 
+  dplyr::filter(
+    ifelse(seller_name == "BUSAN SHIPPING CO LTD", 1, 0) == 
+      0
+  ) %>% 
   # same firm different name
   dplyr::filter(
     (ifelse(seller_name == "MISC BERHAD", 1, 0) == 
@@ -536,7 +545,7 @@ matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 
   dplyr::filter(
     end >= 2006
-  )
+  ) 
 matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 
   # resolvent of route-level consortium
@@ -602,13 +611,31 @@ matching_pair_year_HBdata <-
               1&
               ifelse(buyer_name == "CMA-CGM", 1, 0) ==
               1 
-          ) #|
-          # (
-          #   ifelse(seller_name == "APL", 1, 0) == 
-          #     1&
-          #     ifelse(buyer_name == "CMA-CGM", 1, 0) ==
-          #     1 
-          # ) |
+          ) |
+          (
+            ifelse(seller_name == "IRISL", 1, 0) == 
+              1&
+              ifelse(buyer_name == "Hafez Darya Arya Shipping Lines", 1, 0) ==
+              1 
+          )|
+          (
+            ifelse(seller_name == "Chongqing Marine", 1, 0) == 
+              1&
+              ifelse(buyer_name == "TAICANG CONTAINER LINES", 1, 0) ==
+              1 
+          ) |
+          (
+            ifelse(seller_name == "SEACON/T.S. Lines", 1, 0) ==
+              1&
+              ifelse(buyer_name == "T.S. Lines", 1, 0) ==
+              1
+          ) |
+          (
+            ifelse(seller_name == "Greater Bali-Hai", 1, 0) ==
+              1&
+              ifelse(buyer_name == "Swire ", 1, 0) ==
+              1
+          )
           # (
           #   ifelse(seller_name == "Hamburg Sud", 1, 0) == 
           #     1&
