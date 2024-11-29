@@ -1,6 +1,6 @@
 ,operator_name,start,end,merging_firm,note,matching_type
 1,ACL,2005,2022,NA,,
-2,ANL,2005,2022,CMA-CGM,Subsidiary of CMA-CGM since 1998,deleted
+2,ANL,2005,2022,CMA-CGM,Subsidiary of CMA-CGM since 1998,keep
 3,APL,2005,2022,CMA-CGM,Subsidiary of CMA-CGM since 2016,acquisition
 4,Armacup,2005,2022,NA,Ferry,
 5,Camellia Line,2005,2022,NA,Ferry,
@@ -18,7 +18,7 @@
 17,Daiko Shipping,2005,2022,NA,General Cargo,
 18,Dandong International Ferry,2005,2022,NA,Ferry,
 19,DBLCC,2005,2006,NA,,
-20,Delmas,2005,2016,CMA-CGM,,deleted
+20,Delmas,2005,2016,CMA-CGM,,keep
 21,Dong Jin,2005,2022,NA,,
 22,Dong Young,2005,2022,NA,,
 23,Dongnama,2005,2007,NA,,
@@ -86,7 +86,7 @@
 85,Pukwan Ferry,2005,2022,NA,Ferry,
 86,RCL,2005,2022,NA,,
 87,Rickmers,2005,2019,ZEAMARINE,General Cargo,
-88,Safmarine,2005,2008,Maersk,,deleted
+88,Safmarine,2005,2008,Maersk,,keep
 89,Samudera,2005,2022,NA,,
 90,Seaboard Marine,2005,2015,NA,,
 91,SEACON,2005,2022,NA,,

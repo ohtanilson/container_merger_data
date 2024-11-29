@@ -614,6 +614,10 @@ matching_pair_year_HBdata <-
           ifelse(buyer_name == "T.S. Lines", 1, 0) ==
           1
       ) == 0 
+  ) %>% 
+  dplyr::filter(
+    matching_type !=
+      "deleted"
   )
 matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 
