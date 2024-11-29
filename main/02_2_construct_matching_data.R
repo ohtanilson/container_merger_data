@@ -588,6 +588,32 @@ matching_pair_year_HBdata <-
         ifelse(buyer_name == "Maersk", 1, 0) ==
         1 
     ) == 0
+  ) %>% 
+  dplyr::filter(
+    (
+      ifelse(seller_name == "Greater Bali-Hai", 1, 0) ==
+        1&
+        ifelse(buyer_name == "Swire ", 1, 0) ==
+        1
+    ) |
+      (
+        ifelse(seller_name == "IRISL", 1, 0) == 
+          1&
+          ifelse(buyer_name == "Hafez Darya Arya Shipping Lines", 1, 0) ==
+          1 
+      )|
+      (
+        ifelse(seller_name == "Chongqing Marine", 1, 0) == 
+          1&
+          ifelse(buyer_name == "TAICANG CONTAINER LINES", 1, 0) ==
+          1 
+      ) |
+      (
+        ifelse(seller_name == "SEACON/T.S. Lines", 1, 0) ==
+          1&
+          ifelse(buyer_name == "T.S. Lines", 1, 0) ==
+          1
+      ) == 0 
   )
 matching_pair_year_HBdata <-
   matching_pair_year_HBdata %>% 
@@ -611,31 +637,8 @@ matching_pair_year_HBdata <-
               1&
               ifelse(buyer_name == "CMA-CGM", 1, 0) ==
               1 
-          ) |
-          (
-            ifelse(seller_name == "IRISL", 1, 0) == 
-              1&
-              ifelse(buyer_name == "Hafez Darya Arya Shipping Lines", 1, 0) ==
-              1 
-          )|
-          (
-            ifelse(seller_name == "Chongqing Marine", 1, 0) == 
-              1&
-              ifelse(buyer_name == "TAICANG CONTAINER LINES", 1, 0) ==
-              1 
-          ) |
-          (
-            ifelse(seller_name == "SEACON/T.S. Lines", 1, 0) ==
-              1&
-              ifelse(buyer_name == "T.S. Lines", 1, 0) ==
-              1
-          ) |
-          (
-            ifelse(seller_name == "Greater Bali-Hai", 1, 0) ==
-              1&
-              ifelse(buyer_name == "Swire ", 1, 0) ==
-              1
-          )
+          ) #|
+
           # (
           #   ifelse(seller_name == "Hamburg Sud", 1, 0) == 
           #     1&
