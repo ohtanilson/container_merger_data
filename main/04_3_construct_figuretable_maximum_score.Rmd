@@ -391,7 +391,7 @@ generate_counterfactual_table <-
       matching_pair_year_HB_predicted[i] = dim(temp_list$matching_pair_year_HB_predicted)[1]
       matching_pair_year_HB_counterfactual[i] = dim(temp_list$matching_pair_year_HB_counterfactual)[1]
     }
-    rate_number_of_merger_IHS <-
+    rate_number_of_merger_IHS_table <-
       paste(
         "[",
         format(round(
@@ -404,7 +404,7 @@ generate_counterfactual_table <-
         "]",
         sep = ""
       )
-    rate_number_of_same_merger_IHS <-
+    rate_number_of_same_merger_IHS_table <-
       paste(
         "[",
         format(round(
@@ -418,7 +418,7 @@ generate_counterfactual_table <-
         sep = ""
       )
     
-    rate_number_of_merger_HB <-
+    rate_number_of_merger_HB_table <-
       paste(
         "[",
         format(round(
@@ -431,7 +431,7 @@ generate_counterfactual_table <-
         "]",
         sep = ""
       )
-    rate_number_of_same_merger_HB <-
+    rate_number_of_same_merger_HB_table <-
       paste(
         "[",
         format(round(
@@ -461,15 +461,15 @@ generate_counterfactual_table <-
         c(
           "Prop total match (counterfactual/data)",
           "",  
-          rate_number_of_merger_IHS ,
-          rate_number_of_merger_HB
+          rate_number_of_merger_IHS_table ,
+          rate_number_of_merger_HB_table
           ),
         #c("","","",""),
         c(
           "Prop same match (counterfactual/data)",
           "",  
-          rate_number_of_same_merger_HB, 
-          rate_number_of_same_merger_HB
+          rate_number_of_same_merger_IHS_table, 
+          rate_number_of_same_merger_HB_table
           )
         
       )
