@@ -6,3 +6,8 @@
 #*.rds
 #*.csv
 GTAS*
+english_edited_draft
+/output
+/input
+/cleaned
+*.docx
